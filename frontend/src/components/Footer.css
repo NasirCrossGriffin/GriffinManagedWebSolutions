@@ -99,7 +99,7 @@
     align-items: center;
   }
 
-    .Contact {
+    .ApexContact .Contact {
       width : 20%;
       height : 90%;
 
@@ -107,9 +107,10 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      min-height: 0;
     }
 
-    .Contact h1 {
+    .ApexContact .Contact h1 {
         width: 100%;
         font-family: 'Montserrat';
         color: darkgray;
@@ -117,7 +118,7 @@
         margin: 0 0 0 0;
     }
 
-    .Contact h2 {
+    .ApexContact .Contact h2 {
         width: 100%;
         font-family: 'Montserrat';
         color: white;
@@ -266,10 +267,10 @@
     .ApexContact {
       position: absolute;
       width: 25%;
-      height: 15%;
+      height: 25%;
       left: 2%;
-      top: 10%;
-      transform: translate(-2%, -10%);
+      top: 15%;
+      transform: translate(-2%, -15%);
 
       display: flex;
       flex-direction: column;
@@ -277,9 +278,10 @@
       align-items: flex-start;
     }
 
-    .Contact {
+    .ApexContact .Contact {
       width : 20%;
-      height : 90%;
+      height : 15%;
+      min-height: 0;
 
       display : flex;
       flex-direction: column;
@@ -287,7 +289,7 @@
       align-items: center;
     }
 
-    .Contact h1 {
+    .ApexContact .Contact h1 {
         width: 100%;
         font-family: 'Montserrat';
         color: darkgray;
@@ -295,7 +297,7 @@
         margin: 0 0 0 0;
     }
 
-    .Contact h2 {
+    .ApexContact .Contact h2 {
         width: 100%;
         font-family: 'Montserrat';
         color: white;
@@ -361,11 +363,15 @@
       font-weight: normal;
 
       margin-bottom: 5px;
+
+      color: white;
     }
 
     .LegalDisclaimers span span {
       font-size: clamp(6px, 2vw, 12px);
       font-weight: bold;
+
+      color: white;
     }
 
     .Rights {

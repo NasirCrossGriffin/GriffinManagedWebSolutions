@@ -575,12 +575,14 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
 
         let timeoutId = null;
 
+        const thresholdValue = window.innerHeight > window.innerWidth ? 0.0000001 : 0.2;
+
         const observer = new IntersectionObserver(
             (entries) => {
             const entry = entries[0];
             if (!entry) return;
 
-            if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
+            if (entry.isIntersecting && entry.intersectionRatio >= thresholdValue) {
                 productRefs.forEach((container, i) => {
                     if (!container) return;
 
@@ -595,7 +597,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                 observer.unobserve(el);
             }
             },
-            { threshold: 0.2 }
+            { threshold: thresholdValue }
         );
 
         observer.observe(el);
