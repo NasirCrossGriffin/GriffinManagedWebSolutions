@@ -1,0 +1,1637 @@
+@font-face {
+    font-family: GlitchFont;
+    src: url('../assets/fonts/CfGlitchCityRegular-L1vZ.ttf');
+}
+
+@media (orientation: landscape) {
+    .Services {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: var(--app-width);
+        height: fit-content;
+        place-items: center;
+        row-gap: calc(var(--app-height) * .1);
+        z-index: 5;
+    }
+
+    .BackgroundLayer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: var(--app-width);
+        height: calc(var(--page-height) - (var(--app-height) * 3.8));
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .StartingBackground {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: var(--app-width);
+        height: calc(var(--app-height) * 1);
+        z-index: 2;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        background-color: black;
+    }
+
+    .StartingBackground img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .TrueBackground {
+        position: sticky;
+        top: 0;
+        margin-top: calc(var(--app-height) * 1.25);
+
+        width: 100%;
+        height: var(--app-height);
+
+        background: linear-gradient(to bottom, navy, black);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 3;
+    }
+
+
+    .ServiceContainer {
+        width: calc(var(--app-width) * .2);
+        aspect-ratio: 1/1;
+    }
+
+    .SectionHeader {
+        position: relative;
+        font-family: 'GlitchFont';
+        color: white;
+        font-size: calc(var(--app-width) * .04);
+        width: var(--app-width);
+        text-align: center;
+        text-transform: uppercase;
+        z-index: 15;
+        text-align: center;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        height: calc(var(--app-height) * .25) ;
+    }
+
+    .Service {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 0;
+        box-shadow: 0px 0px 36px 12px rgba(255, 255, 255, 0.8);
+    }
+
+    .ServiceName {
+        font-weight: 800;
+        color : white;
+        font-family: 'Montserrat';
+        text-align: center;
+        font-size: calc(var(--app-width) * .02);
+    }
+
+    .ServiceDesc {
+        text-align: center;
+        color: white;
+        font-weight: 500;
+        font-family: 'Montserrat';
+        height: 30%;
+        overflow-y: auto;
+        font-size: calc(var(--app-width) * .012);
+    }
+
+    .ServiceImageContainer {
+        height: 20%;
+        max-width: 70%;
+    }
+
+    .ClientServices h2 {
+        font-size: calc(var(--app-width) * .025);
+    }
+    
+    .ClientServices span {
+        font-size: calc(var(--app-width) * .03);
+    }
+
+    .ServiceImageContainer img{
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .Invisible {
+        opacity: 0;
+    }
+
+    .SlideUpAndAppear {
+        transform: translateY(0);
+        animation: slideUpAndAppear 0.45s ease-out forwards;
+        will-change: transform, opacity;
+    }
+
+    @keyframes slideUpAndAppear {
+        from {
+            opacity: 0;
+            transform: translateY(18px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .CredibilitySection {
+        position: relative;
+        width: var(--app-width);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 5;
+    }
+
+    .Testimonials {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: calc(var(--app-width) * .05);
+        column-gap: calc(var(--app-width) * .05);
+        place-items: center;
+        width: calc(var(--app-width) * .9);
+    }
+    
+    .TestimonyContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: calc(var(--app-width) * .4);
+        aspect-ratio: 2/1;
+    }
+
+    .Testimony {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        padding: 20px 20px 20px 20px;
+        opacity: 0;
+        box-shadow: 12px 12px 36px 12px rgba(0, 0, 0, 0.8);
+    }
+
+    .Client {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 30%;
+    }
+
+    .ClientImage {
+        border-radius: 50%;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        margin-right: calc(var(--app-width) * .02);
+    }
+
+    .ClientImage img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .Client h2 {
+        font-family: 'Montserrat';
+        color : black;
+        font-size: calc(var(--app-width) * .02);
+    }
+
+    .ClientTestimony {
+        font-size: calc(var(--app-width) * .013);
+        font-weight: 500;
+        font-family: 'Montserrat';
+        color : black;
+        height: 30%;
+    }
+
+    .StarRating {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 30%;
+    }
+
+    .Star {
+        width: 5%;
+        aspect-ratio: 1/1;
+    }
+
+    .Star img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .GoogleLink {
+        position: relative;
+        border-radius: 45px;
+        border-style: none;
+        width : calc(var(--app-width) * .2);
+        aspect-ratio: 15/3;
+        background-color: white;
+        font-family: 'Montserrat';
+        font-size: calc(var(--app-width) * .012);
+        margin-top: calc(var(--app-width) * .05);
+        margin-bottom: calc(var(--app-width) * .05);
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        transition: color 0.6s ease, background-color 0.6s ease;
+    }
+
+    .GoogleLink:hover {
+        color : white;
+        background-color: black;
+    }
+
+    .GoogleIcon {
+        width : 15%;
+        aspect-ratio: 1/1;
+    }
+
+    .GoogleIcon img {
+        object-fit: contain;
+        width: 100%;
+        height : 100%;
+    }
+
+    .GoogleStars {
+        height: 50%;
+        width: 20%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Montserrat';
+        font-size: calc(var(--app-width) * .012);
+    }
+
+    .GoogleStars div{
+        height : 90%;
+        width: 100%;
+
+        margin-left: 10px;
+    }
+
+    .GoogleStars div img {
+        object-fit: contain;
+        width: 100%;
+        height : 100%;
+    }
+
+    .BusinessTitle {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: var(--app-width);
+        height: var(--app-height);
+        z-index: 5;
+    }
+
+    .firstdivider {
+        position: relative;
+        width: var(--app-width);
+        height: calc(var(--app-height) * .25);
+        background: linear-gradient(to bottom, rgb(0, 0, 0, 0.01), rgb(0, 0, 128, 1));
+        z-index: 3;
+    }
+
+
+
+    .Slogan {
+        width: calc(var(--app-width) * .9);
+        text-align: center;
+        font-family: 'Montserrat';
+        font-size: calc(var(--app-width) * .02);
+        color: white;
+        font-weight: 700;
+    }
+
+    .BusinessHeader {
+        color: white;
+        font-size: calc(var(--app-width) * .03);
+        width: calc(var(--app-width) * .45);
+        height: fit-content;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: GlitchFont;
+    }
+
+    .BusinessHeader img {
+        position: relative;
+        object-fit: contain;
+        width : 100%;
+        height: auto;
+    }
+
+    .BusinessLogo {
+        width: calc(var(--app-width) * .2);
+        aspect-ratio: 1/1;
+    }
+
+    .BusinessLogo img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Reveal {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    .RevealActive .Reveal {
+        animation: slideUpAndAppear 0.45s ease-out forwards;
+    }
+
+    /* Stagger order */
+    .RevealActive .BusinessHeader {
+        animation-delay: 0s;
+    }
+
+    .RevealActive .BusinessLogo {
+        animation-delay: 0.3s;
+    }
+
+    .RevealActive .Slogan {
+        animation-delay: 0.6s;
+    }
+
+         /* ===== Scroll Down fixed element ===== */
+    .Scroll-Down {
+        position: fixed;
+        left: 50%;
+        bottom: 18px;
+        transform: translateX(-50%);
+        z-index: 9999;
+
+        font-family: "GlitchFont", sans-serif;
+        font-size: calc(var(--app-width) * .02);
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+
+        color: #fff;
+        opacity: 1;
+        pointer-events: none; /* doesn't block clicks */
+        user-select: none;
+
+        /* base jitter */
+        animation: glitch-skew 1.8s infinite linear alternate-reverse;
+        width: 100%;
+        text-align: center;
+    }
+
+    .Projects .Contact {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      height: calc(var(--app-height) * 1.6);
+      scroll-margin-top: calc(var(--app-height) * .26);
+      overflow-y: hidden;
+  }
+
+  .Projects .ContactContainer {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      left: calc(var(--app-width) * .05);
+      top : 10%;
+      z-index: 4;
+  }
+
+  .ProductsSection {
+    width : var(--app-width);
+    height: var(--app-height);
+    min-height : var(--app-height);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Products {
+    width : 98%;
+    height: 95%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .Product {
+    background-color: black;
+    color : white;
+    font-family: 'Montserrat';
+    width: calc(var(--app-width) * .18);
+    height: calc(var(--app-height) * .95);
+    padding: calc(var(--app-width) * .02) calc(var(--app-width) * .02) calc(var(--app-width) * .02) calc(var(--app-width) * .02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 0px 24px 12px rgba(255, 255, 255, 0.8);
+  }
+
+  .Tier {
+    text-align: center;
+    height: 10%;
+    font-size: calc(var(--app-width) * .015);
+  }
+
+  .TierImage {
+    height: 10%;
+    aspect-ratio: 1/1;
+  }
+
+  .TierImage img {
+    object-fit: contain;
+    width : 100%;
+    height : 100%;
+  }
+
+  .ContactContainer button{
+      margin-top: 30px;
+      width: calc(var(--app-width) * .2);
+      padding-top: 20px;
+      padding-bottom: 20px;
+      font-size: calc(var(--app-width) * .014);
+      font-family: 'montserrat';
+      border-radius: 35px;
+      background-color: rgb(32, 32, 32);
+      color: white;
+      border-style: none;
+      transition: background-color 0.6s ease;
+  }
+
+  .ContactContainer button:hover {
+    background-color: navy;
+  }
+
+  .Product ul {
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .Product li {
+    font-weight: 500;
+    font-size: calc(var(--app-width) * .009);
+  }
+
+  .Fees {
+    height: 10%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .Fees span {
+    font-weight: 500;
+    font-size: calc(var(--app-width) * .014);
+    text-align: center;
+  }
+
+  .WhiteRectangle {
+      width: calc(var(--app-width) * .2);
+      height: calc(var(--app-width) * .064);
+      border-width: 5px;
+      border-color: white;
+      border-style: solid;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .WhiteRectangle p {
+      font-size: calc(var(--app-width) * .02);
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      font-weight: bold;
+      color : white
+  }
+
+  .SubmissionBox {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      width : calc(var(--app-width) * .4);
+      padding: calc(var(--app-width) * .06) calc(var(--app-width) * .06) calc(var(--app-width) * .03) calc(var(--app-width) * .06);
+  }
+
+  .ContactGrid {
+      display: grid;
+      width: 100%;
+      grid-template-columns: 1fr 1fr;
+      place-items: center;
+  }
+
+  .ContactGrid input {
+    width: 100%;
+    height: calc(var(--app-width) * .04);
+    font-size: calc(var(--app-width) * .013);
+    font-family:  'Montserrat', sans-serif;
+    background-color: rgb(32, 32, 32);
+    color: white;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    border-style: solid;
+    border-color: rgb(106, 106, 106);
+    border-width: 2px;
+  }
+
+
+  .ContactTag {
+      font-size: calc(var(--app-width) * .025);
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      font-weight: bolder;
+      color: white;
+  }
+
+  .ContactDescription {
+      font-size: calc(var(--app-width) * .0135);
+      font-family: 'Montserrat', sans-serif;
+      width: 400px;
+      color: white;
+  }
+
+  .SubmissionBox textarea {
+    width: 100%;
+    height: calc(var(--app-width) * .15);
+    font-family:  'Montserrat', sans-serif;
+    font-size: calc(var(--app-width) * .013);
+    background-color: rgb(32, 32, 32);
+    color: white;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(106, 106, 106);
+    resize: none;
+  }
+
+  .Snapshot {
+      position: absolute;
+      right: 0px;
+      top : 100px;
+      width: calc(var(--app-width) * .3);
+      height: auto;
+      z-index: 3;
+  }
+
+  .SecondDivider {
+    position: relative;
+    width: var(--app-width);
+    height : calc(var(--app-height) * .25);
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,.6) 0%,
+        rgba(0,0,0,.5) 30%,
+        rgba(0,0,0,0) 100%
+    );
+    z-index : 7;
+  }
+
+  .SecondBackgroundLayer {
+    position: absolute;
+    width: var(--app-width);
+    height: calc(var(--app-height) * 2.8);
+    top: calc(var(--page-height) - (var(--app-height) * 3.8));
+    left: 0;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .FinalBackground {
+        position: sticky;
+        top : 0;
+
+        width: var(--app-width);
+        height: var(--app-height);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        background-color: black;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 5;
+    }
+
+    .FinalBackground img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+  .CallToAction {
+    position: relative;
+    width: var(--app-width);
+    height: var(--app-height);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 7;
+  }
+
+  .CallToAction h1 {
+    font-family: 'GlitchFont';
+    text-transform: uppercase;
+    font-size: calc(var(--app-width) * .04);
+    color : white
+  }
+
+  .CTAButton {
+    border-radius: 35px;
+    border-style: none;
+    border-width: 0;
+    font-family: 'Montserrat';
+    color : white;
+    background-color: black;
+    font-size: clamp(7px, calc(var(--app-width) * .011), 32px);
+    padding: 10px 15px 10px 15px;
+    min-width: fit-content;
+    min-height: fit-content;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.6s ease;
+  }
+
+  .CTAButton:hover {
+    background-color: navy;
+  }
+
+  .CTAButton span {
+    margin-right: calc(var(--app-width) * .01);
+  }
+
+  .ContactMessage {
+      font-size: calc(var(--app-width) * .02);
+      color: white;
+      font-family: "Montserrat";
+      text-align: center;
+      width: 100%;
+      margin: 0 0 0 0;
+  }
+
+    .ContactMethod {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: calc(var(--app-width) * .2);
+    }
+
+    .MethodHeader {
+        color: white;
+        text-transform: uppercase;
+        font-family: 'GlitchFont';
+        text-align: center;
+        text-wrap: nowrap;
+        font-size: calc(var(--app-width) * .03);
+    }
+
+    .MethodButton {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        background-color: white;
+        border-color: transparent;
+    }
+
+    .MethodImage {
+        width: 60%;
+        object-fit: contain;
+    }
+}
+
+@media (orientation: portrait) {
+    .firstdivider {
+        position: relative;
+        width: var(--app-width);
+        height: calc(var(--app-height) * .25);
+        background: linear-gradient(to bottom, rgb(0, 0, 0, 0.01), rgb(0, 0, 128, 1));
+        z-index: 3;
+    }
+
+    .SecondDivider {
+        position: relative;
+        width: var(--app-width);
+        height : calc(var(--app-height) * .25);
+        background: linear-gradient(
+            to bottom,
+            rgba(0,0,0,.6) 0%,
+            rgba(0,0,0,.5) 30%,
+            rgba(0,0,0,0) 100%
+        );
+        z-index : 7;
+    }
+
+    .BackgroundLayer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: var(--app-width);
+        height: calc(var(--page-height) - (var(--app-height) * 4.25));
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .StartingBackground {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: var(--app-width);
+        height: var(--app-height);
+        z-index: 2;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        background-color: black;
+        overflow-x: hidden;
+    }
+
+    .StartingBackground img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .TrueBackground {
+        position: sticky;
+        top: 0;
+        margin-top: calc(var(--app-height) * 1.25);
+
+        width: 100%;
+        height: var(--app-height);
+
+        background: linear-gradient(to bottom, navy, black);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 3;
+    }
+
+    .CallToAction {
+        position: relative;
+        width: var(--app-width);
+        height: var(--app-height);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 7;
+    }
+
+    .CallToAction h1 {
+        width: 90%;
+        font-family: 'GlitchFont';
+        text-transform: uppercase;
+        font-size: calc(var(--app-width) * .05);
+        text-wrap: nowrap;
+        color : white
+    }
+
+    .CTAButton {
+        border-radius: 35px;
+        border-style: none;
+        border-width: 0;
+        font-family: 'Montserrat';
+        color : white;
+        background-color: black;
+        font-size: clamp(7px, calc(var(--app-width) * .03), 32px);
+        padding: 10px 15px 10px 15px;
+        min-width: fit-content;
+        min-height: fit-content;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.6s ease;
+    }
+
+    .CTAButton:hover {
+        background-color: navy;
+    }
+
+    .CTAButton span {
+        margin-right: calc(var(--app-width) * .01);
+    }
+
+    .SecondBackgroundLayer {
+        position: absolute;
+        width: var(--app-width);
+        height: calc(var(--app-height) * 4.25);
+        top: calc(var(--page-height) - (var(--app-height) * 4.25));
+        left: 0;
+        pointer-events: none;
+        z-index: 5;
+    }
+
+  .FinalBackground {
+        position: sticky;
+        top : 0;
+
+        width: var(--app-width);
+        height: var(--app-height);
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        overflow-x: hidden;
+
+        z-index: 5;
+
+        background-color: black;
+    }
+
+    .FinalBackground img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .BusinessHeader {
+        color: white;
+        font-size: calc(var(--app-width) * .03);
+        width: calc(var(--app-width) * .45);
+        height: fit-content;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: GlitchFont;
+    }
+
+    .CredibilitySection {
+        position: relative;
+        width: var(--app-width);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 7;
+    }
+
+    .GoogleLink {
+        position: relative;
+        border-radius: 45px;
+        border-style: none;
+        width : calc(var(--app-width) * .6);
+        aspect-ratio: 15/3;
+        background-color: white;
+        color : black;
+        font-family: 'Montserrat';
+        font-size: calc(var(--app-width) * .04);
+        margin-top: calc(var(--app-width) * .05);
+        margin-bottom: calc(var(--app-width) * .05);
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        transition: color 0.6s ease, background-color 0.6s ease;
+    }
+
+    .GoogleLink:hover {
+        color : white;
+        background-color: black;
+    }
+
+    .GoogleIcon {
+        width : 10%;
+        aspect-ratio: 1/1;
+    }
+
+    .GoogleIcon img {
+        object-fit: contain;
+        width: 100%;
+        height : 100%;
+    }
+
+    .GoogleStars {
+        width : 20%;
+        aspect-ratio: 2/1;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Montserrat';
+        font-size: calc(var(--app-width) * .04);
+    }
+
+    .GoogleStars div{
+        height : 90%;
+        aspect-ratio: 1/1;
+
+        margin-left: 10px;
+    }
+
+    .GoogleStars div img {
+        object-fit: contain;
+        width: 100%;
+        height : 100%;
+    }
+
+.ProductsSection {
+    position: relative;
+    width : var(--app-width);
+    height :  calc(var(--app-height) * 5);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 7;
+  }
+
+  .Products {
+    width : 95%;
+    height: 95%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .Product {
+    background-color: black;
+    color : white;
+    font-family: 'Montserrat';
+    width: calc(var(--app-width) * .8);
+    height: calc(var(--app-height) * .9);;
+    padding: calc(var(--app-width) * .02) calc(var(--app-width) * .02) calc(var(--app-width) * .02) calc(var(--app-width) * .02);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: calc(var(--app-height) * .05);;
+    box-shadow: 0px 0px 36px 12px rgba(255, 255, 255, 0.8);
+  }
+
+  .Tier {
+    text-align: center;
+    height: 10%;
+  }
+
+  .TierImage {
+    height: 10%;
+    aspect-ratio: 1/1;
+  }
+
+  .TierImage img {
+    object-fit: contain;
+    width : 100%;
+    height : 100%;
+  }
+
+  .ContactContainer button{
+      margin-top: 30px;
+      width: calc(var(--app-width) * .2);
+      padding-top: 20px;
+      padding-bottom: 20px;
+      background-color: rgb(32, 32, 32);
+      color: white;
+  }
+
+    .Product ul {
+        height: 65%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .Product li {
+        font-weight: 500;
+        font-size: calc(var(--app-width) * .035);
+    }
+
+    .Fees {
+        height: 10%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .Fees span {
+        font-weight: 500;
+        font-size: calc(var(--app-width) * .05);
+        text-align: center;
+    }
+
+    .BusinessHeader img {
+        position: relative;
+        object-fit: contain;
+        width : 100%;
+        height: auto;
+    }
+
+    .Services {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: var(--app-width);
+        height: fit-content;
+        place-items: center;
+        row-gap: 20px;
+        z-index: 7;
+    }
+
+    .ServiceContainer {
+        width: calc(var(--app-width) * .48);
+        height: calc(var(--app-width) * .48);
+    }
+
+    .SectionHeader {
+        position: relative;
+        font-family: 'GlitchFont';
+        color: white;
+        font-size: calc(var(--app-width) * .06);
+        width: var(--app-width);
+        height: calc(var(--app-height) * .25);
+        text-align: center;
+        text-transform: uppercase;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        z-index: 7;
+    }
+
+    .Service {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 0;
+        box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
+    }
+
+    .ServiceName {
+        font-weight: 800;
+        color : white;
+        font-family: 'Montserrat';
+        text-align: center;
+        font-size: calc(var(--app-width) * .035);
+    }
+
+    .ServiceDesc {
+        text-align: center;
+        color: white;
+        font-weight: 500;
+        font-family: 'Montserrat';
+        height: 30%;
+        overflow-y: auto;
+        font-size: calc(var(--app-width) * .035);
+    }
+
+    .ServiceImageContainer {
+        height: 20%;
+        max-width: 70%;
+    }
+
+    .ServiceImageContainer img{
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .Invisible {
+        opacity: 0;
+    }
+
+    .SlideUpAndAppear {
+        transform: translateY(0);
+        animation: slideUpAndAppear 0.45s ease-out forwards;
+        will-change: transform, opacity;
+    }
+
+    @keyframes slideUpAndAppear {
+        from {
+            opacity: 0;
+            transform: translateY(18px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .Testimonials {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+    }
+    
+    .TestimonyContainer {
+        width: calc(var(--app-width) * .9);
+        height: calc((var(--app-width) * .9) * .7);
+        margin-bottom: calc(var(--app-width) * .15);
+    }
+
+    .Testimony {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: white;
+        width: calc(var(--app-width) .85);
+        height: 100%;
+        padding: 20px 20px 20px 20px;
+        opacity: 0;
+        box-shadow: 12px 12px 36px 12px rgba(0, 0, 0, 0.8);
+    }
+
+    .Client {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 30%;
+    }
+
+    .ClientImage {
+        border-radius: 50%;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        margin-right: calc(var(--app-width) * .05);
+    }
+
+    .ClientImage img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .Client h2 {
+        font-family: 'Montserrat';
+        color : black;
+        font-size: calc(var(--app-width) * .04);
+    }
+
+    .ClientTestimony {
+        font-size: calc(var(--app-width) * .03);
+        font-weight: 500;
+        width: 100%;
+        height: 30%;
+        font-family: 'Montserrat';
+        color : black;
+        height: 30%;
+    }
+
+    .StarRating {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 30%;
+    }
+
+    .Star {
+        width: 5%;
+        aspect-ratio: 1/1;
+    }
+
+    .Star img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .BusinessTitle {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: var(--app-width);
+        height: var(--app-height);;
+        min-height: var(--app-height);
+        z-index: 7;
+    }
+
+    .Slogan {
+        width: calc(var(--app-width) * .9);
+        text-align: center;
+        font-family: 'Montserrat';
+        font-size: calc(var(--app-width) * .07);
+        color: white;
+        font-weight: 700;
+    }
+
+    .BusinessHeader {
+        color: white;
+        font-size: calc(var(--app-width) * .07);
+        width: calc(var(--app-width) * .95);
+        text-align: center;
+        text-transform: uppercase;
+        font-family: GlitchFont;
+    }
+
+    .BusinessLogo {
+        width: calc(var(--app-width) * .65);
+        aspect-ratio: 1/1;
+    }
+
+    .BusinessLogo img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Reveal {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    .RevealActive .Reveal {
+        animation: slideUpAndAppear 0.45s ease-out forwards;
+    }
+
+    /* Stagger order */
+    .RevealActive .BusinessHeader {
+        animation-delay: 0s;
+    }
+
+    .RevealActive .BusinessLogo {
+        animation-delay: 0.3s;
+    }
+
+    .RevealActive .Slogan {
+        animation-delay: 0.6s;
+    }
+
+         /* ===== Scroll Down fixed element ===== */
+    .Scroll-Down {
+        position: fixed;
+        left: 50%;
+        bottom: 18px;
+        transform: translateX(-50%);
+        z-index: 9999;
+
+        font-family: "GlitchFont", sans-serif;
+        font-size: calc(var(--app-width) * .07);
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+
+        color: #fff;
+        opacity: 1;
+        pointer-events: none; /* doesn't block clicks */
+        user-select: none;
+
+        /* base jitter */
+        animation: glitch-skew 1.8s infinite linear alternate-reverse;
+        width: 100%;
+        text-align: center;
+    }
+
+
+    .Projects .Contact {
+      position: relative;
+      z-index: 5;
+      width: var(--app-width);
+      height: calc(var(--app-height) * 2);
+      scroll-margin-top: 176px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow-y: hidden;
+    }
+
+  .ContactContainer {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 4;
+    }
+
+  .ContactContainer button{
+      margin-top: 30px;
+      width: 200px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      color: white;
+      background-color: rgb(32, 32, 32);
+    }
+
+  .WhiteRectangle {
+      width: calc(var(--app-width) * .9);
+      height: fit-content;
+      border-width: 5px;
+      border-color: white;
+      border-style: solid;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+  .WhiteRectangle p {
+      font-size: calc(var(--app-width) * .06);
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      font-weight: bold;
+      color : white;
+    }
+
+  .SubmissionBox {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      padding: calc(var(--app-width) * .05) calc(var(--app-width) * .05) calc(var(--app-width) * .05) calc(var(--app-width) * .05);
+      width: calc(var(--app-width) * .8);
+      height: fit-content;
+      margin-bottom: 50px;
+    }
+
+  .ContactGrid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: fit-content;
+    }
+
+  .ContactGrid input {
+      width: 90%;
+      margin-bottom: calc(var(--app-height) * .02);
+      height: calc(var(--app-width) * .1);
+      font-size: 20px;
+      font-family:  'Montserrat', sans-serif;
+      background-color: rgb(32, 32, 32);
+      color: white;
+    }
+
+    .ContactTag {
+        font-size: calc(var(--app-width) * .07);
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-weight: bolder;
+        color : white;
+    }
+
+    .ContactDescription {
+        font-size: 20px;
+        font-family: 'Montserrat', sans-serif;
+        color : white;
+        width: calc(var(--app-width) * .9);
+    }
+
+    .SubmissionBox textarea {
+        width: 90%;
+        height: calc(var(--app-width) * .6);
+        font-family:  'Montserrat', sans-serif;
+        font-size: 15px;
+        color: white;
+        background-color: rgb(32, 32, 32);
+        border-radius: 0;
+    }
+
+    .Snapshot {
+        position: relative;
+        right: 0px;
+        bottom: 0px;
+        width: calc(var(--app-width) * .7);
+        height: auto;
+        z-index: 3;
+    }
+
+    .ContactMessage {
+        width: 100%;
+        text-align: center;
+        font-size: calc(var(--app-width) * .5);
+        color: white;
+        font-family: "Montserrat";
+    }
+
+    .ContactMethod {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: calc(var(--app-width) * .35);
+    }
+
+    .MethodHeader {
+        color: white;
+        text-transform: uppercase;
+        font-family: 'GlitchFont';
+        text-align: center;
+        text-wrap: nowrap;
+        font-size: calc(var(--app-width) * .05);
+    }
+
+    .MethodButton {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        background-color: white;
+        border-color: transparent;
+    }
+
+    .MethodImage {
+        width: 60%;
+        object-fit: contain;
+    }
+}
+
+    /* Use pseudo-layers for the glitch */
+    .Scroll-Down::before,
+    .Scroll-Down::after {
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+
+        opacity: 0.9;
+    }
+
+    .Scroll-Down::before {
+        transform: translate(-1px, 0);
+        clip-path: inset(0 0 0 0);
+        animation: glitch-slice-1 1.2s infinite steps(2, end);
+    }
+
+    .Scroll-Down::after {
+        transform: translate(1px, 0);
+        clip-path: inset(0 0 0 0);
+        animation: glitch-slice-2 1.35s infinite steps(2, end);
+    }
+
+    /* Fade out when BusinessTitle is no longer intersecting */
+    .Fade-Out {
+        opacity: 0;
+        transition: opacity 350ms ease;
+    }
+
+    /* ===== Glitch Animations ===== */
+    @keyframes glitch-skew {
+        0% { transform: translateX(-50%) skewX(0deg); }
+        20% { transform: translateX(-50%) skewX(0.6deg); }
+        40% { transform: translateX(-50%) skewX(-0.8deg); }
+        60% { transform: translateX(-50%) skewX(0.4deg); }
+        80% { transform: translateX(-50%) skewX(-0.5deg); }
+        100% { transform: translateX(-50%) skewX(0deg); }
+    }
+
+    @keyframes glitch-slice-1 {
+        0% { clip-path: inset(0 0 85% 0); transform: translate(-2px, -1px); }
+        10% { clip-path: inset(15% 0 60% 0); transform: translate(-1px, 0); }
+        20% { clip-path: inset(55% 0 25% 0); transform: translate(-3px, 1px); }
+        30% { clip-path: inset(10% 0 70% 0); transform: translate(-1px, -1px); }
+        40% { clip-path: inset(70% 0 10% 0); transform: translate(-2px, 0); }
+        50% { clip-path: inset(25% 0 55% 0); transform: translate(-4px, 1px); }
+        60% { clip-path: inset(80% 0 5% 0); transform: translate(-1px, 0); }
+        70% { clip-path: inset(40% 0 40% 0); transform: translate(-3px, -1px); }
+        80% { clip-path: inset(5% 0 80% 0); transform: translate(-2px, 1px); }
+        90% { clip-path: inset(60% 0 25% 0); transform: translate(-1px, 0); }
+        100% { clip-path: inset(0 0 85% 0); transform: translate(-2px, -1px); }
+    }
+
+    @keyframes glitch-slice-2 {
+        0% { clip-path: inset(80% 0 10% 0); transform: translate(2px, 1px); }
+        10% { clip-path: inset(55% 0 25% 0); transform: translate(3px, 0); }
+        20% { clip-path: inset(10% 0 70% 0); transform: translate(1px, -1px); }
+        30% { clip-path: inset(65% 0 20% 0); transform: translate(4px, 1px); }
+        40% { clip-path: inset(25% 0 55% 0); transform: translate(2px, 0); }
+        50% { clip-path: inset(5% 0 85% 0); transform: translate(3px, -1px); }
+        60% { clip-path: inset(45% 0 35% 0); transform: translate(1px, 1px); }
+        70% { clip-path: inset(75% 0 10% 0); transform: translate(4px, 0); }
+        80% { clip-path: inset(15% 0 65% 0); transform: translate(2px, -1px); }
+        90% { clip-path: inset(60% 0 25% 0); transform: translate(3px, 1px); }
+        100% { clip-path: inset(80% 0 10% 0); transform: translate(2px, 1px); }
+    }
+
+    .fade-in {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-out {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .TextLayer {
+        background: linear-gradient(
+          to right,
+          #ffffff 0%,
+          #ffffff 50%,
+          #000000 50%,
+          #000000 100%
+        );
+
+        background-size: 200% 100%;
+        background-position: 100% 0;
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }

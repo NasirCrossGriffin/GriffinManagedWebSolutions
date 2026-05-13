@@ -1,0 +1,133 @@
+html {
+    height: 100vh;
+    width: var(--app-width);
+    background-color: black;
+}
+
+.background {
+    background: linear-gradient(to bottom, navy, black);
+    width: var(--app-width);
+    height: var(--app-height);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.glitch-container {
+  display: inline-block;
+  transform-origin: 50% 50%;
+  --amp: 6px;
+  --dur: 2s;
+  --blink: 0.9;
+  --blur: 0.6px;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.glitch-img {
+  display: block;
+  animation: microjit var(--dur) steps(20,end) infinite,
+             pop calc(var(--dur)*3) linear infinite;
+  transform-origin: inherit;
+  position: relative;
+  z-index: 1;         /* stays below the color layers */
+}
+
+/* Create RGB split layers */
+.glitch-container::before,
+.glitch-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: center/cover no-repeat;
+  background-image: var(--img);       /* ensure we use the var directly */
+  mix-blend-mode: screen;
+  pointer-events: none;
+  will-change: transform, opacity, clip-path, filter;
+  opacity: 0.75;
+  z-index: 2;                          /* <-- bring slices above <img> */
+}
+
+.glitch-container::before {
+  filter: drop-shadow(0 0 0 #00ffff);
+  animation: shift var(--dur) steps(12,end) infinite,
+             slice var(--dur) steps(24,end) infinite,
+             blink calc(var(--dur)*.9) steps(10,end) infinite;
+}
+
+.glitch-container::after {
+  filter: drop-shadow(0 0 0 #ff00ff);
+  animation: shift2 var(--dur) steps(12,end) infinite reverse,
+             slice2 var(--dur) steps(24,end) infinite,
+             blink calc(var(--dur)*.9) steps(10,end) infinite reverse;
+}
+
+/* ========== Keyframes ========== */
+@keyframes microjit {
+  0%,100% { transform: translate(0,0) rotate(0deg); }
+  10% { transform: translate(0.5px,-0.5px) rotate(0.05deg); }
+  20% { transform: translate(-0.5px,0.5px) rotate(-0.05deg); }
+  30% { transform: translate(0.6px,0.2px) rotate(0.05deg); }
+  40% { transform: translate(-0.6px,-0.2px) rotate(-0.05deg); }
+  50% { transform: translate(0,0) rotate(0deg); }
+}
+
+@keyframes pop {
+  0%, 92%, 100% { transform: scale(1); filter:none; }
+  93% { transform: scale(1.02); filter: blur(var(--blur)); }
+  96% { transform: scale(0.995); }
+}
+
+@keyframes shift {
+  0% { transform: translate(0); }
+  20% { transform: translate(var(--amp), 0); }
+  40% { transform: translate(calc(var(--amp)*-1), 0); }
+  60% { transform: translate(calc(var(--amp)*0.5), 0); }
+  80% { transform: translate(calc(var(--amp)*-0.5), 0); }
+  100% { transform: translate(0); }
+}
+
+@keyframes shift2 {
+  0% { transform: translate(0); }
+  20% { transform: translate(calc(var(--amp)*-1), 0); }
+  40% { transform: translate(var(--amp), 0); }
+  60% { transform: translate(calc(var(--amp)*-0.5), 0); }
+  80% { transform: translate(calc(var(--amp)*0.5), 0); }
+  100% { transform: translate(0); }
+}
+
+@keyframes slice {
+  0% { clip-path: polygon(0 2%,100% 2%,100% 8%,0 8%); }
+  20% { clip-path: polygon(0 22%,100% 22%,100% 28%,0 28%); }
+  40% { clip-path: polygon(0 52%,100% 52%,100% 56%,0 56%); }
+  60% { clip-path: polygon(0 72%,100% 72%,100% 76%,0 76%); }
+  80% { clip-path: polygon(0 6%,100% 6%,100% 10%,0 10%); }
+  100% { clip-path: polygon(0 0,100% 0,100% 100%,0 100%); }
+}
+
+@keyframes slice2 {
+  0% { clip-path: polygon(0 88%,100% 88%,100% 92%,0 92%); }
+  20% { clip-path: polygon(0 58%,100% 58%,100% 62%,0 62%); }
+  40% { clip-path: polygon(0 34%,100% 34%,100% 38%,0 38%); }
+  60% { clip-path: polygon(0 10%,100% 10%,100% 14%,0 14%); }
+  80% { clip-path: polygon(0 40%,100% 40%,100% 44%,0 44%); }
+  100% { clip-path: polygon(0 0,100% 0,100% 100%,0 100%); }
+}
+
+@keyframes blink {
+  0%, 8%, 100% { opacity:1; }
+  10% { opacity: calc(1 - var(--blink)); }
+  11%, 50%, 54% { opacity:1; }
+  52% { opacity: calc(1 - var(--blink)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch-container,
+  .glitch-container::before,
+  .glitch-container::after {
+    animation: none !important;
+    filter: none !important;
+  }
+}

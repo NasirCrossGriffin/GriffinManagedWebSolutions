@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d83ee12d.css",
+    "main.js": "/static/js/main.bf30b4c8.js",
+    "static/js/453.ec0f271d.chunk.js": "/static/js/453.ec0f271d.chunk.js",
+    "static/media/CfGlitchCityRegular-L1vZ.ttf": "/static/media/CfGlitchCityRegular-L1vZ.0d3ccbb98d8204cb6e3a.ttf",
+    "static/media/Hacked-KerX.ttf": "/static/media/Hacked-KerX.d981e1d471a16b240218.ttf",
+    "index.html": "/index.html",
+    "main.d83ee12d.css.map": "/static/css/main.d83ee12d.css.map",
+    "main.bf30b4c8.js.map": "/static/js/main.bf30b4c8.js.map",
+    "453.ec0f271d.chunk.js.map": "/static/js/453.ec0f271d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d83ee12d.css",
+    "static/js/main.bf30b4c8.js"
+  ]
+}

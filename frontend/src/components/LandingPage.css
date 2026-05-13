@@ -1,0 +1,340 @@
+@font-face {
+    font-family: GlitchFont;
+    src: url('../assets/fonts/CfGlitchCityRegular-L1vZ.ttf');
+  }
+
+@media (orientation: landscape) {
+    .container {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        padding-top: 5%;
+        overflow: -moz-hidden-unscrollable;
+    }
+
+    .container {
+        margin-top: calc(var(--app-height) * .05);
+    }
+
+    .LandingPage {
+        display: flex; 
+        flex-direction : row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .LandingPageText {
+        display: flex;
+        flex-direction: column;
+        font-family: GlitchFont;
+        color: white;
+        margin : 0px 5% 0px 5%;
+    }
+
+    @media (min-width : 768px) {
+        .LandingPageText {
+            font-size: calc(var(--app-width) * .02);
+            width: calc(var(--app-width) * .6);
+        }
+    }
+
+    .PortraitContainer {
+        position: relative;       /* <-- key: anchor pseudos here */
+        display: inline-block;
+        transform-origin: 50% 50%;
+        --amp: 6px;
+        --dur: 2s;
+        --blink: 0.9;
+        --blur: 0.6px;
+    }
+
+    /* Create RGB split layers */
+    .PortraitContainer::before,
+    .PortraitContainer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: center/cover no-repeat;
+    background-image: var(--img);       /* ensure we use the var directly */
+    mix-blend-mode: screen;
+    pointer-events: none;
+    will-change: transform, opacity, clip-path, filter;
+    opacity: 0.75;
+    z-index: 2;                          /* <-- bring slices above <img> */
+    }
+
+    .PortraitContainer::before {
+    filter: drop-shadow(0 0 0 #00ffff);
+    animation: shift var(--dur) steps(12,end) infinite,
+                slice var(--dur) steps(24,end) infinite,
+                blink calc(var(--dur)*.9) steps(10,end) infinite;
+    }
+
+    .PortraitContainer::after {
+    filter: drop-shadow(0 0 0 #ff00ff);
+    animation: shift2 var(--dur) steps(12,end) infinite reverse,
+                slice2 var(--dur) steps(24,end) infinite,
+                blink calc(var(--dur)*.9) steps(10,end) infinite reverse;
+    }
+
+    .Portrait{
+        display: block;
+        animation: microjit var(--dur) steps(20,end) infinite,
+        pop calc(var(--dur)*3) linear infinite;
+        transform-origin: inherit;
+        position: relative;
+        z-index: 1;         /* stays below the color layers */
+        width: 100%;
+        height: auto;
+    }
+
+    @media (min-width : 768px) {
+        .PortraitContainer {
+            width : 20%;
+            height: fit-content;
+            border-width: 5px;
+            margin-right: 25px;
+        }
+
+        .Portrait {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position : relative;
+            margin : 0px 5% 0px 5%
+        }
+    }
+
+    .Welcome {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        position : relative;
+        width : 80%;
+    }
+
+
+
+    .welcome-node-enter {
+        opacity: 0; /* Start at 0 opacity */
+    }
+
+    .welcome-node-enter-active {
+        opacity: 1; /* Transition to 1 opacity */
+        transition: opacity 1000ms ease-in; /* Smooth fade-in */
+    }
+
+    .welcome-node-exit {
+        opacity: 1; /* Start at full opacity */
+    }
+
+    .welcome-node-exit-active {
+        opacity: 0; /* Transition to 0 opacity */
+        transition: opacity 200ms ease-out; /* Smooth fade-out */
+    }
+
+    .Navigate-node-enter {
+        opacity: 0; /* Start at 0 opacity */
+    }
+
+    .Navigate-node-enter-active {
+        opacity: 1; /* Transition to 1 opacity */
+        transition: opacity 1000ms ease-in; /* Smooth fade-in */
+    }
+
+    .Navigate-node-exit {
+        opacity: 1; /* Start at full opacity */
+    }
+
+    .Navigate-node-exit-active {
+        opacity: 0; /* Transition to 0 opacity */
+        transition: opacity 200ms ease-out; /* Smooth fade-out */
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0%;
+        }
+        100% {
+            opacity: 100%;
+        }
+    }
+
+    .Fade-In {
+        animation: fade-in 1.2s both;
+    }
+
+    @keyframes slide-up {
+        0% {
+            transform: translateY(1000px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .Slide-Up {
+        animation: slide-up 0.7s both;
+    }
+}
+
+@media (orientation: portrait) {
+    .container {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        padding-top: 5%;
+        overflow: -moz-hidden-unscrollable;
+        margin-top: 60px;
+    }
+
+    .LandingPage {
+        display: flex; 
+        flex-direction : column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .LandingPageText {
+        display: flex;
+        flex-direction: column;
+        font-family: GlitchFont;
+        color: white;
+        margin : 0px 5% 0px 5%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .PortraitContainer {
+        position: relative;       /* <-- key: anchor pseudos here */
+        display: inline-block;
+        transform-origin: 50% 50%;
+        --amp: 6px;
+        --dur: 2s;
+        --blink: 0.9;
+        --blur: 0.6px;
+    }
+
+    /* Create RGB split layers */
+    .PortraitContainer::before,
+    .PortraitContainer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: center/cover no-repeat;
+    background-image: var(--img);       /* ensure we use the var directly */
+    mix-blend-mode: screen;
+    pointer-events: none;
+    will-change: transform, opacity, clip-path, filter;
+    opacity: 0.75;
+    z-index: 2;                          /* <-- bring slices above <img> */
+    }
+
+    .PortraitContainer::before {
+    filter: drop-shadow(0 0 0 #00ffff);
+    animation: shift var(--dur) steps(12,end) infinite,
+                slice var(--dur) steps(24,end) infinite,
+                blink calc(var(--dur)*.9) steps(10,end) infinite;
+    }
+
+    .PortraitContainer::after {
+    filter: drop-shadow(0 0 0 #ff00ff);
+    animation: shift2 var(--dur) steps(12,end) infinite reverse,
+                slice2 var(--dur) steps(24,end) infinite,
+                blink calc(var(--dur)*.9) steps(10,end) infinite reverse;
+    }
+
+    .Portrait{
+        display: block;
+        animation: microjit var(--dur) steps(20,end) infinite,
+        pop calc(var(--dur)*3) linear infinite;
+        transform-origin: inherit;
+        height : calc(var(--app-height) * .4);
+        width : auto;
+        position : relative;
+        margin : 0px 5% 0px 5%;
+    }
+
+    .Welcome {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        position : relative;
+        height: calc(var(--app-height) * .2);
+        width : 80%;
+        text-align: center;
+    }
+
+    .welcome-node-enter {
+        opacity: 0; /* Start at 0 opacity */
+    }
+
+    .welcome-node-enter-active {
+        opacity: 1; /* Transition to 1 opacity */
+        transition: opacity 1000ms ease-in; /* Smooth fade-in */
+    }
+
+    .welcome-node-exit {
+        opacity: 1; /* Start at full opacity */
+    }
+
+    .welcome-node-exit-active {
+        opacity: 0; /* Transition to 0 opacity */
+        transition: opacity 200ms ease-out; /* Smooth fade-out */
+    }
+
+    .Navigate-node-enter {
+        opacity: 0; /* Start at 0 opacity */
+    }
+
+    .Navigate-node-enter-active {
+        opacity: 1; /* Transition to 1 opacity */
+        transition: opacity 1000ms ease-in; /* Smooth fade-in */
+    }
+
+    .Navigate-node-exit {
+        opacity: 1; /* Start at full opacity */
+    }
+
+    .Navigate-node-exit-active {
+        opacity: 0; /* Transition to 0 opacity */
+        transition: opacity 200ms ease-out; /* Smooth fade-out */
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0%;
+        }
+        100% {
+            opacity: 100%;
+        }
+    }
+
+    .Fade-In {
+        animation: fade-in 1.2s both;
+    }
+
+    @keyframes slide-up {
+        0% {
+            transform: translateY(1000px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .Slide-Up {
+        animation: slide-up 0.7s both;
+    }
+}

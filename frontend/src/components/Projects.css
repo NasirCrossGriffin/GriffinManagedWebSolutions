@@ -1,0 +1,457 @@
+@font-face {
+    font-family: GlitchFont;
+    src: url('../assets/fonts/CfGlitchCityRegular-L1vZ.ttf');
+}
+
+@media (orientation: landscape) {
+    .ProjectIMG, .UbuntuLogo, .Handshake {
+        position: absolute;
+        width: calc(var(--app-width) * .3);
+        height: fit-content;
+        top: 50%;
+        transform: translateY(-50%);
+        left : 50px;
+        overflow-y: hidden;
+        z-index: 2;
+    }
+
+    .ProjectIMG img, .UbuntuLogo img, .Handshake img {
+        width: 100%;
+        height : auto;
+        overflow-y: hidden;
+    }
+
+    .Github {
+        width : 50px;
+        height: auto;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .Github button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: fit-content;
+        background-color: transparent;
+        border-width: 0px;
+    }
+
+    .Github img {
+        position: relative;
+        width: 50px;
+        height: auto;
+    }
+
+
+    .divider {
+        width: 100%;
+        height : 5px;
+        background-color: white;
+        margin-bottom: 25px;
+    }
+
+    .header {
+        text-align: center;
+        font-family: GlitchFont;
+        color: white;
+    }
+
+    .Projects {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+    }
+
+    .ListOfProjects {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: fit-content;
+        justify-items: center;
+        align-items: center;
+        margin-bottom: 100px;
+    }
+
+    .ProjectContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border-color:  rgb(228, 228, 228);
+        border-width: 1px;
+        border-style: solid;
+        box-shadow: 12px 12px 36px 12px rgba(0, 0, 0, 0.8);
+        background-color: rgb(243, 243, 243);
+        margin-top: 20px;
+        margin-bottom: 100px;
+        width: 80%;
+    }
+
+    @media (min-width : 1440px) {
+        .ProjectContainer {
+            min-height: 700px;
+            height: fit-content;
+            
+        }
+    }
+
+    .Project {
+        padding: 25px 25px 25px 25px;
+        width : 80%;
+        height : 80%
+    }
+
+    .ProjectName {
+        font-family: GlitchFont;
+        font-weight: bold;
+        font-size: calc(var(--app-width) * .022);
+    }
+
+    .ImgAndDesc {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height : fit-content;
+    }
+
+    .ProjectDesc {
+        font-size: calc(var(--app-width) * .013);
+        font-weight: 500;
+        width : 70%;
+        height: 100%;
+        text-wrap: wrap;
+    }
+
+    .ProjectImageContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+
+    .ProjectImageContainer {
+        width : calc(var(--app-width) * .2);
+        height : calc(var(--app-width) * .2);
+        margin-right: 20px;
+    }
+
+    .ProjectImageContainer img {
+        display: flex;
+        align-self: center;
+        width : 100%;
+        height : auto;
+        object-fit: contain;
+    }
+
+    .Technologies {
+        display : flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width : 100%;
+        height : 60%;
+        max-width : 100%;
+        margin-bottom: 15px;
+    }
+
+    .Languages, .Frontend, .Backend, .Database {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height : 25%;
+        width : 100%
+    }
+
+    .LanguageContainer, .FrontendContainer, .BackendContainer, .DatabaseContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width : 100%;
+        height : 100%;
+    }
+
+    .TechnologyCont {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width : calc(var(--app-width) * .07);
+        height: calc(var(--app-width) * .07);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .ProjectDesc {
+        font-family: "Montserrat";
+    }
+
+
+
+    .TechnologyCont img {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .TechnologyType {
+        font-family: GlitchFont;
+        font-weight: bold;
+    }
+
+
+    .TechnologyType {
+        font-size: 25px;
+    }
+
+    .ProjectsBanner {
+        text-align: center;
+        font-size: 50px;
+        font-family: GlitchFont;
+        color: white;
+        width: 100%;
+    }
+
+    .ProjectLink {
+        font-family: GlitchFont;
+        font-size: calc(var(--app-width) * .017);
+    }
+}
+
+@media (orientation: portrait) {
+    .ProjectIMG, .UbuntuLogo, .Handshake {
+        display: none;
+    }
+
+    .ProjectIMG img, .UbuntuLogo img, .Handshake img {
+        width: 100%;
+        height : auto;
+        overflow-y: hidden;
+    }
+
+    .Github {
+        width : 50px;
+        height: auto;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .Github button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: fit-content;
+        background-color: transparent;
+        border-width: 0px;
+    }
+
+    .Github img {
+        position: relative;
+        width: 50px;
+        height: auto;
+    }
+
+
+    .divider {
+        width: 100%;
+        height : 5px;
+        background-color: white;
+        margin-bottom: 25px;
+    }
+
+    .header {
+        text-align: center;
+        font-family: GlitchFont;
+        color: white;
+    }
+
+    .Projects {
+        width: var(--app-width);
+    }
+
+    .ListOfProjects {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: fit-content;
+        justify-items: center;
+        align-items: center;
+        width: var(--app-width);
+        margin-bottom: 100px;
+    }
+
+    .ProjectContainer {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border-color:  rgb(228, 228, 228);
+        border-width: 1px;
+        border-style: solid;
+        box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
+        background-color: rgb(243, 243, 243);
+        margin-top: 20px;
+        margin-bottom: 100px;
+        width: 80%;
+        z-index: 7;
+    }
+
+    @media (min-width : 1440px) {
+        .ProjectContainer {
+            min-height: 700px;
+            height: fit-content;
+            
+        }
+    }
+
+    .Project {
+        padding: 25px 25px 25px 25px;
+        width : 80%;
+        height : 80%
+    }
+
+    .ProjectName {
+        font-family: GlitchFont;
+        font-weight: bold;
+        font-size: calc(var(--app-height) * .022);
+        width: 100%;
+        text-align: center;
+    }
+
+    .ImgAndDesc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height : fit-content;
+    }
+
+    .ProjectDesc {
+        font-size: calc(var(--app-height) * .016);
+        font-weight: 500;
+        width : 90%;
+        height: 100%;
+        text-wrap: wrap;
+    }
+
+    .ProjectImageContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+
+    .ProjectImageContainer {
+        width : calc(var(--app-height) * .20);
+        height : calc(var(--app-height) * .2);
+    }
+
+    .ProjectImageContainer img {
+        display: flex;
+        align-self: center;
+        width : 100%;
+        height : auto;
+        object-fit: contain;
+    }
+
+    .Technologies {
+        display : flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width : 100%;
+        height : 60%;
+        max-width : 100%;
+        margin-bottom: 15px;
+    }
+
+    .Languages, .Frontend, .Backend, .Database {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height : 25%;
+        width : 100%
+    }
+
+    .LanguageContainer, .FrontendContainer, .BackendContainer, .DatabaseContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width : 100%;
+        height : 100%;
+    }
+
+    .TechnologyCont {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width : calc(var(--app-height) * .04);
+        height: calc(var(--app-height) * .04);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .ProjectDesc {
+        font-family: "Montserrat";
+    }
+
+
+    .TechnologyCont img {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .TechnologyType {
+        font-family: GlitchFont;
+        font-weight: bold;
+    }
+
+
+    .TechnologyType {
+        font-size: calc(var(--app-height) * .02);
+    }
+
+    .ProjectsBanner {
+        text-align: center;
+        font-size: 50px;
+        font-family: GlitchFont;
+        color: white;
+        width: 100%;
+    }
+
+    .ProjectLink {
+        font-family: GlitchFont;
+        font-size: calc(var(--app-height) * .017);
+    }
+}
+
+.Fade-Out {
+  animation: Fade-Out 1s ease-out forwards;
+}
+
+@keyframes Fade-Out  {
+    0% {
+        opacity: 1;
+    } 100% {
+        opacity: 0;
+    }
+}

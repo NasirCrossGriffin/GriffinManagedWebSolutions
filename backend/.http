@@ -1,0 +1,9 @@
+POST http://localhost:3001/contact
+Content-Type: application/json
+
+{
+    "company": "test",
+    "email": "nasircrossgriffin@gmail.com",
+    "phonenumber": "609-805-9113",
+    "message": "This is a test to see if everything works"
+}

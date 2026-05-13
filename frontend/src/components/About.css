@@ -1,0 +1,805 @@
+@media (orientation : landscape) {
+    @font-face {
+        font-family: GlitchFont;
+        src: url('../assets/fonts/CfGlitchCityRegular-L1vZ.ttf');
+    }
+
+    .InitialSection {
+        position: relative;
+        z-index: 10;
+        top: 0;
+        left : 0;
+        width : var(--app-width);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
+        margin-top: calc(var(--app-width) * .05);
+        margin-bottom: calc(var(--app-height) * .3);
+    }
+
+    @media (min-width : 1024px) {
+        .InitialSection {
+            height: calc(var(--app-height) * 1);
+        }
+    }
+
+
+    .AboutPage {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .Information {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        width : calc(var(--app-width) * .55);
+        margin-right: calc(var(--app-width) * .05);
+        margin-top: calc(var(--app-height) * .2);
+        z-index: 5;
+    }
+
+    .Socials {
+        position: absolute;
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        top: 0;
+        right: calc(var(--app-width) * .01);
+        flex-direction: column;
+    }
+
+    @media (min-width: 1440px) {
+        .Socials {
+            top : 20px;
+        }
+
+    }
+
+
+    .LinkedIn {
+        width : 50px;
+        height: auto;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .LinkedIn button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: calc(var(--app-width) * .04);
+        height: fit-content;
+        background-color: transparent;
+        border-width: 0px;
+    }
+
+    .LinkedIn img {
+        position: relative;
+        width: calc(var(--app-width) * .04);
+        height: auto;
+    }
+
+    .YouTube {
+        width : 50px;
+        height: auto;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .YouTube button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: calc(var(--app-width) * .04);
+        height: fit-content;
+        background-color: transparent;
+        border-width: 0px;
+    }
+
+    .YouTube img {
+        position: relative;
+        width: calc(var(--app-width) * .04);
+        height: auto;
+    }
+
+    .GetYourStart {
+        width : 50px;
+        height: auto;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .GetYourStart button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: calc(var(--app-width) * .04);
+        height: fit-content;
+        background-color: transparent;
+        border-width: 0px;
+    }
+
+    .GetYourStart img {
+        position: relative;
+        width: calc(var(--app-width) * .04);
+        height: auto;
+    }
+
+    .PageDetails {
+        background-color: black;
+        position: relative;
+        color: white;
+        font-family: 'Montserrat';
+        width: 100%;
+        height: fit-content;
+    }
+
+    .PageDetails p {
+        position: relative;
+        font-family: 'Montserrat';
+        font-size: calc(var(--app-width) * .02);
+        left: calc(var(--app-width) * .06);
+        width : 70%
+    }
+
+
+
+    .PageDetails h2 {
+        position: relative;
+        font-family: GlitchFont;
+        font-size: calc(var(--app-width) * .03);
+        left : calc(var(--app-width) * .02);
+        width : 90%;
+    }
+
+    .divider {
+        width: 100%;
+        height : 5px;
+        background-color: white;
+        margin-bottom: 25px;
+    }
+
+    .header {
+        text-align: center;
+        font-family: GlitchFont;
+        color: white;
+        text-wrap: nowrap;
+        font-size: calc(var(--app-width) * .03);
+        margin: 0 0 0 0;
+    }
+
+    .About {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+
+
+    @media (min-width : 1024px) {
+        .About {
+            align-items: flex-start;
+        }
+    }
+
+    .SectionContainer {
+        width: 50%;
+        height: fit-content;
+        margin-bottom: 300px;
+    }
+
+    .NameAndLogo {
+        width : 100%;
+        height : 10%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .SectionLogoContainer {
+        width : 20%;
+        height : 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-right: 25px;
+    }
+
+    .SectionLogoContainer img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .SectionName {
+        color: white;
+        font-size: 35px;
+        font-family: GlitchFont;
+    }
+
+
+
+    @media (min-width : 1024px) {
+        .SectionName {
+            font-size: 35px;
+        }
+    }
+
+
+    .SectionSeparator {
+        width: 100%;
+        height: 5px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        padding-right: 25px;
+        padding-left: 25px;
+        background-color: white;
+        box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.164);
+    }
+
+    .TextAndImageContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-weight: 500;
+        font-size: calc(var(--app-width) * .013);
+    }
+
+    .SectionImageContainer {
+        width: 50%;
+        height: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .SectionImageContainer img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .About-Text {
+        font-size: 20px;
+    }
+
+
+
+
+    @media (min-width : 1024px) {
+        .LinkedInLogoAndLink {
+            width: 20%;
+        }
+    }
+
+
+
+
+    @media (min-width : 1024px) {
+        .LinkedInImageContainer {
+            height : 100%;
+            width : 50%;
+            margin-right: calc(var(--app-width) * .01);
+        }
+    }
+
+    .LinkedInImageContainer img {
+        width : 100%;
+        height : 100%;
+        object-fit: contain;
+    }
+
+
+        
+    @media (min-width : 1024px) {
+        .LinkedInLink {
+            font-size: 25px;
+        }
+    }
+
+    .ContentContainer {
+        width: 100%;
+        height : 70%;
+        height: fit-content;
+        background-color: white;
+        padding: 25px 25px 25px 25px;
+        box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
+        font-family: 'Montserrat';
+    }
+
+    @keyframes slide-right {
+        0% {
+            transform: translate(-1000px);
+        }
+        100% {
+            transform: translate(0);
+        }
+    }
+
+    @keyframes slide-left {
+        0% {
+            transform: translate(0);
+        }
+        100% {
+            transform: translate(-1000px);
+        }
+    }
+
+    .Slide-Right {
+        animation: slide-right 0.7s both;
+    }
+
+    .Slide-Left {
+        animation: slide-left 0.7s both;
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0%;
+        }
+        100% {
+            opacity: 100%;
+        }
+    }
+
+    .Fade-In {
+        animation: fade-in 1.2s both;
+    }
+
+
+    .NasirGriffin {
+        position: absolute;
+        height: 100%;
+        width : fit-content;
+        left : 50px;
+        bottom : 0;
+        z-index: 2;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    .NasirGriffin {
+        display: inline-block;
+        transform-origin: 50% 50%;
+        --amp: 6px;
+        --dur: 2s;
+        --blink: 0.9;
+        --blur: 0.6px;
+    }
+
+    /* Create RGB split layers */
+    .NasirGriffin::before,
+    .NasirGriffin::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: center/cover no-repeat;
+    background-image: var(--img);       /* ensure we use the var directly */
+    mix-blend-mode: screen;
+    pointer-events: none;
+    will-change: transform, opacity, clip-path, filter;
+    opacity: 0.75;
+    z-index: 2;                          /* <-- bring slices above <img> */
+    }
+
+    .NasirGriffin::before {
+    filter: drop-shadow(0 0 0 #00ffff);
+    animation: shift var(--dur) steps(12,end) infinite,
+                slice var(--dur) steps(24,end) infinite,
+                blink calc(var(--dur)*.9) steps(10,end) infinite;
+    }
+
+    .NasirGriffin::after {
+    filter: drop-shadow(0 0 0 #ff00ff);
+    animation: shift2 var(--dur) steps(12,end) infinite reverse,
+                slice2 var(--dur) steps(24,end) infinite,
+                blink calc(var(--dur)*.9) steps(10,end) infinite reverse;
+    }
+
+    .NasirGriffin img{
+        display: block;
+        animation: microjit var(--dur) steps(20,end) infinite,
+        pop calc(var(--dur)*3) linear infinite;
+        transform-origin: inherit;
+        position: relative;
+        z-index: 1;         /* stays below the color layers */
+    }
+
+
+    .NasirGriffin img {
+        width: auto;
+        height : 100%;
+        overflow-y: hidden;
+    }
+}
+
+@media (orientation : portrait) {
+    @font-face {
+        font-family: GlitchFont;
+        src: url('../assets/fonts/CfGlitchCityRegular-L1vZ.ttf');
+    }
+
+    .InitialSection {
+        position: relative;
+        z-index: 10;
+        top: 0;
+        left : 0;
+        width : var(--app-width);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 75px;
+        margin-top: calc(var(--app-height) * .05);
+        height: fit-content;
+        overflow-y: hidden;
+    }
+
+    .AboutPage {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Information {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        width : calc(var(--app-width) * .9);
+        margin-top: calc(var(--app-height) * .02);
+        z-index: 5;
+    }
+
+    .Socials {
+        width: 100%;
+        position: relative;
+        height: fit-content;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .LinkedIn {
+        width : calc(var(--app-width) * .17);
+        height: auto;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .LinkedIn button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: fit-content;
+        background-color: transparent;
+        border-width: 0px;
+    }
+
+    .LinkedIn img {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .YouTube {
+        width : calc(var(--app-width) * .17);
+        height: auto;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .YouTube button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: fit-content;
+        background-color: transparent;
+        border-width: 0px;
+    }
+
+    .YouTube img {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .GetYourStart {
+        width : calc(var(--app-width) * .17);
+        height: auto;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .GetYourStart button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: fit-content;
+        background-color: transparent;
+        border-width: 0px;
+    }
+
+    .GetYourStart img {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .PageDetails {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: black;
+        position: relative;
+        color: white;
+        font-family: 'Montserrat';
+        width: 100%;
+        height: fit-content;
+    }
+
+    .PageDetails p {
+        position: relative;
+        font-family: 'Montserrat';
+        font-weight: 500;
+        width : 90%;
+        text-align: center;
+    }
+
+        .PageDetails p {
+            font-size: calc(var(--app-height) * .03);
+        }
+
+
+    .PageDetails h2 {
+        position: relative;
+        font-family: GlitchFont;
+        width: 90%;
+        text-align: center;
+    }
+
+
+
+        .PageDetails h2 {
+            font-size: calc(var(--app-height) * .03);
+        }
+
+
+    .divider {
+        position: relative;
+        width: 100%;
+        height : 5px;
+        background-color: white;
+        margin-bottom: 25px;
+    }
+
+    .header {
+        position: relative;
+        text-align: center;
+        font-family: GlitchFont;
+        color: white;
+    }
+
+
+
+    .header {
+        font-size : calc(var(--app-height) * .03);
+        margin: 0 0 0 0;
+    }
+
+
+    .About {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .SectionContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        height: fit-content;
+        margin-bottom: calc(var(--app-height) * .25);
+    }
+
+    .NameAndLogo {
+        width : 100%;
+        height : 10%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .SectionLogoContainer {
+        width : 20%;
+        height : 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-right: 25px;
+    }
+
+    .SectionLogoContainer img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .SectionName {
+        color: white;
+        font-size: calc(var(--app-width) * .04);
+        font-family: GlitchFont;
+    }
+
+    .SectionSeparator {
+        width: 100%;
+        height: 5px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        padding-right: 25px;
+        padding-left: 25px;
+        background-color: white;
+        box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.164);
+    }
+
+    .TextAndImageContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: calc(var(--app-width) * .042);
+        font-weight: 500;
+    }
+
+    .SectionImageContainer {
+        width: 50%;
+        height: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .SectionImageContainer img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .About-Text {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+
+
+
+    @media (min-width : 1024px) {
+        .LinkedInLogoAndLink {
+            width: 20%;
+        }
+    }
+
+
+
+
+    @media (min-width : 1024px) {
+        .LinkedInImageContainer {
+            height : 100%;
+            width : 50%;
+            margin-right: calc(var(--app-width) * .01);
+        }
+    }
+
+    .LinkedInImageContainer img {
+        width : 100%;
+        height : 100%;
+        object-fit: contain;
+    }
+
+
+        
+    @media (min-width : 1024px) {
+        .LinkedInLink {
+            font-size: 25px;
+        }
+    }
+
+    .ContentContainer {
+        width: 100%;
+        height : 70%;
+        height: fit-content;
+        background-color: white;
+        padding: 25px 25px 25px 25px;
+        box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
+        font-family: 'Montserrat';
+    }
+
+    @keyframes slide-right {
+        0% {
+            transform: translate(-1000px);
+        }
+        100% {
+            transform: translate(0);
+        }
+    }
+
+    @keyframes slide-left {
+        0% {
+            transform: translate(0);
+        }
+        100% {
+            transform: translate(-1000px);
+        }
+    }
+
+    .Slide-Right {
+        animation: slide-right 0.7s both;
+    }
+
+    .Slide-Left {
+        animation: slide-left 0.7s both;
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0%;
+        }
+        100% {
+            opacity: 100%;
+        }
+    }
+
+    .Fade-In {
+        animation: fade-in 1.2s both;
+    }
+
+
+    .NasirGriffin {
+        display: none;
+    }
+}
+

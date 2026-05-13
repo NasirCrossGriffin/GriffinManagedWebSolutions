@@ -1,0 +1,358 @@
+@font-face {
+    font-family: GlitchFont;
+    src: url('../assets/fonts/CfGlitchCityRegular-L1vZ.ttf');
+  }
+
+@media (orientation: landscape) {
+    .ContactPage .Contact {
+        width : 100%;
+        height: 100%;
+    }
+
+    .ContactPage {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 150px;
+    }
+
+    .ContactPage {
+        margin-top: 110px;
+    }
+
+
+    .ContactPage .ContactContainer {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        height: fit-content;
+        position: relative;
+        right : 5%;
+        width: 100%;
+    }
+
+    .ContactPage .ContactContainer {
+        flex-direction: row;
+    }
+
+
+    .ContactPage .Contact form {
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        align-items: center;
+        width: calc(var(--app-width) * .2); /* Adjust as needed */
+        margin: auto; /* Centers the form */
+    }
+
+
+    .ContactPage .Contact label {
+        width: 100%;
+        margin-top: 10px;
+        font-weight: bold; /* Optional: makes the label text more visible */
+    }
+
+    .ContactPage .Contact input[type="text"] {
+        margin-top: 5px;
+        padding: 8px;
+        font-size: calc(var(--app-width) * .013);
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .ContactPage .Contact textarea {
+        margin-top: 5px;
+        padding: 8px;
+        font-size: calc(var(--app-width) * .013);
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .ContactPage .Contact input[type="submit"] {
+        margin-top: 15px;
+        cursor: pointer;
+        border-radius: 10px;
+        background-color: blue;
+        color: white;
+        border-color: blue;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: calc(var(--app-width) * .013);
+        font-family: 'Montserrat';
+        font-weight: bold;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .ContactPage .Contact input[type="submit"]:hover {
+        background-color: rgb(0, 5, 54);
+        color: grey;
+        border-color: rgb(0, 5, 54);
+    }
+
+    .FormContatiner textarea {
+        resize: both; /* Allow both vertical and horizontal resizing */
+        width: 100%; /* Optional: Make it take full width */
+        max-width: 100%; /* Prevent resizing beyond container width */
+        min-height: calc(var(--app-height) * .15); /* Set a minimum height */
+    }
+
+    .ContactBanner {
+        font-family: GlitchFont;
+        transform: rotate(270deg);
+        color: white;
+        height: 5calc(var(--app-width))
+    }
+
+    .ThankYou {
+        position: absolute;
+        color: white;
+        width: 90%;
+        top : 50%;
+        left : 50%;
+        transform: translateX(-50%) translateY(-50%);
+        font-family: "Montserrat";
+        font-size: calc(var(--app-width) * .05);
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .ContactBanner {
+        font-size: calc(var(--app-width) * .04);
+        margin-right: -70px;
+    }
+    
+    .FormContainer {
+        border-style: solid;
+        border-width: 1px;
+        background-color: white;
+        box-shadow: black;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        width: calc(var(--app-width) * .25);
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        align-items: center;
+        margin: 50px 0 0 0;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .FormContainer form input {
+        font-family: "Montserrat";
+        width: 100%;
+    }
+
+    .FormContainer form textarea {
+        font-family: "Montserrat";
+        width: 100%;
+    }
+
+    .ContactContainer .ContactInstructions {
+        font-family: GlitchFont;
+        color: white;
+        margin-left: 25%;
+    }
+
+
+    .BannerAndForm {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0%;
+        }
+        100% {
+            opacity: 100%;
+        }
+    }
+
+    .Fade-In {
+        animation: fade-in 1.2s both;
+    }
+}
+
+@font-face {
+    font-family: GlitchFont;
+    src: url('../assets/fonts/CfGlitchCityRegular-L1vZ.ttf');
+  }
+
+@media (orientation: portrait) {
+    .Contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width : 100%;
+        height: 100%;
+        min-height: calc(var(--app-height) * 1);
+    }
+
+    .ContactPage {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 150px;
+    }
+
+    .ContactPage {
+        margin-top: 110px;
+    }
+
+
+    .ContactContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        min-height: calc(var(--app-height) * 1);
+        position: relative;
+        width: 100%;
+    }
+
+
+    .FormContainer form {
+   
+        width: calc(var(--app-width) * .5); /* Adjust as needed */
+        margin: auto; /* Centers the form */
+    }
+
+
+    .Contact label {
+        margin-top: 10px;
+        font-weight: bold; /* Optional: makes the label text more visible */
+    }
+
+    .Contact input[type="text"] {
+        margin-top: 5px;
+        padding: 8px;
+        font-size: calc(var(--app-height) * .018);
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .Contact textarea {
+        margin-top: 5px;
+        padding: 8px;
+        font-size: calc(var(--app-height) * .018);
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .Contact input[type="submit"] {
+        margin-top: 15px;
+        cursor: pointer;
+        border-radius: 10px;
+        background-color: blue;
+        color: white;
+        border-color: blue;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: calc(var(--app-height) * .018);
+        font-family: 'Montserrat';
+        font-weight: bold;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .Contact input[type="submit"]:hover {
+        background-color: rgb(0, 5, 54);
+        color: grey;
+        border-color: rgb(0, 5, 54);
+    }
+
+    textarea {
+        resize: both; /* Allow both vertical and horizontal resizing */
+        width: 100%; /* Optional: Make it take full width */
+        max-width: 100%; /* Prevent resizing beyond container width */
+        min-height: calc(var(--app-height) * .015); /* Set a minimum height */
+    }
+
+    .ContactBanner {
+        display: none;
+        font-family: GlitchFont;
+        transform: rotate(270deg);
+        color: white;
+        height: 5calc(var(--app-width))
+    }
+
+    .ThankYou {
+        position: absolute;
+        color: white;
+        width: 90%;
+        top : 50%;
+        left : 50%;
+        transform: translateX(-50%) translateY(-50%);
+        font-family: "Montserrat";
+        font-size: calc(var(--app-height) * .02);
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .ContactBanner {
+        font-size: calc(var(--app-width) * .04);
+        margin-right: -90px;
+    }
+    
+    .FormContainer {
+        border-style: solid;
+        border-width: 1px;
+        background-color: white;
+        box-shadow: black;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        justify-self: center;
+        margin: 50px 0 0 0;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .FormContainer form input {
+        font-family: "Montserrat";
+    }
+
+    .FormContainer form textarea {
+        font-family: "Montserrat";
+    }
+
+    .ContactInstructions {
+        font-family: GlitchFont;
+        color: white;
+        margin-left: 25%;
+        display: none;
+    }
+
+
+    .BannerAndForm {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0%;
+        }
+        100% {
+            opacity: 100%;
+        }
+    }
+
+    .Fade-In {
+        animation: fade-in 1.2s both;
+    }
+}

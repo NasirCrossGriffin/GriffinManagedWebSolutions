@@ -1,0 +1,50 @@
+.SystemsPage {
+    width: var(--app-width);
+    height: auto;
+}
+
+@media (min-width : 1440px) {
+    .UbuntuLogo {
+        position: absolute;
+        top : 50%;
+        transform: translateY(-50%);
+        width: 25%;
+        height: fit-content;
+        left : 50px;
+        bottom : 70px;
+        overflow-y: hidden;
+        z-index: 2;
+    }
+}
+
+.UbuntuLogo img {
+    width: 100%;
+    height : auto;
+    overflow-y: hidden;
+}
+
+.SystemsPage .ProjectContainer {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    min-height: 0;
+    max-height: fit-content;
+    margin-bottom: 100px;
+}
+
+.SystemsHeader {
+    position: relative;
+    font-family: GlitchFont;
+    width: fit-content;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 45px;
+}
+
+.CaseStudy {
+    position: relative;
+    width: var(--app-width);
+    height: var(--app-height);
+    margin-bottom: 150px;
+}
