@@ -1500,7 +1500,7 @@
     .ContactMessage {
         width: 100%;
         text-align: center;
-        font-size: calc(var(--app-width) * .5);
+        font-size: calc(var(--app-width) * .05);
         color: white;
         font-family: "Montserrat";
     }
