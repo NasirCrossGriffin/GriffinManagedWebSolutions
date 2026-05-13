@@ -58,9 +58,9 @@ function Footer({setScrollTarget}) {
           <a href='/home'>Home</a>
           <a href='/privacy-policy'>Privacy Policy</a>
           <a href='/terms-of-use'>Terms Of Use</a>
-          <a href='/real-estate-disclaimer'>Web Development Disclaimer</a>
+          <a href='/website-disclaimer'>Web Development Disclaimer</a>
           <a href='/accessibility'>Accessibility</a>
-          <a href='/contact'>Contact</a>
+          <a href='/contact-footer'>Contact</a>
         </div>
 
         <span className='Divider'></span>
