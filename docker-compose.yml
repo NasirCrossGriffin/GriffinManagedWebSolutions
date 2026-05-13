@@ -3,6 +3,6 @@ services:
   app:
     build: ./backend
     env_file:
-      - .env  
+      - ./backend/.env  
     ports:
       - "${PORT}:${PORT}"

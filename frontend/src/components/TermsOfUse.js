@@ -113,11 +113,11 @@ const TermsOfUse = () => {
         </p>
   
         <p>
-          <strong>Apex Investments & Acquisitions</strong>
+          <strong>Griffin Managed Web Solutions</strong>
           <br />
-          info@apexinvestorgroup.com
+          info@griffinmanagedwebsolutions.com
           <br />
-          +1 (856) 452-8656
+          +1 (609) 805-9113
         </p>
       </main>
     );

@@ -1,10 +1,10 @@
 #!/bin/bash
-cd /portfolio/PersonalSite || {
+cd /client-sites/GriffinManagedWebSolutions || {
         echo "Unable to change directories."
         exit 1
 }
 
-sudo git pull origin main || {
+sudo git pull origin master || {
         echo "Unable to pull latest update."
         exit 1
 }
@@ -14,7 +14,7 @@ sudo docker-compose down || {
         exit 1
 }
 
-cd /portfolio/PersonalSite/portfoliosite || {
+cd /client-sites/GriffinManagedWebSolutions/frontend || {
         echo "Unable to change directories."
         exit 1
 }
@@ -24,25 +24,25 @@ npm run build || {
         exit 1
 }
 
-rm -rf /portfolio/PersonalSite/backend/build || {
+rm -rf /client-sites/GriffinManagedWebSolutions/backend/build || {
         echo "Unable to delete build folder."
         exit 1
 }
 
-mv build /portfolio/PersonalSite/backend || {
+mv build /client-sites/GriffinManagedWebSolutions/backend || {
         echo "Unable to overwrite build folder."
         exit 1
 }
 
-cd /portfolio/PersonalSite || {
+cd /client-sites/GriffinManagedWebSolutions || {
         echo "Unable to change directories."
         exit 1
 }
 
 sudo docker-compose up --build -d || {
-        echo "Unable to build and start personal site container."
+        echo "Unable to build and start griffin managed web solutions container."
         exit 1
 }
 
-echo "The personal site frontend was rebuilt. The Docker container was started and is successfully serving the personal site!"
+echo "The griffin managed web solutions was rebuilt. The Docker container was started and is successfully serving the web agency site!"
 exit%       

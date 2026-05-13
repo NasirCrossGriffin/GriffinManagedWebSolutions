@@ -45,7 +45,7 @@ const ContactPage = () => {
           <h2>Service Areas</h2>
   
           <p>
-            Nationwide
+            Houston, TX
           </p>
         </section>
       </main>

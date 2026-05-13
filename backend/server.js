@@ -18,7 +18,7 @@ db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('Connected to Database'))
 
 app.get('/', (req, res) => {
-    res.redirect('/nasirgriffin');
+    res.redirect('/home');
 });
 
 const contactRouter = require('./routes/contactroutes');
