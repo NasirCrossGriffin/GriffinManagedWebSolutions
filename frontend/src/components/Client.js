@@ -76,7 +76,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
 
     const projects = [
         {
-            name : "APEX INVESTMENTS & ACQUISITIONS WEBPAGE", 
+            name : "APEX INVESTMENTS AND ACQUISITIONS WEBPAGE", 
             image : "/static/ApexInvestments.png", 
             description : `I worked with Apex Investments & Acquisitions to develop a premium real 
             estate platform focused on credibility, trust, and high-impact visual presentation. The 
