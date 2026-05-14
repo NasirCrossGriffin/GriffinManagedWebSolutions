@@ -76,6 +76,20 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
 
     const projects = [
         {
+            name : "APEX INVESTMENTS & ACQUISITIONS WEBPAGE", 
+            image : "/static/ApexInvestments.png", 
+            description : `I worked with Apex Investments & Acquisitions to develop a premium real 
+            estate platform focused on credibility, trust, and high-impact visual presentation. The 
+            project combines advanced animation, cinematic transitions, and modern UI design to create 
+            a distinctive experience tailored to the real estate investment industry. I also integrated 
+            the website directly with the company’s CRM workflow to support streamlined lead capture 
+            and client communication. This project is currently still under active development, but the 
+            Apex team has allowed it to be showcased here as part of my portfolio. The result is a highly 
+            customized digital experience built to position the company as a premium brand within the real 
+            estate space.`,
+            link : "http://73.194.35.163:5000/home"
+        },
+        {
             name : "TRINITY SILVA MODEL PAGE", 
             image : "/static/trinitysilva.png", 
             description : `I partnered with Trinity Silva to create a polished portfolio website that positioned her as 
