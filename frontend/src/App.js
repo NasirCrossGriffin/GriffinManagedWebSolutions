@@ -178,6 +178,56 @@ function App() {
         window.visualViewport?.removeEventListener("resize", setMobileAppHeight);
       };
     }
+
+    let previousWidth = window.visualViewport
+      ? Math.round(window.visualViewport.width)
+      : window.innerWidth;
+
+    let previousHeight = window.visualViewport
+      ? Math.round(window.visualViewport.height)
+      : window.innerHeight;
+
+    function handleViewportResize() {
+      const viewport = window.visualViewport;
+
+      const currentWidth = viewport
+        ? Math.round(viewport.width)
+        : window.innerWidth;
+
+      const currentHeight = viewport
+        ? Math.round(viewport.height)
+        : window.innerHeight;
+
+      /*
+        Ignore pure scale changes.
+
+        On pinch zoom:
+        - visualViewport.scale changes
+        - width/height often change proportionally
+
+        We only care about ACTUAL layout viewport changes:
+        - orientation changes
+        - browser UI collapse/expand
+        - window resizing
+      */
+
+      const widthChanged = currentWidth !== previousWidth;
+      const heightChanged = currentHeight !== previousHeight;
+
+      if (widthChanged || heightChanged) {
+
+        setAppWidth();
+
+        previousWidth = currentWidth;
+        previousHeight = currentHeight;
+      }
+    }
+
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", handleViewportResize);
+    } else {
+      window.addEventListener("resize", handleViewportResize);
+    }
   }, []);
 
   useEffect(() => {
@@ -194,8 +244,7 @@ function App() {
     <> 
       <BrowserRouter future={{ v7_startTransition: true }}> 
         <Routes>
-          <Route path="/" element={<Navigate to="/home"/>}/>
-          <Route path="/home" element={<Client orientation={orientation} appHeight={appHeight} appWidth={appWidth} pageHeight={pageHeight} />}/> 
+          <Route path="/" element={<Client orientation={orientation} appHeight={appHeight} appWidth={appWidth} pageHeight={pageHeight} />}/> 
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-use" element={<TermsOfUse />} />
           <Route path="/website-disclaimer" element={<WebsiteDisclaimer />} />
@@ -204,7 +253,6 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-      <div className='background'></div>
     </>
     
   );

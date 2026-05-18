@@ -623,6 +623,323 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
     }, []);
     return (
         <>
+            <div className="Projects">
+                <header className="BusinessTitle" style={{minHeight : appHeight === 0 ? "100vh" : "0px"}} ref={businessTitleRef}>
+                    <div className="BusinessHeader Reveal"><img src='/static/GriffinLogo.png' alt="Griffin Managed Web Solutions logo"/></div>
+
+                    <h1 className='MainSiteHeader'>Premium Houston Web Design & Development</h1>
+
+                    <p className="LandingCopyright">
+                      © 2026 Griffin Managed Web Solutions. All rights reserved.
+                    </p>
+
+                    <p className="Slogan Reveal">
+                        We turn leads into customers.
+                    </p>
+
+                    <button className='CTAButton Reveal' onClick={() => scrollToContact()}>
+                        <span>Get Started </span>
+                        <svg width="2vw" height="2vw" viewBox="0 0 36 16">
+                            <path d="M0 8h24M20 4L28 8L20 12" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </button>
+                </header>
+
+                <p className='Scroll-Down' data-text="SCROLL DOWN" ref={scrollDownRef}>SCROLL DOWN</p>
+
+                <div className='firstdivider'></div>
+                
+                <main>
+                    <section>
+                        <div className="InitialSection Fade-In" >
+                            <div className="Information">
+                                <h2 className="header TextLayer" ref={ClientServices}>CLIENT SERVICES</h2>
+                                <div className="divider"></div>
+                                <div className="PageDetails ClientServices" ref={PageDetails}>
+                                    <p className="DetailsHeading" style={{textTransform : 'uppercase'}}>Websites that build trust<br />Systems that bring you customers.</p>
+                                    <p className="DetailsCopy">
+                                        We don’t just build websites, we build premium brand experiences and systems 
+                                        that make your business look credible and bring in customers. Every site is 
+                                        designed to capture leads, build trust instantly, and turn visitors into 
+                                        real opportunities.
+                                    </p>
+                                </div>
+                            </div>                    
+                            
+                            <div className="Handshake">
+                                    <img src="/static/handshake.png" />
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 className='SectionHeader ClientServices TextLayer' ref={ServicesHeader}><span>How we strengthen your business</span></h2>
+
+                        <div className="Services" ref={servicesSectionRef}>
+                            {Services.map((service, index) => (
+                                <div
+                                key={index}
+                                className="ServiceContainer"
+                                ref={(node) => (serviceRefs.current[index] = node)}
+                                >
+                                <div className="Service" id={`service-${index}`}>
+                                    <p className="ServiceName">{service.name}</p>
+                                    <div className="ServiceImageContainer">
+                                        <img src={service.image} alt={service.name} />
+                                    </div>
+                                    <p className="ServiceDesc">{service.description}</p>
+                                </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 className='SectionHeader TextLayer' ref={TestimonialsHeader}>Testimonials</h2>
+
+                        <div className='CredibilitySection'>
+                            <div className='Testimonials' ref={testimonialsSectionRef}>
+                                {testimonials.map((testimony, index) => (
+                                    <div
+                                        key={index}
+                                        className='TestimonyContainer'
+                                        ref={(node) => (testimonialRefs.current[index] = node)}
+                                    >
+                                        <div className='Testimony'>
+                                            <div className='Client'>
+                                            <div className='ClientImage'>
+                                                <img src={testimony.image} alt={testimony.client} />
+                                            </div>
+                                            <h2>{testimony.client}</h2>
+                                            </div>
+
+                                            <p className='ClientTestimony'>{testimony.testimony}</p>
+
+                                            <div className='StarRating'>
+                                            {Array.from({ length: testimony.Stars }).map((_, starIndex) => (
+                                                <div key={starIndex} className="Star">
+                                                <img src="/static/star.png" alt="star" />
+                                                </div>
+                                            ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            <button className='GoogleLink' onClick={() => {window.open(`https://share.google/0dNpvbwOEFTvyWejN`, '_blank')}}>
+                                <div className='GoogleIcon'>
+                                    <img src='/static/google.png' />
+                                </div>
+                                Google<br />Reviews 
+                                <div className='GoogleStars'>
+                                    5 
+                                    <div>
+                                        <img src='/static/GoogleStar.png'/>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 className='SectionHeader TextLayer' ref={CaseStudiesHeader}>High Conversion Websites</h2>
+
+                        <div className="ListOfProjects">
+                            {  
+                                projects.map((project, index) => (
+                                    <div key={index} className="ProjectContainer" ref={projectRefs.current[index]}>
+                                        <div className={`Project ${projectVisibilityState[index].visibility ? "Slide-Up" : "Fade-Out"}`}>
+                                            <h3 className="ProjectName">{project.name}</h3>
+                                            <div className="ImgAndDesc">
+                                                <div className="ProjectImageContainer">
+                                                    <img src={project.image} alt={project.name}/>
+                                                </div>
+                                                <p className="ProjectDesc">{project.description}</p>
+                                            </div>
+                                            <a className="ProjectLink" href={project.link} target="_blank">CHECK OUT {project.name}</a>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 className='SectionHeader TextLayer' ref={SystemsHeader}>Revenue Optimizing Systems</h2>
+
+                        <div className="ListOfProjects">
+                            {  
+                                systems.map((system, index) => (
+                                    <div key={index} className="ProjectContainer" ref={systemRefs.current[index]}>
+                                        <div className={`Project ${systemVisibilityState[index].visibility ? "Slide-Up" : "Fade-Out"}`}>
+                                            <h3 className="ProjectName">{system.name}</h3>
+                                            <div className="ImgAndDesc">
+                                                <div className="ProjectImageContainer">
+                                                    <img src={system.image} alt={system.name}/>
+                                                </div>
+                                                <p className="ProjectDesc">{system.description}</p>
+                                            </div>
+                                            <a className="ProjectLink" href={system.link} target="_blank">CHECK OUT {system.name}</a>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 className='SectionHeader TextLayer' ref={ProductsHeader}>CAPTURE MORE REVENUE TODAY</h2>
+
+                        <div className='ProductsSection' ref={productsSectionRef}>
+                            <div className='Products'>
+                                <div className='Product Invisible' ref={alphaRef}>
+                                    <h3 className='Tier'>GMWS System Access</h3>
+
+                                    <div className='TierImage'><img src='/static/alpha.png' /></div>
+
+                                    <ul>
+                                        <li>Instant access to a proven lead capture system</li>
+                                        <li>Capture and organize customer inquiries automatically</li>
+                                        <li>Structured pipeline to track and manage every lead</li>
+                                        <li>Built-in workflows to respond faster and close more deals</li>
+                                        <li>Customer-friendly intake experience that builds trust</li>
+                                        <li>Admin dashboard to view, manage, and update leads in real time</li>
+                                        <li>Integrated into a clean, professional website</li>
+                                        <li>Fully hosted, maintained, and managed for you</li>
+                                        <li>Continuous updates and improvements to the system</li>
+                                    </ul>
+
+                                    <div className='Fees'>
+                                        <span className='BuildFee'>Setup Fee: $500</span>
+                                        <span className='MonthlyFee'>Monthly Fee: $150</span>
+                                    </div>
+                                </div>
+
+                                <div className='Product Invisible' ref={betaRef}>
+                                    <h3 className='Tier'>High-Conversion Website</h3>
+
+                                    <div className='TierImage'><img src='/static/beta.png' /></div>
+
+                                    <ul>
+                                        <li>Custom-designed website tailored to your business</li>
+                                        <li>Built to establish trust and professional credibility</li>
+                                        <li>Mobile-optimized for a seamless experience on all devices</li>
+                                        <li>Clear messaging that communicates your services effectively</li>
+                                        <li>Strategic layout designed to guide visitors to take action</li>
+                                        <li>Contact forms to capture inquiries and leads</li>
+                                        <li>Fast-loading, reliable performance</li>
+                                        <li>Deployed and hosted for you (no technical setup required)</li>
+                                        <li>Ongoing support and maintenance available</li>
+                                    </ul>
+
+                                    <div className='Fees'>
+                                        <span>Build Fee: $1000</span>
+                                        <span>Monthly Maintenance: $100</span>
+                                    </div>
+                                </div>
+
+                                <div className='Product Invisible' ref={gammaRef}>
+                                    <h3 className='Tier'>Elite Brand Experience</h3>
+
+                                    <div className='TierImage'><img src='/static/gamma.png' /></div>
+
+                                    <ul>
+                                        <li>Fully custom-built website engineered from the ground up</li>
+                                        <li>Advanced animations and interactions for a premium user experience</li>
+                                        <li>Expert-level UI/UX design focused on engagement and retention</li>
+                                        <li>Strategic storytelling layout that elevates your brand perception</li>
+                                        <li>High-impact visuals and motion design to stand out from competitors</li>
+                                        <li>Optimized user flow to guide visitors toward conversion</li>
+                                        <li>Seamless experience across desktop and mobile devices</li>
+                                        <li>Fully deployed, hosted, and managed for you</li>
+                                        <li>Ongoing support, updates, and refinement</li>
+                                    </ul>
+
+                                    <div className='Fees'>
+                                        <span>Build Fee: $2,500</span>
+                                        <span>Monthly Maintenance: $150</span>
+                                    </div>
+                                </div>
+
+                                <div className='Product Invisible' ref={omegaRef}>
+                                    <h3 className='Tier'>Custom Revenue System</h3>
+
+                                    <div className='TierImage'><img src='/static/omega.png' /></div>
+
+                                    <ul>
+                                        <li>Fully custom-built lead capture system tailored to your business workflow</li>
+                                        <li>Custom frontend experience designed for maximum user conversion</li>
+                                        <li>Advanced backend system to manage, track, and update all leads</li>
+                                        <li>Structured pipeline to move leads from inquiry to closed deal</li>
+                                        <li>Admin dashboard with full control over leads, statuses, and data</li>
+                                        <li>Automated workflows to reduce manual work and increase response speed</li>
+                                        <li>Custom features built specifically for your industry and operations</li>
+                                        <li>Fully deployed, hosted, and managed infrastructure</li>
+                                        <li>Ongoing support, updates, and system expansion</li>
+                                    </ul>
+
+                                    <div className='Fees'>
+                                        <span>Build Fee: $4,000</span>
+                                        <span>Monthly Maintenance: $250</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div className='CallToAction'>
+                            <div className='CTAContainer'>
+                                <h2>Scale Your Business Today</h2>
+                            </div>
+                            <button className='CTAButton' onClick={() => scrollToContact()}>
+                                <span>Get Started </span>
+                                <svg width="2vw" height="2vw" viewBox="0 0 36 16">
+                                    <path d="M0 8h24M20 4L28 8L20 12" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 className='SectionHeader TextLayer' ref={ContactHeader}>Let Us Handle This For You</h2>
+
+                        <div
+                            className='Contact'
+                            ref={contactRef}
+                            data-section="contact"
+                        >
+                            <img className={`Snapshot ${/*observingContact ? "fade-in" : "fade-out"*/''}`} src="/static/GriffinMWS.png" />
+                            <div className='ContactContainer'>
+                                <div className='WhiteRectangle'>
+                                    <p>Get in Touch!</p>
+                                </div>
+                                <p className='ContactTag'>contact / inquiries</p>
+                                <p className='ContactDescription'>Got questions, inquiries, or want information about services? Send me a message below!</p>
+
+                                <div className='SubmissionBox' ref={SubmissionBox}>
+                                    <div className='ContactGrid'>
+                                    <input placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} />
+                                    <input placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} />
+                                    <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                                    <input placeholder="Phone" onChange={(e) => setPhone(e.target.value)} />
+                                    </div>
+
+                                    <textarea
+                                    placeholder="Enter Your Message Here"
+                                    onChange={(e) => setMessage(e.target.value)}
+                                    />
+
+                                    <button onClick={messageSent === "Your contact message failed to send." || messageSent === null ? submitContact : null}>Submit</button>
+                                </div>
+
+                                {messageSent ? <p className='ContactMessage'>{messageSent}</p> : null}
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+
             <div className="BackgroundLayer">
                 <div className="StartingBackground">
                     <img src={orientation ? orientation === 'landscape' ? "/static/GriffinHome.png" : "/static/GriffinBGMobile.png" : null} />
@@ -635,316 +952,6 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                 <div className="FinalBackground">
                     <img src={orientation ? orientation === 'landscape' ? "/static/GriffinContact.png" : "/static/GriffinContactMobile.png" : null} />
                 </div>
-            </div>
-
-            <div className="Projects">
-                <p className='Scroll-Down' data-text="SCROLL DOWN" ref={scrollDownRef}>SCROLL DOWN</p>
-                <div className="BusinessTitle" style={{minHeight : appHeight === 0 ? "100vh" : "0px"}} ref={businessTitleRef}>
-                    <div className="BusinessHeader Reveal"><img src='/static/GriffinLogo.png' /></div>
-
-                    <p className="Slogan Reveal">
-                        We turn leads into customers.
-                    </p>
-
-                    <button className='CTAButton Reveal' onClick={() => scrollToContact()}>
-                        <span>Get Started </span>
-                        <svg width="2vw" height="2vw" viewBox="0 0 36 16">
-                            <path d="M0 8h24M20 4L28 8L20 12" stroke="currentColor" stroke-width="2" fill="none"/>
-                        </svg>
-                    </button>
-                </div>
-
-                <div className='firstdivider'></div>
-
-                <div className="InitialSection Fade-In" >
-                    <div class="Information">
-                        <h1 className="header TextLayer" ref={ClientServices}>CLIENT SERVICES</h1>
-                        <div className="divider"></div>
-                        <div className="PageDetails ClientServices" ref={PageDetails}>
-                            <h2 style={{textTransform : 'uppercase'}}>Websites that build trust<br />Systems that bring you customers.</h2>
-                            <p>
-                                We don’t just build websites, we build systems that make your business 
-                                look credible and bring in customers. Every site is designed to capture 
-                                leads, build trust instantly, and turn visitors into real opportunities.
-                            </p>
-                        </div>
-                    </div>                    
-                    
-                    <div class="Handshake">
-                            <img src="/static/handshake.png" />
-                    </div>
-                </div>
-
-                <h1 className='SectionHeader ClientServices TextLayer' ref={ServicesHeader}><span>How we strengthen your business</span></h1>
-
-                <div className="Services" ref={servicesSectionRef}>
-                    {Services.map((service, index) => (
-                        <div
-                        key={index}
-                        className="ServiceContainer"
-                        ref={(node) => (serviceRefs.current[index] = node)}
-                        >
-                        <div className="Service" id={`service-${index}`}>
-                            <p className="ServiceName">{service.name}</p>
-                            <div className="ServiceImageContainer">
-                                <img src={service.image} alt="no image" />
-                            </div>
-                            <p className="ServiceDesc">{service.description}</p>
-                        </div>
-                        </div>
-                    ))}
-                </div>
-
-                <h1 className='SectionHeader TextLayer' ref={TestimonialsHeader}>Testimonials</h1>
-
-                <div className='CredibilitySection'>
-                    <div className='Testimonials' ref={testimonialsSectionRef}>
-                        {testimonials.map((testimony, index) => (
-                            <div
-                                key={index}
-                                className='TestimonyContainer'
-                                ref={(node) => (testimonialRefs.current[index] = node)}
-                            >
-                                <div className='Testimony'>
-                                    <div className='Client'>
-                                    <div className='ClientImage'>
-                                        <img src={testimony.image} alt={testimony.client} />
-                                    </div>
-                                    <h2>{testimony.client}</h2>
-                                    </div>
-
-                                    <p className='ClientTestimony'>{testimony.testimony}</p>
-
-                                    <div className='StarRating'>
-                                    {Array.from({ length: testimony.Stars }).map((_, starIndex) => (
-                                        <div key={starIndex} className="Star">
-                                        <img src="/static/star.png" alt="star" />
-                                        </div>
-                                    ))}
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    <button className='GoogleLink' onClick={() => {window.open(`https://share.google/0dNpvbwOEFTvyWejN`, '_blank')}}>
-                        <div className='GoogleIcon'>
-                            <img src='/static/google.png' />
-                        </div>
-                        Google<br />Reviews 
-                        <div className='GoogleStars'>
-                            5 
-                            <div>
-                                <img src='/static/GoogleStar.png'/>
-                            </div>
-                        </div>
-                    </button>
-                </div>
-
-                <h1 className='SectionHeader TextLayer' ref={CaseStudiesHeader}>High Conversion Websites</h1>
-
-                <div className="ListOfProjects">
-                    {  
-                        projects.map((project, index) => (
-                            <div key={index} className="ProjectContainer" ref={projectRefs.current[index]}>
-                                <div className={`Project ${projectVisibilityState[index].visibility ? "Slide-Up" : "Fade-Out"}`}>
-                                    <p className="ProjectName">{project.name}</p>
-                                    <div className="ImgAndDesc">
-                                        <div className="ProjectImageContainer">
-                                            <img src={project.image} alt="no image"/>
-                                        </div>
-                                        <p className="ProjectDesc">{project.description}</p>
-                                    </div>
-                                    <a className="ProjectLink" href={project.link} target="_blank">CHECK OUT {project.name}</a>
-                                </div>
-                            </div>
-                        ))
-                    }
-                </div>
-
-                <h1 className='SectionHeader TextLayer' ref={SystemsHeader}>Revenue Optimizing Systems</h1>
-
-                <div className="ListOfProjects">
-                    {  
-                        systems.map((system, index) => (
-                            <div key={index} className="ProjectContainer" ref={systemRefs.current[index]}>
-                                <div className={`Project ${systemVisibilityState[index].visibility ? "Slide-Up" : "Fade-Out"}`}>
-                                    <p className="ProjectName">{system.name}</p>
-                                    <div className="ImgAndDesc">
-                                        <div className="ProjectImageContainer">
-                                            <img src={system.image} alt="no image"/>
-                                        </div>
-                                        <p className="ProjectDesc">{system.description}</p>
-                                    </div>
-                                    <a className="ProjectLink" href={system.link} target="_blank">CHECK OUT {system.name}</a>
-                                </div>
-                            </div>
-                        ))
-                    }
-                </div>
-
-                <h1 className='SectionHeader TextLayer' ref={ProductsHeader}>CAPTURE MORE REVENUE TODAY</h1>
-
-                <div className='ProductsSection' ref={productsSectionRef}>
-                    <div className='Products'>
-                        <div className='Product Invisible' ref={alphaRef}>
-                            <h1 className='Tier'>GMWS System Access</h1>
-
-                            <div className='TierImage'><img src='/static/alpha.png' /></div>
-
-                            <ul>
-                                <li>Instant access to a proven lead capture system</li>
-                                <li>Capture and organize customer inquiries automatically</li>
-                                <li>Structured pipeline to track and manage every lead</li>
-                                <li>Built-in workflows to respond faster and close more deals</li>
-                                <li>Customer-friendly intake experience that builds trust</li>
-                                <li>Admin dashboard to view, manage, and update leads in real time</li>
-                                <li>Integrated into a clean, professional website</li>
-                                <li>Fully hosted, maintained, and managed for you</li>
-                                <li>Continuous updates and improvements to the system</li>
-                            </ul>
-
-                            <div className='Fees'>
-                                <span className='BuildFee'>Setup Fee: $500</span>
-                                <span className='MonthlyFee'>Monthly Fee: $150</span>
-                            </div>
-                        </div>
-
-                        <div className='Product Invisible' ref={betaRef}>
-                            <h1 className='Tier'>High-Conversion Website</h1>
-
-                            <div className='TierImage'><img src='/static/beta.png' /></div>
-
-                            <ul>
-                                <li>Custom-designed website tailored to your business</li>
-                                <li>Built to establish trust and professional credibility</li>
-                                <li>Mobile-optimized for a seamless experience on all devices</li>
-                                <li>Clear messaging that communicates your services effectively</li>
-                                <li>Strategic layout designed to guide visitors to take action</li>
-                                <li>Contact forms to capture inquiries and leads</li>
-                                <li>Fast-loading, reliable performance</li>
-                                <li>Deployed and hosted for you (no technical setup required)</li>
-                                <li>Ongoing support and maintenance available</li>
-                            </ul>
-
-                            <div className='Fees'>
-                                <span>Build Fee: $1000</span>
-                                <span>Monthly Maintenance: $100</span>
-                            </div>
-                        </div>
-
-                        <div className='Product Invisible' ref={gammaRef}>
-                            <h1 className='Tier'>Elite Brand Experience</h1>
-
-                            <div className='TierImage'><img src='/static/gamma.png' /></div>
-
-                            <ul>
-                                <li>Fully custom-built website engineered from the ground up</li>
-                                <li>Advanced animations and interactions for a premium user experience</li>
-                                <li>Expert-level UI/UX design focused on engagement and retention</li>
-                                <li>Strategic storytelling layout that elevates your brand perception</li>
-                                <li>High-impact visuals and motion design to stand out from competitors</li>
-                                <li>Optimized user flow to guide visitors toward conversion</li>
-                                <li>Seamless experience across desktop and mobile devices</li>
-                                <li>Fully deployed, hosted, and managed for you</li>
-                                <li>Ongoing support, updates, and refinement</li>
-                            </ul>
-
-                            <div className='Fees'>
-                                <span>Build Fee: $2,500</span>
-                                <span>Monthly Maintenance: $150</span>
-                            </div>
-                        </div>
-
-                        <div className='Product Invisible' ref={omegaRef}>
-                            <h1 className='Tier'>Custom Revenue System</h1>
-
-                            <div className='TierImage'><img src='/static/omega.png' /></div>
-
-                            <ul>
-                                <li>Fully custom-built lead capture system tailored to your business workflow</li>
-                                <li>Custom frontend experience designed for maximum user conversion</li>
-                                <li>Advanced backend system to manage, track, and update all leads</li>
-                                <li>Structured pipeline to move leads from inquiry to closed deal</li>
-                                <li>Admin dashboard with full control over leads, statuses, and data</li>
-                                <li>Automated workflows to reduce manual work and increase response speed</li>
-                                <li>Custom features built specifically for your industry and operations</li>
-                                <li>Fully deployed, hosted, and managed infrastructure</li>
-                                <li>Ongoing support, updates, and system expansion</li>
-                            </ul>
-
-                            <div className='Fees'>
-                                <span>Build Fee: $4,000</span>
-                                <span>Monthly Maintenance: $250</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className='CallToAction'>
-                    <div className='CTAContainer'>
-                        <h1>Scale Your Business Today</h1>
-                    </div>
-                    <button className='CTAButton' onClick={() => scrollToContact()}>
-                        <span>Get Started </span>
-                        <svg width="2vw" height="2vw" viewBox="0 0 36 16">
-                            <path d="M0 8h24M20 4L28 8L20 12" stroke="currentColor" stroke-width="2" fill="none"/>
-                        </svg>
-                    </button>
-                </div>
-
-                <h1 className='SectionHeader TextLayer' ref={ContactHeader}>Let Us Handle This For You</h1>
-
-                <div
-                    className='Contact'
-                    ref={contactRef}
-                    data-section="contact"
-                >
-                    <img className={`Snapshot ${/*observingContact ? "fade-in" : "fade-out"*/''}`} src="/static/GriffinMWS.png" />
-                    <div className='ContactContainer'>
-                        <div className='WhiteRectangle'>
-                            <p>Get in Touch!</p>
-                        </div>
-                        <p className='ContactTag'>contact / inquiries</p>
-                        <p className='ContactDescription'>Got questions, inquiries, or want information about services? Send me a message below!</p>
-
-                        <div className='SubmissionBox' ref={SubmissionBox}>
-                            <div className='ContactGrid'>
-                            <input placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} />
-                            <input placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} />
-                            <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-                            <input placeholder="Phone" onChange={(e) => setPhone(e.target.value)} />
-                            </div>
-
-                            <textarea
-                            placeholder="Enter Your Message Here"
-                            onChange={(e) => setMessage(e.target.value)}
-                            />
-
-                            <button onClick={messageSent === "Your contact message failed to send." || messageSent === null ? submitContact : null}>Submit</button>
-                        </div>
-
-                        {messageSent ? <p className='ContactMessage'>{messageSent}</p> : null}
-                    </div>
-                </div>
-
-                {/*<div className='Contact'>
-                    <div className='ContactContainer'>
-                        <div className='ContactMethod'>
-                            <h2 className='MethodHeader'>Email Us</h2>
-                            <button className='MethodButton' onClick={() => {navigate(`/contact`, { replace: true })}}>
-                                <img className='MethodImage' src='/static/email.png'/>
-                            </button>
-                        </div>
-
-                        <div className='ContactMethod'>
-                            <h2 className='MethodHeader'>Call Us</h2>
-                            <a className='MethodButton' href="tel:+16098059113">
-                                <img className='MethodImage' src='/static/call.png'/>
-                            </a>
-                        </div>
-                    </div>
-                </div>*/}
-
             </div>
         </>
     );

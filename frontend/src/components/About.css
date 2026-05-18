@@ -154,7 +154,7 @@
         height: fit-content;
     }
 
-    .PageDetails p {
+    .DetailsCopy {
         position: relative;
         font-family: 'Montserrat';
         font-size: calc(var(--app-width) * .02);
@@ -164,7 +164,7 @@
 
 
 
-    .PageDetails h2 {
+    .DetailsHeading {
         position: relative;
         font-family: GlitchFont;
         font-size: calc(var(--app-width) * .03);
@@ -576,7 +576,7 @@
         height: fit-content;
     }
 
-    .PageDetails p {
+    .DetailsCopy {
         position: relative;
         font-family: 'Montserrat';
         font-weight: 500;
@@ -584,12 +584,12 @@
         text-align: center;
     }
 
-        .PageDetails p {
+        .DetailsCopy {
             font-size: calc(var(--app-height) * .03);
         }
 
 
-    .PageDetails h2 {
+    .DetailsHeading {
         position: relative;
         font-family: GlitchFont;
         width: 90%;
@@ -598,7 +598,7 @@
 
 
 
-        .PageDetails h2 {
+        .DetailsHeading {
             font-size: calc(var(--app-height) * .03);
         }
 

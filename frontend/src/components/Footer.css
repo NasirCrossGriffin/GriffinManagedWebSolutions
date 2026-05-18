@@ -110,7 +110,7 @@
       min-height: 0;
     }
 
-    .ApexContact .Contact h1 {
+    .ContactField {
         width: 100%;
         font-family: 'Montserrat';
         color: darkgray;
@@ -118,7 +118,7 @@
         margin: 0 0 0 0;
     }
 
-    .ApexContact .Contact h2 {
+    .ContactValue {
         width: 100%;
         font-family: 'Montserrat';
         color: white;
@@ -289,7 +289,7 @@
       align-items: center;
     }
 
-    .ApexContact .Contact h1 {
+    .ContactField {
         width: 100%;
         font-family: 'Montserrat';
         color: darkgray;
@@ -297,7 +297,7 @@
         margin: 0 0 0 0;
     }
 
-    .ApexContact .Contact h2 {
+    .ContactValue {
         width: 100%;
         font-family: 'Montserrat';
         color: white;

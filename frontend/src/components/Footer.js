@@ -21,18 +21,18 @@ function Footer({setScrollTarget}) {
 
       <div className='ApexContact'>
         <div className='Contact'>
-          <h1>Based In</h1>
-          <h2>Houston, TX</h2>
+          <p className='ContactField'>Based In</p>
+          <p className='ContactValue'>Houston, TX</p>
         </div>
 
         <div className='Contact'>
-          <h1>Email Us</h1>
-          <h2>info@griffinmanagedwebsolutions.com</h2>
+          <p className='ContactField'>Email Us</p>
+          <p className='ContactValue'>info@griffinmanagedwebsolutions.com</p>
         </div>
 
         <div className='Contact'>
-          <h1>Call Us</h1>
-          <h2>+1 (609) 805-9113</h2>
+          <p className='ContactField'>Call Us</p>
+          <p className='ContactValue'>+1 (609) 805-9113</p>
         </div>
       </div>
 
@@ -55,7 +55,7 @@ function Footer({setScrollTarget}) {
         <span className='Divider'></span>
 
         <div className='LegalNav'>
-          <a href='/home'>Home</a>
+          <a href='/'>Home</a>
           <a href='/privacy-policy'>Privacy Policy</a>
           <a href='/terms-of-use'>Terms Of Use</a>
           <a href='/website-disclaimer'>Web Development Disclaimer</a>
