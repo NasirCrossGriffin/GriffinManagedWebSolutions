@@ -250,6 +250,7 @@ function App() {
           <Route path="/website-disclaimer" element={<WebsiteDisclaimer />} />
           <Route path="/accessibility" element={<AccessibilityStatement />} />
           <Route path="/contact-footer" element={<ContactFooter />} /> 
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -803,6 +803,16 @@
         text-align: center;
     }
 
+    .LandingCopyright {
+        position: absolute;
+        font-size: calc(var(--app-width) * .01);
+        font-family: 'Montserrat';
+        color: white;
+        right: 1%;
+        bottom : 1%
+    }
+
+
     .firstdivider {
         position: relative;
         width: var(--app-width);
