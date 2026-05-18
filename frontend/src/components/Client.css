@@ -1680,3 +1680,15 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+
+    header {
+        width: var(--app-width);
+    }
+
+    main {
+        width: var(--app-width);
+    }
+
+    section {
+        width: var(--app-width);
+    }

@@ -17,10 +17,6 @@ const db = mongoose.connection
 db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('Connected to Database'))
 
-app.get('/', (req, res) => {
-    res.redirect('/home');
-});
-
 const contactRouter = require('./routes/contactroutes');
 
 app.use('/api/contact', contactRouter);
