@@ -119,7 +119,7 @@ const WebsiteDisclaimer = () => {
       <p>
         <strong>Griffin Managed Web Solutions</strong>
         <br />
-        contact@griffinmanagedwebsolutions.com
+        info@griffinmanagedwebsolutions.com
       </p>
     </main>
   );

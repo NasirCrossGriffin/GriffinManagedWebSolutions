@@ -32,7 +32,7 @@ function Footer({setScrollTarget}) {
 
         <div className='Contact'>
           <p className='ContactField'>Call Us</p>
-          <p className='ContactValue'>+1 (609) 805-9113</p>
+          <p className='ContactValue'>+1 (346) 800-2659</p>
         </div>
       </div>
 

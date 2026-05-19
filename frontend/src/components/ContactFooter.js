@@ -27,7 +27,8 @@ const ContactPage = () => {
           <p>
             Email: info@griffinmanagedwebsolutions.com
             <br />
-            Phone: +1 (609) 805-9113
+            Phone: +1 (346) 800-2659
+
           </p>
         </section>
   

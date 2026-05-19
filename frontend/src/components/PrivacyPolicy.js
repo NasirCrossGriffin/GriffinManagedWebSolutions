@@ -107,7 +107,7 @@ const PrivacyPolicy = () => {
           <br />
           info@griffinmanagedwebsolutions.com
           <br />
-          +1 (609) 805-9113
+          +1 (346) 800-2659
         </p>
       </main>
     );
