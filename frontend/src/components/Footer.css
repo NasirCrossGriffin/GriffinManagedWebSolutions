@@ -66,15 +66,22 @@
 
     .SocialsNav {
       position: absolute;
-      height: calc(var(--app-width) * .2);;
+      width: 2%;
+      height: calc(var(--app-width) * .1);;
       top : 5%;
-      left: 95%;
-      transform: translate(-95%, -5%);
+      left: 99%;
+      transform: translate(-99%, -5%);
 
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .SocialsNav a img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
     }
 
     .SocialsNav a {
@@ -279,7 +286,7 @@
     }
 
     .ApexContact .Contact {
-      width : 20%;
+      width : 70%;
       height : 15%;
       min-height: 0;
 
@@ -323,6 +330,35 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+    }
+
+    .SocialsNav {
+      position: absolute;
+      width: 5%;
+      height: calc(var(--app-width) * .2);;
+      top : 5%;
+      left: 99%;
+      transform: translate(-99%, -5%);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .SocialsNav a img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+
+    .SocialsNav a {
+      width: 100%;
+      font-size: calc(var(--app-width) * .01);;
+      color: white;
+      font-family: 'Montserrat';
+      font-weight: bold;
+      margin-bottom: calc(var(--app-width) * .01);;
     }
 
     .Divider {

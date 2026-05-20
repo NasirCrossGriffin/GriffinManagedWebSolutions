@@ -49,19 +49,25 @@ function Footer({setScrollTarget}) {
           <img src='/static/GriffinLogo.png'/>
       </div>
 
+      <nav className='SocialsNav'>
+        <a href='https://www.linkedin.com/company/griffin-managed-web-solutions/' target="_blank"><img src='/static/Linkedin.png' alt="Griffin Managed Web Solutions LinkedIn Link"/></a>
+        <a href='https://www.facebook.com/profile.php?id=61589903710335' target="_blank"><img src='/static/Facebook.png' alt="Griffin Managed Web Solutions Facebook Link" /></a>
+        <a href='https://www.instagram.com/griffinmanagedwebsolutions/' target="_blank"><img src='/static/Instagram.png' alt="Griffin Managed Web Solutions Instagram Link"/></a>
+      </nav>
+
       <div className='LegalProtections'>
         <p className='Operator'>This website is operated by Griffin Managed Web Solutions</p>
       
         <span className='Divider'></span>
 
-        <div className='LegalNav'>
+        <nav className='LegalNav'>
           <a href='/'>Home</a>
           <a href='/privacy-policy'>Privacy Policy</a>
           <a href='/terms-of-use'>Terms Of Use</a>
           <a href='/website-disclaimer'>Web Development Disclaimer</a>
           <a href='/accessibility'>Accessibility</a>
           <a href='/contact-footer'>Contact</a>
-        </div>
+        </nav>
 
         <span className='Divider'></span>
 
