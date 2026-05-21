@@ -124,110 +124,34 @@ function App() {
       }
     });
 
-    const resizeObserver = new ResizeObserver(() => {
-        resetPageHeight();
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            setPageHeightFunc();
-            determineOrientation();
-          })
-        });
+    let lastOuterWidth = window.outerWidth;
+    let lastOuterHeight = window.outerHeight;
+
+    //Resize Window #Finally doesn't break zoom
+    window.addEventListener("resize", () => {
+      const isDesktop =
+      window.matchMedia("(pointer: fine)").matches &&
+      !window.matchMedia("(pointer: coarse)").matches;
+
+      if (!(isDesktop)) return;
+
+      const outerWidthChanged = Math.abs(window.outerWidth - lastOuterWidth) > 10;
+      const outerHeightChanged = Math.abs(window.outerHeight - lastOuterHeight) > 10;
+
+      if (!outerWidthChanged && !outerHeightChanged) {
+        // likely zoom, not real browser window resize
+        return;
+      }
+
+      lastOuterWidth = window.outerWidth;
+      lastOuterHeight = window.outerHeight;
+
+      console.log("Actual browser window resized");
+
+      document.documentElement.style.setProperty("--app-width", `${window.innerWidth}px`);
+      document.documentElement.style.setProperty("--app-height", `${window.innerHeight}px`);
     });
 
-    resizeObserver.observe(document.body);
-
-    const isMobile = window.matchMedia("(pointer: coarse)").matches;
-
-    let maxSeenHeight = window.visualViewport?.height || window.innerHeight;
-
-    const setMobileAppHeight = () => {
-      const currentHeight = window.visualViewport?.height || window.innerHeight;
-
-      // Only grow height, never shrink it
-      if (currentHeight > maxSeenHeight) {
-        maxSeenHeight = currentHeight;
-
-        document.documentElement.style.setProperty(
-          "--app-height",
-          `${maxSeenHeight}px`
-        );
-      }
-    };
-
-    if (isMobile) {
-      setMobileAppHeight();
-
-      setTimeout(setMobileAppHeight, 300);
-      setTimeout(setMobileAppHeight, 800);
-      setTimeout(setMobileAppHeight, 1500);
-
-      function setMobileDimensions() {
-        setMobileAppHeight();
-        requestAnimationFrame(() => {
-          setWidth();
-        })
-      }
-
-      window.visualViewport?.addEventListener("resize", setMobileDimensions);
-      window.addEventListener("orientationchange", () => {
-        maxSeenHeight = 0;
-        setTimeout(setMobileAppHeight, 500);
-      });
-
-      return () => {
-        window.visualViewport?.removeEventListener("resize", setMobileAppHeight);
-      };
-    }
-
-    let previousWidth = window.visualViewport
-      ? Math.round(window.visualViewport.width)
-      : window.innerWidth;
-
-    let previousHeight = window.visualViewport
-      ? Math.round(window.visualViewport.height)
-      : window.innerHeight;
-
-    function handleViewportResize() {
-      const viewport = window.visualViewport;
-
-      const currentWidth = viewport
-        ? Math.round(viewport.width)
-        : window.innerWidth;
-
-      const currentHeight = viewport
-        ? Math.round(viewport.height)
-        : window.innerHeight;
-
-      /*
-        Ignore pure scale changes.
-
-        On pinch zoom:
-        - visualViewport.scale changes
-        - width/height often change proportionally
-
-        We only care about ACTUAL layout viewport changes:
-        - orientation changes
-        - browser UI collapse/expand
-        - window resizing
-      */
-
-      const widthChanged = currentWidth !== previousWidth;
-      const heightChanged = currentHeight !== previousHeight;
-
-      if (widthChanged || heightChanged) {
-
-        setAppWidth();
-
-        previousWidth = currentWidth;
-        previousHeight = currentHeight;
-      }
-    }
-
-    if (window.visualViewport) {
-      window.visualViewport.addEventListener("resize", handleViewportResize);
-    } else {
-      window.addEventListener("resize", handleViewportResize);
-    }
   }, []);
 
   useEffect(() => {
