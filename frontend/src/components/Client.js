@@ -87,7 +87,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
             Apex team has allowed it to be showcased here as part of my portfolio. The result is a highly 
             customized digital experience built to position the company as a premium brand within the real 
             estate space.`,
-            link : "http://73.194.35.163:5000/home"
+            link : "http://45.55.248.134:5000/home"
         },
         {
             name : "TRINITY SILVA MODEL PAGE", 
