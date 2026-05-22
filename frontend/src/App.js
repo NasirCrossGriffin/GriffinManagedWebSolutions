@@ -152,9 +152,15 @@ function App() {
       setTimeout(setMobileAppHeight, 800);
       setTimeout(setMobileAppHeight, 1500);
 
+      function isNeutralZoom() {
+        const scale = window.visualViewport?.scale ?? 1;
+        return Math.abs(scale - 1) < 0.01;
+      }
+
       function setMobileDimensions() {
         setMobileAppHeight();
         requestAnimationFrame(() => {
+          if (!isNeutralZoom()) return;
           setWidth();
         })
       }
