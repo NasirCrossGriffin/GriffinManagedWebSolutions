@@ -1455,6 +1455,7 @@
         font-family: 'Montserrat';
         color : white;
         font-size: calc(var(--app-width) * .04);
+        width: 50%;
     }
 
     .ClientTestimony {
