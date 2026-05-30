@@ -1,7 +1,7 @@
 @media (orientation : landscape) {
     @font-face {
         font-family: GlitchFont;
-        src: url('../assets/fonts/CfGlitchCityRegular-L1vZ.ttf');
+        src: url('../assets/fonts/sdglitchdemo.regular.ttf');
     }
 
     .InitialSection {
@@ -146,12 +146,61 @@
     }
 
     .PageDetails {
-        background-color: black;
         position: relative;
-        color: white;
-        font-family: 'Montserrat';
         width: 100%;
         height: fit-content;
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+
+        background:
+            radial-gradient(
+                circle at 16% 0%,
+                rgba(255, 255, 255, 0.11),
+                transparent 34%
+            ),
+            linear-gradient(
+                145deg,
+                #505050 0%,
+                #414141 45%,
+                #323232 100%
+            );
+
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 24px;
+
+        overflow: hidden;
+    }
+
+    .PageDetails::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 8%;
+        width: 84%;
+        height: 1px;
+
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.55),
+            transparent
+        );
+
+        pointer-events: none;
+    }
+
+    .PageDetails::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background: linear-gradient(
+            180deg,
+            transparent 55%,
+            rgba(0, 0, 0, 0.14) 100%
+        );
+
+        pointer-events: none;
     }
 
     .DetailsCopy {
@@ -169,6 +218,7 @@
         font-family: GlitchFont;
         font-size: calc(var(--app-width) * .03);
         left : calc(var(--app-width) * .02);
+        text-align: center;
         width : 90%;
     }
 
@@ -574,6 +624,22 @@
         font-family: 'Montserrat';
         width: 100%;
         height: fit-content;
+
+        background:
+            radial-gradient(
+                circle at 16% 0%,
+                rgba(255, 255, 255, 0.11),
+                transparent 34%
+            ),
+            linear-gradient(
+                145deg,
+                #505050 0%,
+                #414141 45%,
+                #323232 100%
+            );
+
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 24px;
     }
 
     .DetailsCopy {

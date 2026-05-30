@@ -84,15 +84,61 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border-color:  rgb(228, 228, 228);
         border-width: 1px;
         border-style: solid;
         box-shadow: 12px 12px 36px 12px rgba(0, 0, 0, 0.8);
-        background-color: rgb(243, 243, 243);
+        
+        background:
+            radial-gradient(
+                circle at 16% 0%,
+                rgba(255, 255, 255, 0.11),
+                transparent 34%
+            ),
+            linear-gradient(
+                145deg,
+                #505050 0%,
+                #414141 45%,
+                #323232 100%
+            );
+
+        border: 1px solid rgba(255, 255, 255, 0.16);
         margin-top: 20px;
         margin-bottom: 100px;
         width: 80%;
     }
+
+    .ProjectContainer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 8%;
+        width: 84%;
+        height: 1px;
+
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.55),
+            transparent
+        );
+
+        pointer-events: none;
+    }
+
+    .ProjectContainer::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background: linear-gradient(
+            180deg,
+            transparent 55%,
+            rgba(0, 0, 0, 0.14) 100%
+        );
+
+        pointer-events: none;
+    }
+
 
     @media (min-width : 1440px) {
         .ProjectContainer {
@@ -117,6 +163,7 @@
         font-family: GlitchFont;
         font-weight: bold;
         font-size: calc(var(--app-width) * .022);
+        color: white;
     }
 
     .ImgAndDesc {
@@ -132,6 +179,7 @@
         width : 70%;
         height: 100%;
         text-wrap: wrap;
+        color: white;
     }
 
     .ProjectImageContainer {
@@ -230,6 +278,12 @@
     .ProjectLink {
         font-family: GlitchFont;
         font-size: calc(var(--app-width) * .017);
+        color: white;
+        transition: transform 0.6s ease-in-out;
+    }
+
+    .ProjectLink:hover {
+        transform: scale(1.07);
     }
 }
 
@@ -305,11 +359,25 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        border-color:  rgb(228, 228, 228);
         border-width: 1px;
         border-style: solid;
+
+        background:
+            radial-gradient(
+                circle at 16% 0%,
+                rgba(255, 255, 255, 0.11),
+                transparent 34%
+            ),
+            linear-gradient(
+                145deg,
+                #505050 0%,
+                #414141 45%,
+                #323232 100%
+            );
+        
+        border: 1px solid rgba(255, 255, 255, 0.16);
+
         box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
-        background-color: rgb(243, 243, 243);
         margin-top: 20px;
         margin-bottom: 100px;
         width: 80%;
@@ -336,6 +404,7 @@
         font-size: calc(var(--app-height) * .022);
         width: 100%;
         text-align: center;
+        color: white;
     }
 
     .ImgAndDesc {
@@ -351,6 +420,7 @@
         width : 90%;
         height: 100%;
         text-wrap: wrap;
+        color: white;
     }
 
     .ProjectImageContainer {
@@ -446,6 +516,7 @@
 
     .ProjectLink {
         font-family: GlitchFont;
+        color: white;
         font-size: calc(var(--app-height) * .017);
     }
 }

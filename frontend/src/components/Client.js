@@ -164,6 +164,8 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
     const betaRef = useRef(null);
     const gammaRef = useRef(null);
     const omegaRef = useRef(null);
+    
+
     const [observingContact, setObservingContact] = useState(false);
     const [messageSent, setMessageSent] = useState(null);
     const [firstName, setFirstName] = useState('');
@@ -182,6 +184,12 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
     const ProductsHeader = useRef(null);
     const ContactHeader = useRef(null);
     const SubmissionBox = useRef(null);
+
+    const HeroRef = useRef(null);
+    const BusinessHeader = useRef(null);
+    const MainSiteHeader = useRef(null);
+    const Slogan = useRef(null);
+    const CTAButton = useRef(null);
 
 
     const navigate = useNavigate();
@@ -203,6 +211,84 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
         
         requestAnimationFrame(() => {
             const ctx = gsap.context(() => {
+                const tl = gsap.timeline({
+                    delay: 0.45, // waits before the first animation starts
+                    defaults: {
+                        ease: "power3.out",
+                    }
+                });
+
+                tl.fromTo(
+                    HeroRef.current,
+                    {
+                        autoAlpha: 0,
+                    },
+                    {
+                        autoAlpha: 1,
+                        duration: 0.9,
+                    }
+                );
+
+                tl.fromTo(
+                    BusinessHeader.current,
+                    {
+                        y: -20,
+                        scale: 0.96,
+                        autoAlpha: 0,
+                    },
+                    {
+                        y: 0,
+                        scale: 1,
+                        autoAlpha: 1,
+                        duration: 0.9,
+                        filter: "blur(0px)",
+                    }, "-=0.45"
+                );
+
+                tl.fromTo(
+                    MainSiteHeader.current,
+                    {
+                        x: -20,
+                        autoAlpha: 0,
+                    },
+                    {
+                        x: 0,
+                        autoAlpha: 1,
+                        duration: 1.2,
+                        filter: "blur(0px)",
+                    }, "-=0.55"
+                );
+
+                tl.fromTo(
+                    Slogan.current,
+                    {
+                        x: -20,
+                        autoAlpha: 0,
+                    },
+                    {
+                        x: 0,
+                        autoAlpha: 1,
+                        duration: 1.2,
+                        filter: "blur(0px)",
+                    }, "-=0.55"
+                );
+
+                tl.fromTo(
+                    CTAButton.current,
+                    {
+                        y: 20,
+                        scale: 0.96,
+                        autoAlpha: 0,
+                    },
+                    {
+                        y: 0,
+                        scale: 1,
+                        autoAlpha: 1,
+                        duration: 0.9,
+                        filter: "blur(0px)",
+                    }, "-=0.55"
+                );
+
                 gsap.to(ClientServices.current, {
                     backgroundPosition: "0% 0",
                     ease: "none",
@@ -310,30 +396,6 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
 
             return () => ctx.revert();
         })
-    }, []);
-
-    useEffect(() => {
-        const el = businessTitleRef.current;
-        const scrollEl = scrollDownRef.current;
-        if (!el || !scrollEl) return;
-
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                // Reveal sequence (keep your existing behavior)
-                if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-                    el.classList.add("RevealActive");
-
-                    // If title is visible, ensure scroll-down is visible
-                    scrollEl.classList.remove("Fade-Out");
-                } else {
-                    // When businessTitle is no longer being observed, fade out scroll text
-                    scrollEl.classList.add("Fade-Out");
-                }
-            }, { threshold: 0.75 }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
     }, []);
 
     useEffect(() => {
@@ -625,27 +687,27 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
         <>
             <div className="Projects">
                 <header className="BusinessTitle" style={{minHeight : appHeight === 0 ? "100vh" : "0px"}} ref={businessTitleRef}>
-                    <div className="BusinessHeader Reveal"><img src='/static/GriffinLogo.png' alt="Griffin Managed Web Solutions logo"/></div>
+                    <div className='HeroInnerContainer'>
+                        <div ref={BusinessHeader} className="BusinessHeader"><img src='/static/GriffinLogo.png' alt="Griffin Managed Web Solutions logo"/></div>
 
-                    <h1 className='MainSiteHeader'>Premium Houston Web Design & Development</h1>
+                        <h1 ref={MainSiteHeader} className='MainSiteHeader'>Premium Houston Web Design & Development</h1>
 
-                    <p className="LandingCopyright">
-                      © 2026 Griffin Managed Web Solutions. All rights reserved.
-                    </p>
+                        <p className="LandingCopyright">
+                        © 2026 Griffin Managed Web Solutions. All rights reserved.
+                        </p>
 
-                    <p className="Slogan Reveal">
-                        We turn leads into customers.
-                    </p>
+                        <p ref={Slogan} className="Slogan">
+                            We turn leads into customers.
+                        </p>
 
-                    <button className='CTAButton Reveal' onClick={() => scrollToContact()}>
-                        <span>Get Started </span>
-                        <svg width="2vw" height="2vw" viewBox="0 0 36 16">
-                            <path d="M0 8h24M20 4L28 8L20 12" stroke="currentColor" stroke-width="2" fill="none"/>
-                        </svg>
-                    </button>
+                        <button ref={CTAButton} className='CTAButton' onClick={() => scrollToContact()}>
+                            <span>Get Started </span>
+                            <svg width="2vw" height="2vw" viewBox="0 0 36 16">
+                                <path d="M0 8h24M20 4L28 8L20 12" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                    </div>
                 </header>
-
-                <p className='Scroll-Down' data-text="SCROLL DOWN" ref={scrollDownRef}>SCROLL DOWN</p>
 
                 <div className='firstdivider'></div>
                 
@@ -942,17 +1004,13 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
 
             <div className="BackgroundLayer">
                 <div className="StartingBackground">
-                    <img src={orientation ? orientation === 'landscape' ? "/static/GriffinHome.png" : "/static/GriffinBGMobile.png" : null} />
+                    <img ref={HeroRef} src={orientation ? orientation === 'landscape' ? "/static/GriffinHome.png" : "/static/GriffinBGMobile.png" : null} />
                 </div>
 
                 <div className="TrueBackground"></div>
             </div>
 
-            <div className='SecondBackgroundLayer'>
-                <div className="FinalBackground">
-                    <img src={orientation ? orientation === 'landscape' ? "/static/GriffinContact.png" : "/static/GriffinContactMobile.png" : null} />
-                </div>
-            </div>
+
         </>
     );
 }
