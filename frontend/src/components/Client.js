@@ -51,7 +51,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
 
     const testimonials = [ 
         {
-            client : "JDMultiprocessAndServices", 
+            client : "JD Multi-Process And Services", 
             image : "/static/Juliana.png", 
             testimony : `"Griffin is the best he did my web page and I like so much is it great."`, 
             Stars : 5
