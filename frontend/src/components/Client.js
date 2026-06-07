@@ -199,6 +199,57 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
             block: "start",
         });
     }
+
+    const videoRef = useRef(null);
+    const [autoplayBlocked, setAutoplayBlocked] = useState(false);
+
+    useEffect(() => {
+        const video = videoRef.current;
+
+        if (!video) return;
+
+        // Set these properties before calling play().
+        // defaultMuted is useful because Safari evaluates the initial media state.
+        video.muted = true;
+        video.defaultMuted = true;
+        video.playsInline = true;
+
+        const attemptAutoplay = async () => {
+            try {
+                await video.play();
+                setAutoplayBlocked(false);
+            } catch (error) {
+                console.warn("Safari blocked autoplay:", error);
+                setAutoplayBlocked(true);
+            }
+        };
+
+        // Attempt immediately after mounting.
+        attemptAutoplay();
+
+        // Retry once Safari confirms that enough media metadata is available.
+        video.addEventListener("loadedmetadata", attemptAutoplay);
+        video.addEventListener("canplay", attemptAutoplay);
+
+        return () => {
+            video.removeEventListener("loadedmetadata", attemptAutoplay);
+            video.removeEventListener("canplay", attemptAutoplay);
+        };
+    }, []);
+
+    const handleManualPlay = async () => {
+        const video = videoRef.current;
+
+        if (!video) return;
+
+        try {
+        video.muted = true;
+        await video.play();
+        setAutoplayBlocked(false);
+        } catch (error) {
+        console.error("Video still could not play:", error);
+        }
+    };
     
     useEffect(() => {
         requestAnimationFrame(() => {
@@ -738,7 +789,8 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                             {GMWSServices ? <div className='InnerServiceContent'>
                                 <div className='ServiceAnimationWrapper'>
                                     <div className='ServiceAnimation' key={GMWSServices[selectedService].animation}>
-                                        <video 
+                                        <video
+                                            ref={videoRef} 
                                             autoPlay 
                                             loop 
                                             muted 
@@ -989,26 +1041,6 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                             ref={contactRef}
                             data-section="contact"
                         >
-                            <h2>Eclipse Your Competition Today</h2>
-
-                            <div className='SubmissionBox' ref={SubmissionBox}>
-                                <div className='ContactGrid'>
-                                    <input placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} />
-                                    <input placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} />
-                                    <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-                                    <input placeholder="Phone" onChange={(e) => setPhone(e.target.value)} />
-                                </div>
-
-                                <textarea
-                                placeholder="Enter Your Message Here"
-                                onChange={(e) => setMessage(e.target.value)}
-                                />
-
-                                <button onClick={messageSent === "Your contact message failed to send." || messageSent === null ? submitContact : null}>Submit</button>
-                            
-                                <div className='SlashAssets'><img src="/static/SlashAssets.png" /></div>
-                            </div>
-
                             <div className='SocialsNav'>
                                 <div className='DiamondGriffin'><img src="/static/DiamondGriffin.png" /></div>
 
@@ -1044,10 +1076,31 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                                     href='https://www.linkedin.com/company/117794294/'
                                     target='_blank'
                                 >
-                                    <img src="./static/LinkedIn_Contact.png" />
+                                    <img src="./static/Linkedin_Contact.png" />
                                 </a>
                             </div>
 
+                            <h2>Eclipse Your Competition Today</h2>
+
+                            <div className='SubmissionBox' ref={SubmissionBox}>
+                                <div className='ContactGrid'>
+                                    <input placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} />
+                                    <input placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} />
+                                    <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                                    <input placeholder="Phone" onChange={(e) => setPhone(e.target.value)} />
+                                </div>
+
+                                <textarea
+                                placeholder="Enter Your Message Here"
+                                onChange={(e) => setMessage(e.target.value)}
+                                />
+
+                                <button onClick={messageSent === "Your contact message failed to send." || messageSent === null ? submitContact : null}>Submit</button>
+                            
+                                <div className='SlashAssets'><img src="/static/SlashAssets.png" /></div>
+                            </div>
+
+                        
                             {messageSent ? <p className='ContactMessage'>{messageSent}</p> : null}
                         </div>
                     </section>

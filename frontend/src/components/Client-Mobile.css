@@ -614,6 +614,7 @@
         align-items: center;
         justify-content: flex-end;
         margin-bottom: calc(var(--app-height) * .15);
+        opacity: 0;
     }
 
     .GriffinTier {
@@ -923,7 +924,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
   }
 
   .Contact h2 {
@@ -931,6 +932,7 @@
     color: white;
     font-size: clamp(12px, 6vw, 36px);
     z-index: 2;
+    margin-top: calc(var(--app-height) * .09);
   }
 
   .Projects .ContactContainer {
@@ -964,19 +966,6 @@
       font-weight: bold;
       color : white
   }
-
-  .SubmissionBox {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: white;
-        width : calc(var(--app-width) * .8);
-        padding: calc(var(--app-width) * .06) calc(var(--app-width) * .06) calc(var(--app-width) * .03) calc(var(--app-width) * .06);        
-    }
-
-
 
     .SlashAssets {
         position: absolute;
@@ -1072,7 +1061,7 @@
       align-items: center;
       background-color: white;
       padding: calc(var(--app-width) * .05) calc(var(--app-width) * .05) calc(var(--app-width) * .05) calc(var(--app-width) * .05);
-      width: calc(var(--app-width) * .8);
+      width: calc(var(--app-width) * .7);
       height: fit-content;
       margin-bottom: 50px;
     }
@@ -1283,12 +1272,9 @@
     }
 
     .Contact .SocialsNav {
-        position: absolute;
-        left: 50%;
-        top : 2%;
-        transform: translate(-50% , -2%);
+        position: relative;
         width: 60%;
-        height: 5%;
+        height: calc(var(--app-height) * .05);
         border-radius: 35px;
         background-color: white;
 
@@ -1462,15 +1448,7 @@
         -webkit-text-fill-color: transparent;
     }
 
-    header {
-        width: var(--app-width);
-    }
-
     main {
-        width: var(--app-width);
-    }
-
-    section {
         width: var(--app-width);
     }
 
