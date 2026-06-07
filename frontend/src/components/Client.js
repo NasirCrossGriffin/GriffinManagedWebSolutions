@@ -357,25 +357,39 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                 */
 
                 const AboutTimeline = gsap.timeline({
+                    delay : 2,
                     defaults: {
                         ease: "power3.out",
                     },
                     scrollTrigger: {
-                        trigger: AboutGMWS.current, // the element that starts the animation
-                        start: "center center", // when the top of the box hits the center of the viewport
+                        trigger: AboutSubtext.current, // the element that starts the animation
+                        start: "top bottom", // when the top of the box hits the center of the viewport
                     }
                 });
 
-                AboutTimeline.fromTo(
+                gsap.from(
                     AboutHeader.current,
                     {
+                        x: -50,
                         autoAlpha: 0,
-                    },
+                    }
+                )
+
+                gsap.to(
+                    AboutHeader.current,
                     {
+                        x: 0,
                         autoAlpha: 1,
                         duration: 0.9,
+                        defaults: {
+                            ease: "power3.out",
+                        },
+                        scrollTrigger : {
+                            trigger : AboutHeader.current,
+                            start : "top center"
+                        }
                     }
-                );
+                )
 
                 AboutTimeline.fromTo(
                     [
@@ -829,7 +843,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                         </div>
 
                         <div className={'ClientContent '.concat('fade-in-animated')} key={projects[selectedProject].name}>
-                            <h3>{projects[selectedProject].name}</h3>
+                            <a href={projects[selectedProject].link} target='_blank'><h3>{projects[selectedProject].name}</h3></a>
 
                             {projects[selectedProject].testimony ? <div className='Testimony'>
                                 <div className='Client'>

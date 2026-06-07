@@ -478,11 +478,13 @@
         text-align: center;
     }
 
-    .ClientContent h3 {
+    .ClientContent a h3 {
         font-family: 'Montserrat';
         color: white;
         margin: 0 0 0 0;
         font-size: clamp(12px, 2.2vw, 36px);
+        text-decoration: underline;
+        text-decoration-color: blue;
     }
 
     .CaseStudyDescription {
@@ -542,7 +544,8 @@
 
     .ProductsSection {
         width: var(--app-width);
-        height: calc(var(--app-height) * 1);
+        height: calc(var(--app-height) * 1.25);
+        min-height: fit-content;
 
         display: flex;
         flex-direction: column;
@@ -564,6 +567,7 @@
         flex-direction: row;
         align-items: flex-end;
         justify-content: space-between;
+        min-height: fit-content;
     }
 
     .ProductContainer {

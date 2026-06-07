@@ -47,6 +47,7 @@
         background-color: #ffffff;
         border-color: rgb(250, 250, 250);
         margin: calc(var(--app-height) * .25) 0 calc(var(--app-height) * .25) 0;
+        overflow-y: hidden;
     }
 
     .FirstDividerStyle .GMWSLogo {

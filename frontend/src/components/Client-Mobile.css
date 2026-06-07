@@ -486,7 +486,7 @@
         text-align: center;
     }
 
-    .ClientContent h3 {
+    .ClientContent a h3 {
         font-family: 'Montserrat';
         color: white;
         margin: 0 0 0 0;
@@ -562,7 +562,7 @@
             width: calc(var(--app-width) * .02);
         }
 
-        .ClientContent h3 {
+        .ClientContent a h3 {
             font-size: clamp(12px, 2.5vw, 36px);
         }
 
