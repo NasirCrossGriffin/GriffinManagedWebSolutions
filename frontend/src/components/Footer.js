@@ -55,53 +55,15 @@ function Footer({setScrollTarget}) {
         <a href='https://www.instagram.com/griffinmanagedwebsolutions/' target="_blank"><img src='/static/Instagram.png' alt="Griffin Managed Web Solutions Instagram Link"/></a>
       </nav>
 
-      <div className='LegalProtections'>
-        <p className='Operator'>This website is operated by Griffin Managed Web Solutions</p>
+      <nav className='LegalNav'>
+        <a href='/'>Home</a>
+        <a href='/privacy-policy'>Privacy Policy</a>
+        <a href='/terms-of-use'>Terms Of Use</a>
+        <a href='/website-disclaimer'>Web Development Disclaimer</a>
+        <a href='/accessibility'>Accessibility</a>
+        <a href='/contact-footer'>Contact</a>
+      </nav>
       
-        <span className='Divider'></span>
-
-        <nav className='LegalNav'>
-          <a href='/'>Home</a>
-          <a href='/privacy-policy'>Privacy Policy</a>
-          <a href='/terms-of-use'>Terms Of Use</a>
-          <a href='/website-disclaimer'>Web Development Disclaimer</a>
-          <a href='/accessibility'>Accessibility</a>
-          <a href='/contact-footer'>Contact</a>
-        </nav>
-
-        <span className='Divider'></span>
-
-        <div className='LegalDisclaimers'>
-          <span>
-            <span>No guarantee of business results: </span>
-            GMWS does not guarantee increased revenue, lead volume, search rankings, customer conversions, or any specific business outcome from the use of our websites, systems, or services.
-          </span>
-
-          <span>
-            <span>Project scope and functionality: </span>
-            Features, integrations, timelines, and deliverables are defined by the agreed project scope. Additional functionality or revisions may require separate approval and pricing.
-          </span>
-
-          <span>
-            <span>Information and content responsibility: </span>
-            Clients are responsible for the accuracy, legality, and ownership of all text, branding, media, business information, and other content submitted for use on their website or system.
-          </span>
-
-          <span>
-            <span>Hosting and third-party services: </span>
-            GMWS may utilize third-party hosting, payment processors, analytics tools, APIs, automation platforms, email services, or external integrations to operate and maintain client projects.
-          </span>
-
-          <span>
-            <span>Maintenance and support notice: </span>
-            Ongoing maintenance, updates, monitoring, and technical support are provided according to the client’s selected service plan and may be modified, paused, or discontinued upon cancellation or non-payment.
-          </span>
-        </div>
-
-        <span className='Divider'></span>
-
-        <p className='Rights'>© 2026 Griffin Managed Web Solutions. All rights reserved. </p>
-      </div>
     </footer>
   );
 }

@@ -1,5 +1,4 @@
 html {
-    height: 100vh;
     width: var(--app-width);
     background-color: black;
 }
@@ -120,4 +119,16 @@ html {
     animation: none !important;
     filter: none !important;
   }
+}
+
+@property --app-height {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 100svh;
+}
+
+@property --app-width {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 100svw;
 }

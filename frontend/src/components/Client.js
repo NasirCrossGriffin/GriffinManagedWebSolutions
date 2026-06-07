@@ -1,5 +1,6 @@
 import './Projects.css';
 import './Client.css';
+import './Client-Mobile.css';
 import './About.css';
 import './Contact.css';
 import './Footer.css';
@@ -12,42 +13,27 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useNavigate } from 'react-router';
+import DividerFirstStyle from './DividerFirstStyle';
+import DividerSecondStyle from './DividerSecondStyle';
+import DividerThirdStyle from './DividerThirdStyle';
 
 function Client({orientation, appWidth, appHeight, pageHeight}) {
     gsap.registerPlugin(ScrollTrigger);
 
     const Services = [
-        {
-            name: "Systems That Convert",
-            description: "Systems that capture leads and turn them into paying customers.",
-            image: "/static/systems.png"
-        },
-        {
-            name: "Direct Communication",
-            description: "You have direct access when you need help.",
-            image: "/static/handshake.png"
-        },
-        {
-            name: "We Handle Everything",
-            description: "Everything is managed so you don’t have to worry.",
-            image: "/static/handled.png"
-        },
-        {
-            name: "Reliable & Always Online",
-            description: "Your website is hosted reliably to stay online and accessible.",
-            image: "/static/reliable.png"
-        },
-        {
-            name: "Ongoing Maintenance",
-            description: "All changes are handled to keep your site running smoothly.",
-            image: "/static/maintenance.png"
-        },
-        {
-            name: "Built to Grow",
-            description: "Your website is built to scale as your needs change.",
-            image: "/static/grow.png"
-        }
+        "Captivating Web Design",
+        "Seamless Lead-Capture Systems",
+        "Open & Honest Communication",
+        "Business Outcome Prioritization",
     ];
+
+    const AboutGMWS = useRef(null);
+    const AboutHeader = useRef(null);
+    const AboutContent = useRef(null);
+    const AboutSubtext = useRef(null);
+    const AboutSubtextFirst = useRef(null);
+    const AboutSubtextSecond = useRef(null);
+    const AboutSubtextThird = useRef(null);
 
     const testimonials = [ 
         {
@@ -74,44 +60,46 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
         },
     ]
 
-    const projects = [
+    const projects = [        
         {
-            name : "APEX INVESTMENTS AND ACQUISITIONS WEBPAGE", 
-            image : "/static/ApexInvestments.png", 
-            description : `I worked with Apex Investments & Acquisitions to develop a premium real 
-            estate platform focused on credibility, trust, and high-impact visual presentation. The 
-            project combines advanced animation, cinematic transitions, and modern UI design to create 
-            a distinctive experience tailored to the real estate investment industry. I also integrated 
-            the website directly with the company’s CRM workflow to support streamlined lead capture 
-            and client communication. This project is currently still under active development, but the 
-            Apex team has allowed it to be showcased here as part of my portfolio. The result is a highly 
-            customized digital experience built to position the company as a premium brand within the real 
-            estate space.`,
-            link : "http://45.55.248.134:5000/home"
+            name: "TRINITY SILVA MODEL PAGE", 
+            logo: "/static/TrinityLogo.png",
+            preview: "/static/TrinityWebsiteCrawlPreview.mp4", 
+            description: `I partnered with Trinity Silva to create a polished portfolio website that positions her as a serious professional model and gives her a centralized platform for agencies, brands, and collaborators. I handled the full design, development, deployment, and hosting process, delivering a long-term digital asset she can confidently share with prospective clients.`,
+            testimony: {
+                client: "Trinity Silva", 
+                image: "/static/Trinity.png", 
+                testimony: `"Griffin is an excellent company to work with. they are very professional, 
+                creative and have a driven personality to take care of business right away. 
+                I recommend them 100% and you won’t regret it!"`, 
+                Stars: 5
+            },
+            link: "https://www.trinitysilva.com"
         },
         {
-            name : "TRINITY SILVA MODEL PAGE", 
-            image : "/static/trinitysilva.png", 
-            description : `I partnered with Trinity Silva to create a polished portfolio website that positioned her as 
-            a serious, professional model rather than just a social media presence. I handled the full build, deployment, 
-            and hosting, giving her a centralized platform to showcase her work, aesthetic, and versatility to brands and 
-            collaborators. The site elevated her personal brand, provided a professional point of contact, and gave her a 
-            long-term asset she can confidently share with agencies and clients.`, 
-            link : "https://www.trinitysilva.com"
+            name: "APEX INVESTMENTS AND ACQUISITIONS WEBPAGE", 
+            logo: "/static/ApexLogo.png",
+            preview: "/static/ApexCrawlPreview.mp4", 
+            description: `I worked with Apex Investments & Acquisitions to develop a premium real estate platform built around credibility, cinematic presentation, and high-impact lead capture. The site combines modern UI design, advanced animation, and direct CRM integration to position the company as a more elevated real estate brand.`,
+            testimony: null,
+            link: "http://45.55.248.134:5000/home"
         },
         {
-            name : "JD MULTIPROCESS AND SERVICES WEBPAGE", 
-            image : "/static/Jdmultiprocessandservices.png", 
-            description : `I worked with Juliana De La Rosa to build a professional online presence that clearly 
-            communicated her notary and multi-service offerings and established immediate credibility with new clients. 
-            I designed, deployed, and fully managed her website so potential customers could quickly understand her 
-            services, trust her legitimacy, and contact her without friction. The result was a clean, reliable digital 
-            foundation that strengthened her brand and made it easier for clients to find and choose her services.`, 
-            link : "https://www.jdmultiprocessandservices.com"
+            name: "JD MULTIPROCESS AND SERVICES WEBPAGE", 
+            logo: "/static/JDMPLogo.png",
+            preview: "/static/JDMPPreviewCrawl.mp4", 
+            description: `I worked with Juliana De La Rosa to create a professional website that clearly communicates her notary and multi-service offerings while establishing immediate credibility. I designed, deployed, and fully managed the platform, making it easier for prospective clients to understand her services and contact her without friction.`,
+            testimony: {
+                client: "JD Multi-Process And Services", 
+                image: "/static/Juliana.png", 
+                testimony: `"Griffin is the best he did my web page and I like so much is it great."`, 
+                Stars: 5
+            },
+            link: "https://www.jdmultiprocessandservices.com"
         }
-    ]
+    ];
 
-        const systems = [
+    const systems = [
         {
             name : "AUTO BODY LEAD CAPTURE SYSTEM", 
             image : "/static/GMWSAutobody.png", 
@@ -134,6 +122,26 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
             link : "https://www.nasirgriffin.com/realestate"
         }
     ]
+
+    const GMWSServices = [
+        {
+            title : "Elite Designs",
+            animation : "./static/minimal_paint_v2.webm",
+            copy : "Elite designs establish credibility and authority with your prospects."
+        }, {
+            title : "Cutting Edge Technology",
+            animation : "./static/React_Spin.webm",
+            copy : "Your site is built with the same tools used to build Facebook, Instagram, and Netflix."
+        }, {
+            title : "Systems That Convert",
+            animation : "./static/minimal_gears.webm",
+            copy : "Lead capture systems that make connecting with prospects seamless."
+        }, {
+            title : "Ongoing Maintenance",
+            animation : "./static/hammer_fluid.webm",
+            copy : "Continued support to keep your system online and in line with your vision."
+        },
+    ]
     
     const projectRefs = useRef(projects.map(() => React.createRef()));
     const systemRefs = useRef(systems.map(() => React.createRef()));
@@ -147,24 +155,9 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
         visibility: false,
     }));
 
-    const [projectVisibilityState, setProjectVisibilityState] = useState(projectVisibilityList);
-    const [systemVisibilityState, setSystemVisibilityState] = useState(systemVisibilityList);
-    const [projectObserver, setProjectObserver] = useState(null);
-    const [systemObserver, setSystemObserver] = useState(null);
-    const servicesSectionRef = useRef(null);
-    const productsSectionRef = useRef(null);
-    const serviceRefs = useRef([]); // array of refs for each ServiceContainer
-    const productRefs = []; // array of refs for each ServiceContainer
-    const testimonialsSectionRef = useRef(null);
-    const testimonialRefs = useRef([]); // array of refs for each TestimonyContainer
-    const businessTitleRef = useRef(null);
-    const scrollDownRef = useRef(null);
-    const contactRef = useRef(null);
-    const alphaRef = useRef(null);
-    const betaRef = useRef(null);
-    const gammaRef = useRef(null);
-    const omegaRef = useRef(null);
     
+    const businessTitleRef = useRef(null);
+    const contactRef = useRef(null);
 
     const [observingContact, setObservingContact] = useState(false);
     const [messageSent, setMessageSent] = useState(null);
@@ -191,6 +184,12 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
     const Slogan = useRef(null);
     const CTAButton = useRef(null);
 
+    const [selectedProject, setSelectedProject] = useState(0)
+
+    const [selectedService, setSelectedService] = useState(0)
+
+    const [currentService, setCurrentService] = useState(0)
+
 
     const navigate = useNavigate();
 
@@ -211,14 +210,17 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
         
         requestAnimationFrame(() => {
             const ctx = gsap.context(() => {
-                const tl = gsap.timeline({
+
+                //Hero Animation Timeline
+
+                const HeaderTimeline = gsap.timeline({
                     delay: 0.45, // waits before the first animation starts
                     defaults: {
                         ease: "power3.out",
                     }
                 });
 
-                tl.fromTo(
+                HeaderTimeline.fromTo(
                     HeroRef.current,
                     {
                         autoAlpha: 0,
@@ -229,7 +231,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                     }
                 );
 
-                tl.fromTo(
+                HeaderTimeline.fromTo(
                     BusinessHeader.current,
                     {
                         y: -20,
@@ -245,7 +247,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                     }, "-=0.45"
                 );
 
-                tl.fromTo(
+                HeaderTimeline.fromTo(
                     MainSiteHeader.current,
                     {
                         x: -20,
@@ -259,7 +261,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                     }, "-=0.55"
                 );
 
-                tl.fromTo(
+                HeaderTimeline.fromTo(
                     Slogan.current,
                     {
                         x: -20,
@@ -273,7 +275,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                     }, "-=0.55"
                 );
 
-                tl.fromTo(
+                HeaderTimeline.fromTo(
                     CTAButton.current,
                     {
                         y: 20,
@@ -289,92 +291,303 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                     }, "-=0.55"
                 );
 
-                gsap.to(ClientServices.current, {
-                    backgroundPosition: "0% 0",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: ClientServices.current,
-                        start: "top 80%",
-                        end: "top 30%",
-                    }
-                });
+                //End Header Animations
 
-                gsap.to(ServicesHeader.current, {
-                    backgroundPosition: "0% 0",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: ServicesHeader.current,
-                        start: "top 80%",
-                        end: "top 30%",
-                    }
-                });
+                //Start About Section Animations
 
-                gsap.to(TestimonialsHeader.current, {
-                    backgroundPosition: "0% 0",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: TestimonialsHeader.current,
-                        start: "top 80%",
-                        end: "top 30%",
-                    }
-                });
+                /*
+                    const AboutGMWS = useRef(null);
+                    const AboutHeader = useRef(null);
+                    const AboutContent = useRef(null);
+                    const AboutSubtext = useRef(null);
+                    const AboutSubtextFirst = useRef(null);
+                    const AboutSubtextSecond = useRef(null);
+                    const AboutSubtextThird = useRef(null);
+                */
 
-                gsap.to(CaseStudiesHeader.current, {
-                    backgroundPosition: "0% 0",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: CaseStudiesHeader.current,
-                        start: "top 80%",
-                        end: "top 30%",
-                    }
-                });
-
-                gsap.to(SystemsHeader.current, {
-                    backgroundPosition: "0% 0",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: SystemsHeader.current,
-                        start: "top 80%",
-                        end: "top 30%",
-                    }
-                });
-
-                gsap.to(ProductsHeader.current, {
-                    backgroundPosition: "0% 0",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: ProductsHeader.current,
-                        start: "top 80%",
-                        end: "top 30%",
-                    }
-                });
-
-                gsap.to(ContactHeader.current, {
-                    backgroundPosition: "0% 0",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: ContactHeader.current,
-                        start: "top 80%",
-                        end: "top 30%",
-                    }
-                });
-
-                gsap.set(PageDetails.current, {
-                    autoAlpha: 1,
-                    clipPath: "inset(0 100% 0 0)",
-                });
-
-                gsap.to(PageDetails.current, {
-                    clipPath: "inset(0 0% 0 0)",
-                    duration: 1.2,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                    trigger: PageDetails.current,
-                    start: "top 50%",
-                    once: true,
+                const AboutTimeline = gsap.timeline({
+                    defaults: {
+                        ease: "power3.out",
                     },
+                    scrollTrigger: {
+                        trigger: AboutGMWS.current, // the element that starts the animation
+                        start: "center center", // when the top of the box hits the center of the viewport
+                    }
                 });
 
+                AboutTimeline.fromTo(
+                    AboutHeader.current,
+                    {
+                        autoAlpha: 0,
+                    },
+                    {
+                        autoAlpha: 1,
+                        duration: 0.9,
+                    }
+                );
+
+                AboutTimeline.fromTo(
+                    [
+                        AboutSubtextFirst.current,
+                        AboutSubtextSecond.current,
+                        AboutSubtextThird.current,
+                    ],
+                    {
+                        y: 50,
+                        autoAlpha: 0,
+                    },
+                    {
+                        y: 0,
+                        autoAlpha: 1,
+                        duration: 0.9,
+                        stagger: 0.15,
+                    },
+                    "-=0.2"
+                );
+
+                //End About Section Animations
+
+                //Start Services Section Animations
+
+                /* 
+                    <section className='ServiceSection'>
+                    <h2 className='ServiceHeader'>What Do We Do For You?</h2>
+                    <div className='ServiceSelector'>
+                    <div className='ServiceContent'>
+                    <h2 className='ServiceTitle'>
+                    <div className='InnerServiceContent'>
+                    <div className='ServiceAnimationWrapper'>
+                    <div className='ServiceAnimation' key={GMWSServices[selectedService].animation}>
+                */
+
+                const ServicesTimeline = gsap.timeline({
+                    defaults: {
+                        ease: "power3.out",
+                    },
+                    scrollTrigger: {
+                        trigger: ".ServiceSection", // the element that starts the animation
+                        start: "top center", // when the top of the box hits the center of the viewport
+                    }
+                });
+
+                ServicesTimeline.fromTo(
+                    ".ServiceHeader",
+                    {
+                        y : 50,
+                        scale : 0.3,
+                        autoAlpha: 0,
+                    },
+                    {
+                        y : 0,
+                        scale : 1,
+                        autoAlpha: 1,
+                        duration: 0.9,
+                    }
+                );
+
+                ServicesTimeline.fromTo(
+                    ".ServiceSelector",
+                    {
+                        x : -50,
+                        autoAlpha: 0,
+                    },
+                    {
+                        x : 0,
+                        autoAlpha: 1,
+                        duration: 0.9,
+                    }
+                );
+
+                ServicesTimeline.fromTo(
+                    ".ServiceContentWrapper",
+                    {
+                        y : 50,
+                        autoAlpha: 0,
+                    },
+                    {
+                        y : 0,
+                        autoAlpha: 1,
+                        duration: 0.9,
+                    }
+                );
+
+                
+                //End Services Section Animations
+
+                //Client Section Animation
+
+                    /*
+                        <section className='ClientSection'>
+                        <h2 className='ClientSectionHeader'>Join The Elites</h2>
+                        <div className='ClientSelector'>
+                        <div className={'ClientContent '.concat('slide-right-fade-in')} key={projects[selectedProject].name}>
+                    */
+
+                    const ClientTimeline = gsap.timeline({
+                        defaults: {
+                            ease: "power3.out",
+                        },
+                        scrollTrigger: {
+                            trigger: ".ClientSection", // the element that starts the animation
+                            start: "top center", // when the top of the box hits the center of the viewport
+                        }
+                    });
+
+                    ClientTimeline.fromTo(
+                        ".ClientSectionHeader",
+                        {
+                            y : 50,
+                            scale : 0.3,
+                            autoAlpha: 0,
+                        },
+                        {
+                            y : 0,
+                            scale : 1,
+                            autoAlpha: 1,
+                            duration: 0.9,
+                        }
+                    );
+
+
+                    ClientTimeline.fromTo(
+                        ".ClientContent",
+                        {
+                            y : 50,
+                            autoAlpha: 0,
+                        },
+                        {
+                            y : 0,
+                            autoAlpha: 1,
+                            duration: 0.9,
+                        }
+                    );
+
+                //End Client Animations
+
+                //Product Animations
+
+                function ProductAnimationsLandscape() {
+                    const ProductTimeline = gsap.timeline({
+                        defaults: {
+                            ease: "power3.out",
+                        },
+                        scrollTrigger: {
+                            trigger: ".ProductsSection", // the element that starts the animation
+                            start: "center center", // when the top of the box hits the center of the viewport
+                        }
+                    });
+
+                    ProductTimeline.fromTo(
+                        ".AlphaContent",
+                        {
+                            height : 0,
+                        },
+                        {
+                            height : "auto",
+                            duration: 1.2,
+                        }
+                    );
+
+                    ProductTimeline.fromTo(
+                        ".GammaContent",
+                        {
+                            height : 0,
+                        },
+                        {
+                            height : "auto",
+                            duration: 1.2,
+                        }
+                    );
+
+                    ProductTimeline.fromTo(
+                        ".OmegaContent",
+                        {
+                            height : 0,
+                        },
+                        {
+                            height : "auto",
+                            duration: 1.2,
+                        }
+                    );
+                }
+
+                function ProductAnimationsPortrait() {
+                    gsap.from(
+                        ".AlphaContainer",
+                        {
+                            opacity: 0,
+                            x: -150,
+                        }
+                    )
+
+                    gsap.to(
+                        ".AlphaContainer",
+                        {
+                            opacity: 1,
+                            x: 0,
+                            duration: 0.9,
+                            defaults: {
+                                ease: "power3.out",
+                            },
+                            scrollTrigger: {
+                                trigger: ".AlphaContainer", // the element that starts the animation
+                                start: "center center", // when the top of the box hits the center of the viewport
+                            }
+                        }
+                    )
+
+                    gsap.from(
+                        ".GammaContainer",
+                        {
+                            opacity: 0,
+                            x: -150,
+                        }
+                    )
+
+                    gsap.to(
+                        ".GammaContainer",
+                        {
+                            opacity: 1,
+                            x: 0,
+                            duration: 0.9,
+                            defaults: {
+                                ease: "power3.out",
+                            },
+                            scrollTrigger: {
+                                trigger: ".GammaContainer", // the element that starts the animation
+                                start: "center center", // when the top of the box hits the center of the viewport
+                            }
+                        }
+                    )
+
+                    gsap.from(
+                        ".OmegaContainer",
+                        {
+                            opacity: 0,
+                            x: -150,
+                        }
+                    )
+
+                    gsap.to(
+                        ".OmegaContainer",
+                        {
+                            opacity: 1,
+                            x: 0,
+                            duration: 0.9,
+                            defaults: {
+                                ease: "power3.out",
+                            },
+                            scrollTrigger: {
+                                trigger: ".OmegaContainer", // the element that starts the animation
+                                start: "center center", // when the top of the box hits the center of the viewport
+                            }
+                        }
+                    )
+                }
+
+                window.innerHeight < window.innerWidth ? ProductAnimationsLandscape() : ProductAnimationsPortrait()
+
+                //Contact Animations
                 gsap.set(SubmissionBox.current, {
                     autoAlpha: 1,
                     clipPath: "inset(0 100% 0 0)",
@@ -399,24 +612,18 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
     }, []);
 
     useEffect(() => {
-        const el = contactRef.current;
-        if (!el) return;
-
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-            if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-                setObservingContact(true);
-                console.log(observingContact)
-            } else {
-                setObservingContact(false);
-                console.log(observingContact)
+        function iterateService() {
+            if (currentService === Services.length - 1) {
+                setCurrentService(0);
+                return;
             }
-            },
-            { threshold: 0.5 }
-        );
 
-        observer.observe(el);
-    }, []);
+            setCurrentService(currentService + 1);
+        }
+
+        setTimeout(iterateService, 5000);
+
+    }, [currentService])
 
     const newContact = async (contact) => {
         console.log(contact)
@@ -461,228 +668,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
         }
     };
     
-    useEffect(() => {
-        window.scrollTo(0, 0)
-        
-        console.log("Section refs after mount:", projectRefs.current.map(ref => ref.current));
-        console.log(projectRefs)
-        if (projectObserver === null) {
-            setProjectObserver(new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    console.log(entry.target)
-                    if (entry.isIntersecting) {
-                        var index = 0;
-                        projectRefs.current.forEach((ref) => {
-                            if (entry.target === ref.current) {
-                                console.log("project " + index + " is currently intersecting")
-                                projectVisibilityList[index].visibility = true;
-                                const updatedVisibilityList = []
-                                projectVisibilityList.forEach((item) => updatedVisibilityList.push(item))
-                                setProjectVisibilityState(updatedVisibilityList)  
-                            } 
-                            index++;
-                        }) 
-                    } else {
-                        var index = 0;
-                        projectRefs.current.forEach((ref) => {
-                            if (entry.target === ref.current) {
-                                console.log("section " + index + " is currently not intersecting")
-                                projectVisibilityList[index].visibility = false;
-                                const updatedVisibilityList = []
-                                projectVisibilityList.forEach((item) => updatedVisibilityList.push(item))
-                                setProjectVisibilityState(updatedVisibilityList)    
-                            } 
-                            index++;
-                        }) 
-                    }
-
-                    console.log(projectVisibilityList) 
-                })
-            }, { threshold : 0.60}));
-        }
-    }, [])
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-        
-        console.log("Section refs after mount:", systemRefs.current.map(ref => ref.current));
-        console.log(systemRefs)
-        if (systemObserver === null) {
-            setSystemObserver(new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    console.log(entry.target)
-                    if (entry.isIntersecting) {
-                        var index = 0;
-                        systemRefs.current.forEach((ref) => {
-                            if (entry.target === ref.current) {
-                                console.log("project " + index + " is currently intersecting")
-                                systemVisibilityList[index].visibility = true;
-                                const updatedVisibilityList = []
-                                systemVisibilityList.forEach((item) => updatedVisibilityList.push(item))
-                                setSystemVisibilityState(updatedVisibilityList)  
-                            } 
-                            index++;
-                        }) 
-                    } else {
-                        var index = 0;
-                        systemRefs.current.forEach((ref) => {
-                            if (entry.target === ref.current) {
-                                console.log("section " + index + " is currently not intersecting")
-                                systemVisibilityList[index].visibility = false;
-                                const updatedVisibilityList = []
-                                systemVisibilityList.forEach((item) => updatedVisibilityList.push(item))
-                                setSystemVisibilityState(updatedVisibilityList)    
-                            } 
-                            index++;
-                        }) 
-                    }
-
-                    console.log(systemVisibilityList) 
-                })
-            }, { threshold : 0.60}));
-        }
-    }, [])
-
-    useEffect(() => {
-        const el = testimonialsSectionRef.current;
-        if (!el) return;
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-            const entry = entries[0];
-            if (!entry) return;
-
-            if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-                testimonialRefs.current.forEach((container, i) => {
-                if (!container) return;
-
-                // The element we animate inside TestimonyContainer
-                const testimonyEl = container.querySelector(".Testimony");
-                if (!testimonyEl) return;
-
-                testimonyEl.classList.add("SlideUpAndAppear");
-                testimonyEl.style.animationDelay = `${i * 0.5}s`; // same stagger as Services
-                });
-
-                observer.unobserve(el); // fire once
-            }
-            },
-            { threshold: 0.5 }
-        );
-
-        observer.observe(el);
-
-        return () => observer.disconnect();
-    }, []);
-
-
-    useEffect(() => {
-        if (projectObserver !== null) {
-
-            console.log(projectObserver)
-
-            projectRefs.current.forEach((ref) => {
-                console.log(ref.current)
-                projectObserver.observe(ref.current)
-            });
-        }
-    }, projectObserver)
-
-    useEffect(() => {
-        if (systemObserver !== null) {
-
-            console.log(systemObserver)
-
-            systemRefs.current.forEach((ref) => {
-                console.log(ref.current)
-                systemObserver.observe(ref.current)
-            });
-        }
-    }, systemObserver)
-
-    useEffect(() => {
-        const el = servicesSectionRef.current;
-        if (!el) return;
-
-        let timeoutId = null;
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-            const entry = entries[0];
-            if (!entry) return;
-
-            if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-                serviceRefs.current.forEach((container, i) => {
-                    if (!container) return;
-
-                    // The element with the class "Service Invisible" lives inside ServiceContainer
-                    const serviceEl = container.querySelector(".Service");
-                    if (!serviceEl) return;
-
-                    serviceEl.classList.add("SlideUpAndAppear");
-
-                    // optional: stagger each element slightly
-                    serviceEl.style.animationDelay = `${i * 0.5}s`;
-                });
-
-                // If you only want it to fire once:
-                observer.unobserve(el);
-            }
-            },
-            { threshold: 0.5 }
-        );
-
-        observer.observe(el);
-
-        return () => {
-            if (timeoutId) window.clearTimeout(timeoutId);
-            observer.disconnect();
-        };
-    }, []);
-
-    useEffect(() => {
-        const el = productsSectionRef.current;
-        if (!el) return;
-
-        productRefs.push(alphaRef);
-        productRefs.push(betaRef);
-        productRefs.push(gammaRef);
-        productRefs.push(omegaRef);
-
-        let timeoutId = null;
-
-        const thresholdValue = window.innerHeight > window.innerWidth ? 0.0000001 : 0.2;
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-            const entry = entries[0];
-            if (!entry) return;
-
-            if (entry.isIntersecting && entry.intersectionRatio >= thresholdValue) {
-                productRefs.forEach((container, i) => {
-                    if (!container) return;
-
-                    // The element with the class "Service Invisible" lives inside ServiceContainer
-                    const serviceEl = container.current
-                    if (!serviceEl) return;
-
-                    serviceEl.classList.add("SlideUpAndAppear");
-                });
-
-                // If you only want it to fire once:
-                observer.unobserve(el);
-            }
-            },
-            { threshold: thresholdValue }
-        );
-
-        observer.observe(el);
-
-        return () => {
-            if (timeoutId) window.clearTimeout(timeoutId);
-            observer.disconnect();
-        };
-    }, []);
+    
     return (
         <>
             <div className="Projects">
@@ -712,238 +698,272 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                 <div className='firstdivider'></div>
                 
                 <main>
-                    <section>
-                        <div className="InitialSection Fade-In" >
-                            <div className="Information">
-                                <h2 className="header TextLayer" ref={ClientServices}>CLIENT SERVICES</h2>
-                                <div className="divider"></div>
-                                <div className="PageDetails ClientServices" ref={PageDetails}>
-                                    <p className="DetailsHeading" style={{textTransform : 'uppercase'}}>Websites that build trust<br />Systems that bring you customers.</p>
-                                    <p className="DetailsCopy">
-                                        We don’t just build websites, we build premium brand experiences and systems 
-                                        that make your business look credible and bring in customers. Every site is 
-                                        designed to capture leads, build trust instantly, and turn visitors into 
-                                        real opportunities.
-                                    </p>
-                                </div>
-                            </div>                    
+                    <section className='AboutGMWS' ref={AboutGMWS}>
+                        <h2 className='AboutHeader' ref={AboutHeader}>Beyond Web Design</h2>
+
+                        <div className='AboutContentContainer' ref={AboutContent}>
+                            <img src='./static/ClientServicesAsset.png'/>
                             
-                            <div className="Handshake">
-                                    <img src="/static/handshake.png" />
+                            <div className='ContentInnerContainer' key={Services[currentService]}>
+                                <p>{Services[currentService]}</p>
                             </div>
+                        </div>
+
+                        <div className='Subtext' ref={AboutSubtext}>
+                            <p ref={AboutSubtextFirst}>Accredited Engineering</p>
+
+                            <p ref={AboutSubtextSecond}>Cinematic Presentation</p>
+
+                            <p ref={AboutSubtextThird}>Business Outcomes</p>
                         </div>
                     </section>
 
-                    <section>
-                        <h2 className='SectionHeader ClientServices TextLayer' ref={ServicesHeader}><span>How we strengthen your business</span></h2>
+                    <DividerFirstStyle />
 
-                        <div className="Services" ref={servicesSectionRef}>
-                            {Services.map((service, index) => (
-                                <div
-                                key={index}
-                                className="ServiceContainer"
-                                ref={(node) => (serviceRefs.current[index] = node)}
-                                >
-                                <div className="Service" id={`service-${index}`}>
-                                    <p className="ServiceName">{service.name}</p>
-                                    <div className="ServiceImageContainer">
-                                        <img src={service.image} alt={service.name} />
-                                    </div>
-                                    <p className="ServiceDesc">{service.description}</p>
-                                </div>
-                                </div>
+                    <section className='ServiceSection'>
+                        <h2 className='ServiceHeader'>What Do We Do For You?</h2>
+
+                        <div className='ServiceSelector'>
+                            {GMWSServices.map((service, index) => (
+                                service ? <div>
+                                    <a className="SelectorText" onClick={() => setSelectedService(index)}>{service.title}</a>
+                                    <span className='SelectorUnderline' style={{width : selectedService === index ? "100%" : "0px"}}></span>
+                                </div> : null
                             ))}
                         </div>
+                    
+                        <div className='ServiceContent'>
+                            {GMWSServices ? <h2 className='ServiceTitle'>{GMWSServices[selectedService].title}</h2> : null }
+
+                            {GMWSServices ? <div className='InnerServiceContent'>
+                                <div className='ServiceAnimationWrapper'>
+                                    <div className='ServiceAnimation' key={GMWSServices[selectedService].animation}>
+                                        <video 
+                                            autoPlay 
+                                            loop 
+                                            muted 
+                                            playsInline
+                                        >
+                                            <source
+                                                src={GMWSServices[selectedService].animation}
+                                                type="video/webm"
+                                            />
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                </div>
+
+                                <div className='ServiceContentwrapper'>
+                                    <p className='ServiceContentCopy' key={GMWSServices[selectedService].animation}>
+                                        {GMWSServices[selectedService].copy}
+                                    </p>
+                                </div>
+                            </div> : null}
+                        </div>                    
                     </section>
 
-                    <section>
-                        <h2 className='SectionHeader TextLayer' ref={TestimonialsHeader}>Testimonials</h2>
+                    <DividerSecondStyle />
 
-                        <div className='CredibilitySection'>
-                            <div className='Testimonials' ref={testimonialsSectionRef}>
-                                {testimonials.map((testimony, index) => (
-                                    <div
-                                        key={index}
-                                        className='TestimonyContainer'
-                                        ref={(node) => (testimonialRefs.current[index] = node)}
-                                    >
-                                        <div className='Testimony'>
-                                            <div className='Client'>
-                                            <div className='ClientImage'>
-                                                <img src={testimony.image} alt={testimony.client} />
-                                            </div>
-                                            <h2>{testimony.client}</h2>
-                                            </div>
+                    <section className='ClientSection'>
+                        <h2 className='ClientSectionHeader'>Join The Elites</h2>
+                        <div className='ClientSelector'>
+                            {projects.map((client, index) => (
+                                <a className='ClientLogo' onClick={() => {setSelectedProject(index)}} style={{
+                                    boxShadow : selectedProject === index ? "0px 0px 12px 24px rgb(255, 255, 255, 1)" : null, 
+                                    backgroundColor : selectedProject === index ? "rgb(255, 255, 255, 1)" : null}}>
+                                    <img src={client.logo} />
+                                </a>
+                            ))}
+                        </div>
 
-                                            <p className='ClientTestimony'>{testimony.testimony}</p>
+                        <div className={'ClientContent '.concat('fade-in-animated')} key={projects[selectedProject].name}>
+                            <h3>{projects[selectedProject].name}</h3>
 
-                                            <div className='StarRating'>
-                                            {Array.from({ length: testimony.Stars }).map((_, starIndex) => (
-                                                <div key={starIndex} className="Star">
-                                                <img src="/static/star.png" alt="star" />
-                                                </div>
-                                            ))}
-                                            </div>
-                                        </div>
+                            {projects[selectedProject].testimony ? <div className='Testimony'>
+                                <div className='Client'>
+                                    <div className='ClientImage'>
+                                        <img src={projects[selectedProject].testimony.image} />
                                     </div>
-                                ))}
+                                </div>
+                                <p className='TestimonyText'>
+                                    {projects[selectedProject].testimony.testimony}
+                                </p>
+                            </div> : <div></div>}
+
+                            <p className='CaseStudyDescription'>{projects[selectedProject].description}</p>
+
+                            <div className='VideoPreview'>
+                                <video 
+                                    key={projects[selectedProject].preview}
+                                    autoPlay 
+                                    loop 
+                                    muted 
+                                    playsInline
+                                >
+                                    <source
+                                        src={projects[selectedProject].preview}
+                                        type="video/mp4"
+                                    />
+                                    Your browser does not support the video tag.
+                                </video>
                             </div>
-                            <button className='GoogleLink' onClick={() => {window.open(`https://share.google/0dNpvbwOEFTvyWejN`, '_blank')}}>
-                                <div className='GoogleIcon'>
-                                    <img src='/static/google.png' />
-                                </div>
-                                Google<br />Reviews 
-                                <div className='GoogleStars'>
-                                    5 
-                                    <div>
-                                        <img src='/static/GoogleStar.png'/>
-                                    </div>
-                                </div>
-                            </button>
                         </div>
                     </section>
 
-                    <section>
-                        <h2 className='SectionHeader TextLayer' ref={CaseStudiesHeader}>High Conversion Websites</h2>
+                    <DividerThirdStyle />
 
-                        <div className="ListOfProjects">
-                            {  
-                                projects.map((project, index) => (
-                                    <div key={index} className="ProjectContainer" ref={projectRefs.current[index]}>
-                                        <div className={`Project ${projectVisibilityState[index].visibility ? "Slide-Up" : "Fade-Out"}`}>
-                                            <h3 className="ProjectName">{project.name}</h3>
-                                            <div className="ImgAndDesc">
-                                                <div className="ProjectImageContainer">
-                                                    <img src={project.image} alt={project.name}/>
-                                                </div>
-                                                <p className="ProjectDesc">{project.description}</p>
-                                            </div>
-                                            <a className="ProjectLink" href={project.link} target="_blank">CHECK OUT {project.name}</a>
-                                        </div>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                    </section>
+                    <section className='ProductsSection'>
+                        <h2>Choose Your Level of Digital Dominance</h2>
 
-                    <section>
-                        <h2 className='SectionHeader TextLayer' ref={SystemsHeader}>Revenue Optimizing Systems</h2>
+                        <div className='InnerProductsSection'>
 
-                        <div className="ListOfProjects">
-                            {  
-                                systems.map((system, index) => (
-                                    <div key={index} className="ProjectContainer" ref={systemRefs.current[index]}>
-                                        <div className={`Project ${systemVisibilityState[index].visibility ? "Slide-Up" : "Fade-Out"}`}>
-                                            <h3 className="ProjectName">{system.name}</h3>
-                                            <div className="ImgAndDesc">
-                                                <div className="ProjectImageContainer">
-                                                    <img src={system.image} alt={system.name}/>
-                                                </div>
-                                                <p className="ProjectDesc">{system.description}</p>
-                                            </div>
-                                            <a className="ProjectLink" href={system.link} target="_blank">CHECK OUT {system.name}</a>
-                                        </div>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2 className='SectionHeader TextLayer' ref={ProductsHeader}>CAPTURE MORE REVENUE TODAY</h2>
-
-                        <div className='ProductsSection' ref={productsSectionRef}>
-                            <div className='Products'>
-                                <div className='Product Invisible' ref={alphaRef}>
-                                    <h3 className='Tier'>GMWS System Access</h3>
-
-                                    <div className='TierImage'><img src='/static/alpha.png' /></div>
-
-                                    <ul>
-                                        <li>Instant access to a proven lead capture system</li>
-                                        <li>Capture and organize customer inquiries automatically</li>
-                                        <li>Structured pipeline to track and manage every lead</li>
-                                        <li>Built-in workflows to respond faster and close more deals</li>
-                                        <li>Customer-friendly intake experience that builds trust</li>
-                                        <li>Admin dashboard to view, manage, and update leads in real time</li>
-                                        <li>Integrated into a clean, professional website</li>
-                                        <li>Fully hosted, maintained, and managed for you</li>
-                                        <li>Continuous updates and improvements to the system</li>
-                                    </ul>
-
-                                    <div className='Fees'>
-                                        <span className='BuildFee'>Setup Fee: $500</span>
-                                        <span className='MonthlyFee'>Monthly Fee: $150</span>
-                                    </div>
+                            {/* Bronze/Alpha Tier Option*/}
+                            <div className='ProductContainer AlphaContainer'>
+                                <div className='GriffinTier'>
+                                    <img src="/static/BronzeGriffin.png" />
                                 </div>
 
-                                <div className='Product Invisible' ref={betaRef}>
-                                    <h3 className='Tier'>High-Conversion Website</h3>
+                                <div className='bronze-border gradient-border'>
+                                <div className='InnerProductContainer AlphaContent'>
+                                    <h3 className='TierHeader'>Alpha Tier</h3>
 
-                                    <div className='TierImage'><img src='/static/beta.png' /></div>
-
-                                    <ul>
-                                        <li>Custom-designed website tailored to your business</li>
-                                        <li>Built to establish trust and professional credibility</li>
-                                        <li>Mobile-optimized for a seamless experience on all devices</li>
-                                        <li>Clear messaging that communicates your services effectively</li>
-                                        <li>Strategic layout designed to guide visitors to take action</li>
-                                        <li>Contact forms to capture inquiries and leads</li>
-                                        <li>Fast-loading, reliable performance</li>
-                                        <li>Deployed and hosted for you (no technical setup required)</li>
-                                        <li>Ongoing support and maintenance available</li>
-                                    </ul>
-
-                                    <div className='Fees'>
-                                        <span>Build Fee: $1000</span>
-                                        <span>Monthly Maintenance: $100</span>
+                                    <div className='Tier'>
+                                        <img src="/static/alpha.png" />
                                     </div>
+
+                                    <div className='ProductServices'>
+                                        <span className='ProductServiceCopy'>
+                                            <span className='ProductMarker'>
+                                                ➤
+                                            </span>
+                                                Fully realized custom homepage.
+                                        </span>
+
+                                        <span className='ProductServiceCopy'>
+                                            <span className='ProductMarker'>
+                                                ➤
+                                            </span>
+                                                SEO optimized web design.
+                                        </span>
+                                    </div>
+
+                                    <span className='BuildFee'><span>Build Fee: </span> $500</span>
+                                    <span className='MonthlyFee'><span>Hosting + Maintenance: </span> $50</span>
+                                </div>
+                                </div>
+                            </div>
+
+                            {/* Silver/Gamma Tier Option*/}
+                            <div className='ProductContainer GammaContainer'>
+                                <div className='GriffinTier'>
+                                    <img src="/static/SilverGriffin.png" />
+                                </div>
+                                
+                                <div className='silver-border gradient-border'>
+                                <div className='InnerProductContainer GammaContent'>
+                                    <h3 className='TierHeader'>Gamma Tier</h3>
+
+                                    <div className='Tier'>
+                                        <img src="/static/gamma.png" />
+                                    </div>
+
+                                    <div className='ProductServices'>
+                                        <span className='ProductServiceCopy'>
+                                            <span className='ProductMarker'>
+                                                ➤
+                                            </span>
+                                                Fully realized custom homepage.
+                                        </span>
+
+                                        <span className='ProductServiceCopy'>
+                                            <span className='ProductMarker'>
+                                                ➤
+                                            </span>
+                                                SEO optimized web design.
+                                        </span>
+
+                                        <span className='ProductServiceCopy'>
+                                            <span className='ProductMarker'>
+                                                ➤
+                                            </span>
+                                                5 additional pages.
+                                        </span>
+
+                                        <span className='ProductServiceCopy'>
+                                            <span className='ProductMarker'>
+                                                ➤
+                                            </span>
+                                                Fully animated elite experience.
+                                        </span>
+                                    </div>
+
+                                    <span className='BuildFee'><span>Build Fee: </span> $1500</span>
+                                    <span className='MonthlyFee'><span>Hosting + Maintenance: </span> $100</span>
+                                </div>
+                                </div>
+                            </div>
+
+                            {/* Gold/Omega Tier Option*/}
+                            <div className='ProductContainer OmegaContainer'>
+                                <div className='GriffinTier'>
+                                    <img src="/static/GoldenGriffin.png" />
                                 </div>
 
-                                <div className='Product Invisible' ref={gammaRef}>
-                                    <h3 className='Tier'>Elite Brand Experience</h3>
+                                <div className='gold-border gradient-border'>
+                                <div className='InnerProductContainer OmegaContent'>
+                                    <h3 className='TierHeader'>Omega Tier</h3>
 
-                                    <div className='TierImage'><img src='/static/gamma.png' /></div>
-
-                                    <ul>
-                                        <li>Fully custom-built website engineered from the ground up</li>
-                                        <li>Advanced animations and interactions for a premium user experience</li>
-                                        <li>Expert-level UI/UX design focused on engagement and retention</li>
-                                        <li>Strategic storytelling layout that elevates your brand perception</li>
-                                        <li>High-impact visuals and motion design to stand out from competitors</li>
-                                        <li>Optimized user flow to guide visitors toward conversion</li>
-                                        <li>Seamless experience across desktop and mobile devices</li>
-                                        <li>Fully deployed, hosted, and managed for you</li>
-                                        <li>Ongoing support, updates, and refinement</li>
-                                    </ul>
-
-                                    <div className='Fees'>
-                                        <span>Build Fee: $2,500</span>
-                                        <span>Monthly Maintenance: $150</span>
+                                    <div className='Tier'>
+                                        <img src="/static/omega.png" />
                                     </div>
+
+                                    <div className='ProductServices'>
+                                        <span className='ProductServiceCopy'>
+                                            <span className='ProductMarker'>
+                                                ➤
+                                            </span>
+                                                Fully realized interactive brand experience.
+                                        </span>
+
+                                        <span className='ProductServiceCopy'>
+                                            <span className='ProductMarker'>
+                                                ➤
+                                            </span>
+                                                SEO optimized web design.
+                                        </span>
+
+                                        <span className='ProductServiceCopy'>
+                                            <span className='ProductMarker'>
+                                                ➤
+                                            </span>
+                                                10 additional pages.
+                                        </span>
+
+                                        <span className='ProductServiceCopy'>
+                                            <span className='ProductMarker'>
+                                                ➤
+                                            </span>
+                                                Fully animated captivating experience.
+                                        </span>
+
+                                        <span className='ProductServiceCopy'>
+                                            <span className='ProductMarker'>
+                                                ➤
+                                            </span>
+                                                Service location pages.
+                                        </span>
+
+                                        <span className='ProductServiceCopy'>
+                                            <span className='ProductMarker'>
+                                                ➤
+                                            </span>
+                                                Elite UI/UX features.
+                                        </span>
+                                    </div>
+
+                                    <span className='BuildFee'><span>Build Fee: </span> $2500</span>
+                                    <span className='MonthlyFee'><span>Hosting + Maintenance: </span> $150</span>
                                 </div>
-
-                                <div className='Product Invisible' ref={omegaRef}>
-                                    <h3 className='Tier'>Custom Revenue System</h3>
-
-                                    <div className='TierImage'><img src='/static/omega.png' /></div>
-
-                                    <ul>
-                                        <li>Fully custom-built lead capture system tailored to your business workflow</li>
-                                        <li>Custom frontend experience designed for maximum user conversion</li>
-                                        <li>Advanced backend system to manage, track, and update all leads</li>
-                                        <li>Structured pipeline to move leads from inquiry to closed deal</li>
-                                        <li>Admin dashboard with full control over leads, statuses, and data</li>
-                                        <li>Automated workflows to reduce manual work and increase response speed</li>
-                                        <li>Custom features built specifically for your industry and operations</li>
-                                        <li>Fully deployed, hosted, and managed infrastructure</li>
-                                        <li>Ongoing support, updates, and system expansion</li>
-                                    </ul>
-
-                                    <div className='Fees'>
-                                        <span>Build Fee: $4,000</span>
-                                        <span>Monthly Maintenance: $250</span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -964,39 +984,71 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                     </section>
 
                     <section>
-                        <h2 className='SectionHeader TextLayer' ref={ContactHeader}>Let Us Handle This For You</h2>
-
                         <div
                             className='Contact'
                             ref={contactRef}
                             data-section="contact"
                         >
-                            <img className={`Snapshot ${/*observingContact ? "fade-in" : "fade-out"*/''}`} src="/static/GriffinMWS.png" />
-                            <div className='ContactContainer'>
-                                <div className='WhiteRectangle'>
-                                    <p>Get in Touch!</p>
-                                </div>
-                                <p className='ContactTag'>contact / inquiries</p>
-                                <p className='ContactDescription'>Got questions, inquiries, or want information about services? Send me a message below!</p>
+                            <h2>Eclipse Your Competition Today</h2>
 
-                                <div className='SubmissionBox' ref={SubmissionBox}>
-                                    <div className='ContactGrid'>
+                            <div className='SubmissionBox' ref={SubmissionBox}>
+                                <div className='ContactGrid'>
                                     <input placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} />
                                     <input placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} />
                                     <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                                     <input placeholder="Phone" onChange={(e) => setPhone(e.target.value)} />
-                                    </div>
-
-                                    <textarea
-                                    placeholder="Enter Your Message Here"
-                                    onChange={(e) => setMessage(e.target.value)}
-                                    />
-
-                                    <button onClick={messageSent === "Your contact message failed to send." || messageSent === null ? submitContact : null}>Submit</button>
                                 </div>
 
-                                {messageSent ? <p className='ContactMessage'>{messageSent}</p> : null}
+                                <textarea
+                                placeholder="Enter Your Message Here"
+                                onChange={(e) => setMessage(e.target.value)}
+                                />
+
+                                <button onClick={messageSent === "Your contact message failed to send." || messageSent === null ? submitContact : null}>Submit</button>
+                            
+                                <div className='SlashAssets'><img src="/static/SlashAssets.png" /></div>
                             </div>
+
+                            <div className='SocialsNav'>
+                                <div className='DiamondGriffin'><img src="/static/DiamondGriffin.png" /></div>
+
+                                <a className='SocialNav' 
+                                    href='tel:+4733378901'
+                                    target='_blank'
+                                >
+                                    <img src="./static/Phone_Contact.png" />
+                                </a>
+
+                                <a className='SocialNav' 
+                                    href='mailto:info@griffinmanagedwebsolutions.com'
+                                    target='_blank'
+                                >
+                                    <img src="./static/Email_Contact.png" />
+                                </a>
+
+                                <a className='SocialNav' 
+                                    href='https://www.facebook.com/profile.php?id=61589903710335'
+                                    target='_blank'
+                                >
+                                    <img src="./static/Facebook_Contact.png" />
+                                </a>
+
+                                <a className='SocialNav'
+                                    href='https://www.instagram.com/griffinmanagedwebsolutions/'
+                                    target='_blank'
+                                >
+                                    <img src="./static/Instagram_Contact.png" />
+                                </a>
+
+                                <a className='SocialNav'
+                                    href='https://www.linkedin.com/company/117794294/'
+                                    target='_blank'
+                                >
+                                    <img src="./static/LinkedIn_Contact.png" />
+                                </a>
+                            </div>
+
+                            {messageSent ? <p className='ContactMessage'>{messageSent}</p> : null}
                         </div>
                     </section>
                 </main>

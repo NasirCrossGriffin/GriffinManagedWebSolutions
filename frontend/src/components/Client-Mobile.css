@@ -3,7 +3,7 @@
     src: url('../assets/fonts/sdglitchdemo.regular.ttf');
 }
 
-@media (orientation: landscape) {
+@media (orientation: portrait) {
     .LandingCopyright {
         position: absolute;
         font-size: calc(var(--app-width) * .008);
@@ -195,20 +195,21 @@
 
     .AboutHeader {
         position: absolute;
-        left: 1%;
-        top : 1%;
+        left: 50%;
+        top : 5%;
+        transform: translate(-50%, -5%);
         color : white;
         font-family: "Instrument Sans";
         font-weight: normal;
-        font-size: calc(var(--app-width) * .025);
+        font-size: calc(var(--app-width) * .07);
         z-index: 15;
+        text-wrap: nowrap;
     }
 
     .AboutContentContainer {
         position: relative;
         z-index: 10;
-        width: 90%;
-        height: 90%;
+        width: 100%;
 
         display: flex;
         flex-direction: column;
@@ -223,8 +224,8 @@
         top : 50%;
         transform: translate(-50%, -50%);
         object-fit: contain;
-        width: auto;
-        height: 100%;
+        width: 100%;
+        height: auto;
     }
 
     .ContentInnerContainer {
@@ -246,7 +247,8 @@
         font-family: 'Instrument Sans';
         font-weight: 700;
         width: 50%;
-        font-size: calc(var(--app-width) * .02);
+        font-size: calc(var(--app-width) * .028);
+        text-align: center;
         margin-top: 10%;
         animation: slide-up-fade-in 0.6s ease-in-out;
     }
@@ -268,7 +270,7 @@
     .Subtext p {
         color: white;
         font-family: 'Montserrat';
-        font-size: calc(var(--app-width) * .016);
+        font-size: calc(var(--app-width) * .03);
         margin: 0 0 0 0;
         text-align: center;
     }
@@ -287,18 +289,19 @@
     .ServiceSection h2 {
         position: relative;
         color: white;
-        font-family: "Instrument Sans";
+        font-family: 'Instrument Sans';
         letter-spacing: -.04em;
-        font-size: calc(var(--app-width) * .03);
+        font-size: calc(var(--app-width) * .07);
         font-weight: normal;
     }
 
     .ServiceSelector {
         position: relative;
         width: 90%;
+        height: calc(var(--app-height) * .4);
 
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
         justify-content: space-between;
     }
@@ -314,7 +317,7 @@
         color: white;
         font-family: 'Montserrat';
         letter-spacing: -.04em;
-        font-size: calc(var(--app-width) * .02);
+        font-size: calc(var(--app-width) * .05);
         transition: transform 0.6s ease-in-out;
     }
 
@@ -329,7 +332,7 @@
     }
 
     .ServiceContent {
-        height: 70%;
+        height: calc(var(--app-height) * .5);
         width: 90%;
 
         display: flex;
@@ -342,7 +345,7 @@
     .ServiceContent h2 {
         position: relative;
         color: white;
-        font-family: "Instrument Sans";
+
     }
 
     .InnerServiceContent {
@@ -357,7 +360,7 @@
     }
 
     .ServiceAnimationWrapper {
-        height: 70%;
+        height: calc(var(--app-height) * .2);
         width: fit-content;
     }
 
@@ -376,9 +379,11 @@
     .InnerServiceContent p{
         font-family: 'Montserrat';
         color: white;
-        font-size: calc(var(--app-width) * .018);
+        font-size: calc(var(--app-width) * .06);
         opacity: 0;
         animation: slide-right-fade-in 0.6s forwards 1s;
+        text-align: center;
+        height: calc(var(--app-height) * .2);
     }
 
     .ServiceImageContainer img{
@@ -420,15 +425,15 @@
 
     .ClientSection h2 {
         color : white;
-        font-family : "Instrument Sans";
-        font-size: clamp(12px, 3vw, 36px);
+        font-family : 'Instrument Sans';
+        font-size: clamp(12px, 8vw, 48px);
     }
 
     .ClientSelector {
         position: relative;
 
         width: 90%;
-        height: 20%;
+        height: 10%;
 
         display: flex;
         flex-direction: row;
@@ -459,12 +464,13 @@
     }
     
     .ClientContent {
-       height: 80%;
+       height: 70%;
        width: 90%; 
        
-       display: grid;
-       grid-template-columns: 1fr 1fr;
-       place-items: center;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: space-between;
     }
 
 
@@ -473,7 +479,6 @@
         color: white;
         margin: 0 0 0 0;
         font-size: clamp(12px, 2vw, 24px);
-        height: calc(var(--app-height) * .12);
         width: calc(var(--app-width) * .07);
         text-align: center;
     }
@@ -482,25 +487,32 @@
         font-family: 'Montserrat';
         color: white;
         margin: 0 0 0 0;
-        font-size: clamp(12px, 2.2vw, 36px);
+        font-size: clamp(12px, 5vw, 36px);
+        text-align: center;
+    }
+
+    .ClientContent p {
+        color: white;
+        font-family: 'Montserrat';
+        font-size: clamp(12px, 3.3vw, 36px);
     }
 
     .CaseStudyDescription {
         color: white;
         font-family: 'Montserrat';
-        font-size: clamp(12px, 1.8vw, 36px);
+        font-size: clamp(12px, 5vw, 36px);
     }
 
     .TestimonyText {
         color: white;
         font-family: 'Montserrat';
         font-family: 'Montserrat';
-        font-size: clamp(12px, 1.2vw, 24px);
+        font-size: clamp(12px, 4vw, 36px);
         width: 70%;
     }
 
     .VideoPreview {
-        width: 70%;
+        width: 90%;
         height: fit-content;
     }
 
@@ -515,21 +527,23 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        height: 100%;
-        width: 80%;
+        height: 20%;
+        width: 90%;
     }
 
     .Testimony .Client {
+        position: relative;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
         height: 100%;
         width: fit-content;
+        z-index: 5;
     }
 
     .ClientImage {
-        width: calc(var(--app-width) * .08);
+        width: calc(var(--app-width) * .2);
         height: fit-content;
     }
 
@@ -540,9 +554,29 @@
         border-radius: 50%;
     }
 
+    @media (min-width : 600px) {
+        .Client p {
+            width: calc(var(--app-width) * .02);
+        }
+
+        .ClientContent h3 {
+            font-size: clamp(12px, 2.5vw, 36px);
+        }
+
+        .ClientContent p {
+            font-size: clamp(12px, 2.5vw, 36px);
+        }
+
+        .ClientImage {
+            width: calc(var(--app-width) * .15);
+            height: fit-content;
+        }
+    }
+
+
     .ProductsSection {
         width: var(--app-width);
-        height: calc(var(--app-height) * 1);
+        height: fit-content;
 
         display: flex;
         flex-direction: column;
@@ -553,7 +587,8 @@
     .ProductsSection h2 {
         color : white;
         font-family: 'Instrument Sans';
-        font-size: clamp(12px, 3vw, 36px);
+        font-size: clamp(12px, 6vw, 36px);
+        text-align: center;
     }
 
     .InnerProductsSection {
@@ -561,17 +596,24 @@
         height: 90%;
 
         display: flex;
-        flex-direction: row;
-        align-items: flex-end;
+        flex-direction: column;
+        align-items: center;
         justify-content: space-between;
     }
 
+    @media (min-width : 600px) {
+        .InnerProductsSection {
+            width: 60%;
+        }
+    }
+
     .ProductContainer {
-        width: 25%;
+        width: 70%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
+        margin-bottom: calc(var(--app-height) * .15);
     }
 
     .GriffinTier {
@@ -615,7 +657,7 @@
     .TierHeader {
         font-family: 'Instrument Sans';
         color: black;
-        font-size: clamp(12px, 1.5vw, 24px);
+        font-size: clamp(12px, 6vw, 24px);
     }
 
     .Tier {
@@ -643,7 +685,7 @@
         height: fit-content;
         color: black;
         font-family: Montserrat;
-        font-size: clamp(12px, 1.2vw, 24px);
+        font-size: clamp(12px, 4vw, 24px);
 
         display: flex;
         flex-direction: row;
@@ -670,14 +712,14 @@
         color: black;
         margin: 10px 0 10px 0;
         font-family: Montserrat;
-        font-size: clamp(12px, 1.2vw, 24px);
+        font-size: clamp(12px, 4vw, 24px);
     }
 
     .MonthlyFee {
         color: black;
         margin: 10px 0 10px 0;
         font-family: Montserrat;
-        font-size: clamp(12px, 1.2vw, 24px);
+        font-size: clamp(12px, 4vw, 24px);
     }
 
     .BuildFee span {
@@ -755,7 +797,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         width: var(--app-width);
         height: var(--app-height);
         z-index: 5;
@@ -765,7 +807,7 @@
         width: calc(var(--app-width) * .9);
         text-align: center;
         font-family: 'Montserrat';
-        font-size: calc(var(--app-width) * .012);
+        font-size: calc(var(--app-width) * .04);
         color: white;
         font-weight: 700;
     }
@@ -800,20 +842,20 @@
 
     .MainSiteHeader {
         position: relative;
-        font-size: calc(var(--app-width) * .015);
+        font-size: calc(var(--app-width) * .05);
+        text-align: center;
         color: white;
         font-family: 'Montserrat';
     }
 
     .HeroInnerContainer {
-        width: 40%;
-        height: 50%;
+        width: 90%;
+        height: 25%;
 
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        margin-left: 5%;
     }
 
     .firstdivider {
@@ -870,13 +912,13 @@
         text-align: center;
     }
 
-    .Projects .Contact {
+    .Contact {
       position: relative;
       z-index: 5;
       width: 100%;
       height: calc(var(--app-height) * 1);
       scroll-margin-top: calc(var(--app-height) * .26);
-      margin-bottom: calc(var(--app-height) * .05);;
+      margin-bottom: calc(var(--app-height) * .05);
 
       display: flex;
       flex-direction: column;
@@ -885,9 +927,9 @@
   }
 
   .Contact h2 {
-    font-size: "Instrument Sans";
+    font-size: 'Montserrat';
     color: white;
-    font-size: clamp(12px, 2.5vw, 36px);
+    font-size: clamp(12px, 6vw, 36px);
     z-index: 2;
   }
 
@@ -930,9 +972,11 @@
         justify-content: center;
         align-items: center;
         background-color: white;
-        width : calc(var(--app-width) * .4);
+        width : calc(var(--app-width) * .8);
         padding: calc(var(--app-width) * .06) calc(var(--app-width) * .06) calc(var(--app-width) * .03) calc(var(--app-width) * .06);        
     }
+
+
 
     .SlashAssets {
         position: absolute;
@@ -958,7 +1002,7 @@
         font-size: clamp(12px, 1.5vw, 24px);
         border-radius: 35px;
         border-style: none;
-        height: 15%;
+        padding: 10px 0 10px 0;
         margin-top: 25px;
         transition: background-color 0.6s ease-in-out;
         z-index: 2;
@@ -972,7 +1016,7 @@
     position: absolute;
     top : 0;
     left : 50%;
-    width: calc(var(--app-width) * .07);
+    width: calc(var(--app-width) * .15);
     height: fit-content;
     transform: translate(-50% , -90%);
   }
@@ -983,68 +1027,136 @@
     height: auto;
   }
 
-  .ContactGrid {
-      display: grid;
-      width: 100%;
-      grid-template-columns: 1fr 1fr;
-      place-items: center;
-      z-index: 2;
-  }
+  .ContactContainer {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 4;
+    }
 
-  .ContactGrid input {
-    width: 100%;
-    height: calc(var(--app-width) * .04);
-    font-size: calc(var(--app-width) * .013);
-    font-family:  'Montserrat', sans-serif;
-    background-color: rgb(32, 32, 32);
-    color: white;
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-    border-style: solid;
-    border-color: rgb(106, 106, 106);
-    border-width: 2px;
-  }
+  .ContactContainer button{
+      margin-top: 30px;
+      width: 200px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      color: white;
+      background-color: rgb(32, 32, 32);
+    }
 
+  .WhiteRectangle {
+      width: calc(var(--app-width) * .9);
+      height: fit-content;
+      border-width: 5px;
+      border-color: white;
+      border-style: solid;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-  .ContactTag {
-      font-size: calc(var(--app-width) * .025);
+  .WhiteRectangle p {
+      font-size: calc(var(--app-width) * .06);
       font-family: 'Montserrat', sans-serif;
       text-transform: uppercase;
-      font-weight: bolder;
+      font-weight: bold;
+      color : white;
+    }
+
+  .SubmissionBox {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      padding: calc(var(--app-width) * .05) calc(var(--app-width) * .05) calc(var(--app-width) * .05) calc(var(--app-width) * .05);
+      width: calc(var(--app-width) * .8);
+      height: fit-content;
+      margin-bottom: 50px;
+    }
+
+    @media (min-width : 600px) {
+        .SubmissionBox {
+            width : calc(var(--app-width) * .5);
+        }
+    }
+
+  .ContactGrid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: fit-content;
+      z-index: 7;
+    }
+
+  .ContactGrid input {
+      width: 90%;
+      margin-bottom: calc(var(--app-height) * .02);
+      height: calc(var(--app-width) * .1);
+      font-size: 20px;
+      font-family:  'Montserrat', sans-serif;
+      background-color: rgb(32, 32, 32);
       color: white;
-  }
+    }
 
-  .ContactDescription {
-      font-size: calc(var(--app-width) * .0135);
-      font-family: 'Montserrat', sans-serif;
-      width: 400px;
-      color: white;
-  }
+    @media (min-width : 600px) {
+        .ContactGrid input {
+            height: calc(var(--app-width) * .05);
+        }
+    }
 
-  .SubmissionBox textarea {
-    width: 100%;
-    height: calc(var(--app-width) * .15);
-    font-family:  'Montserrat', sans-serif;
-    font-size: calc(var(--app-width) * .013);
-    background-color: rgb(32, 32, 32);
-    color: white;
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-    border-width: 2px;
-    border-style: solid;
-    border-color: rgb(106, 106, 106);
-    z-index: 2;
-    resize: none;
-  }
+    .ContactTag {
+        font-size: calc(var(--app-width) * .07);
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-weight: bolder;
+        color : white;
+    }
 
-  .Snapshot {
-      position: absolute;
-      right: 0px;
-      top : 100px;
-      width: calc(var(--app-width) * .3);
-      height: auto;
-      z-index: 3;
-  }
+    .ContactDescription {
+        font-size: 20px;
+        font-family: 'Montserrat', sans-serif;
+        color : white;
+        width: calc(var(--app-width) * .9);
+    }
+
+    .SubmissionBox textarea {
+        width: 90%;
+        height: calc(var(--app-width) * .6);
+        font-family:  'Montserrat', sans-serif;
+        font-size: 15px;
+        color: white;
+        background-color: rgb(32, 32, 32);
+        border-radius: 0;
+        z-index: 7;
+    }
+
+    @media (min-width : 600px) {
+        .SubmissionBox textarea {
+            height: calc(var(--app-width) * .4);
+        }
+    }
+
+    .Snapshot {
+        position: relative;
+        right: 0px;
+        bottom: 0px;
+        width: calc(var(--app-width) * .7);
+        height: auto;
+        z-index: 3;
+    }
+
+    .ContactMethod {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: calc(var(--app-width) * .35);
+    }
 
   .SecondDivider {
     position: relative;
@@ -1062,8 +1174,8 @@
   .SecondBackgroundLayer {
     position: absolute;
     width: var(--app-width);
-    height: calc(var(--app-height) * 3.8);
-    top: calc(var(--page-height) - (var(--app-height) * 3.8));
+    height: calc(var(--app-height) * 3.25);
+    top: calc(var(--page-height) - (var(--app-height) * 3.25));
     left: 0;
     pointer-events: none;
     z-index: -1;
@@ -1120,7 +1232,8 @@
     position: relative;
     font-family: 'Instrument Sans';
     text-transform: uppercase;
-    font-size: calc(var(--app-width) * .04);
+    font-size: calc(var(--app-width) * .05);
+    text-align: center;
     color : white;
     z-index : 7;
   }
@@ -1132,7 +1245,7 @@
     font-family: 'Montserrat';
     color : black;
     background-color: white;
-    font-size: clamp(7px, calc(var(--app-width) * .011), 32px);
+    font-size: clamp(7px, calc(var(--app-width) * .04), 32px);
     padding: 10px 15px 10px 15px;
     min-width: fit-content;
     min-height: fit-content;
@@ -1153,7 +1266,7 @@
   }
 
   .ContactMessage {
-      font-size: calc(var(--app-width) * .02);
+      font-size: calc(var(--app-width) * .05);
       color: white;
       font-family: "Montserrat";
       text-align: center;
@@ -1171,25 +1284,25 @@
 
     .Contact .SocialsNav {
         position: absolute;
-        left: 0;
-        top : 50%;
-        transform: translate(80% , -50%);
-        width: 3%;
-        height: 60%;
+        left: 50%;
+        top : 2%;
+        transform: translate(-50% , -2%);
+        width: 60%;
+        height: 5%;
         border-radius: 35px;
         background-color: white;
 
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding-bottom: 20px;
-        padding-top: 20px;
+        padding-right: 20px;
+        padding-left: 20px;
     }
     
     .Contact .SocialsNav .SocialNav {
-        width: 80%;
-        height: fit-content;
+        height: 80%;
+        width: fit-content;
         transition: transform 0.6s ease-in-out;
     }
 
@@ -1199,8 +1312,8 @@
 
     .SocialNav img {
         object-fit: contain;
-        width: 100%;
-        height: auto;
+        width: auto;
+        height: 100%;
     }
 
     .MethodHeader {
@@ -1229,16 +1342,15 @@
         object-fit: contain;
     }
 
-    .fade-in-animated {
-        animation: fade-in-animated 0.6s ease-in-out;
+
+    main {
+        width : var(--app-width);
+        overflow : hidden auto;
     }
 
-    @keyframes fade-in-animated {
-        0% {
-            opacity: 0;
-        } 100% {
-            opacity: 1;
-        }
+    footer {
+        width : var(--app-width);
+        overflow : hidden auto;
     }
 }
 
@@ -1316,6 +1428,18 @@
         transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
+    .fade-in-animated {
+        animation: fade-in-animated 0.6s ease-in-out;
+    }
+
+    @keyframes fade-in-animated {
+        0% {
+            opacity: 0;
+        } 100% {
+            opacity: 1;
+        }
+    }
+
     .fade-out {
         opacity: 0;
         transform: translateY(20px);
@@ -1336,6 +1460,18 @@
 
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+    }
+
+    header {
+        width: var(--app-width);
+    }
+
+    main {
+        width: var(--app-width);
+    }
+
+    section {
+        width: var(--app-width);
     }
 
     .slide-right-fade-in {
@@ -1359,5 +1495,13 @@
         } 100% {
             opacity: 1;
             transform: translateY(0);
+        }
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        } 100% {
+            opacity: 1;
         }
     }
