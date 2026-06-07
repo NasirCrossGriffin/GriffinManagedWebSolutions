@@ -1333,8 +1333,9 @@
     }
 
 
-    body {
+    main {
         width : var(--app-width);
+        overflow: hidden hidden;
     }
 
     footer {
