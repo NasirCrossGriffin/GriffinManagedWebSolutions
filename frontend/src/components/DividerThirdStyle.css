@@ -49,6 +49,7 @@
 @media (orientation: portrait) {
     .ThirdDividerStyle {
         position: relative;
+        overflow-y: hidden;
         width : 100%;
         height: calc(var(--app-height) * .5);
         background-color: #ffffff;

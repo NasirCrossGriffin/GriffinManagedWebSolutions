@@ -41,6 +41,7 @@
 
 @media (orientation: portrait) {
     .SecondDividerStyle {
+        overflow-y: hidden;
         position: relative;
         width : 100%;
         height: calc(var(--app-height) * .5);
