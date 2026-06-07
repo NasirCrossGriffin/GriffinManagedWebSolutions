@@ -1331,12 +1331,12 @@
 
     main {
         width : var(--app-width);
-        overflow : hidden auto;
+        overflow : hidden visible;
     }
 
     footer {
         width : var(--app-width);
-        overflow : hidden auto;
+        overflow : hidden visible;
     }
 }
 
@@ -1482,4 +1482,8 @@
         } 100% {
             opacity: 1;
         }
+    }
+
+    section {
+        overflow-y: visible;
     }
