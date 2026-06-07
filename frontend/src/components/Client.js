@@ -1049,7 +1049,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                                 <div className='DiamondGriffin'><img src="/static/DiamondGriffin.png" /></div>
 
                                 <a className='SocialNav' 
-                                    href='tel:+4733378901'
+                                    href='tel:+13468002659'
                                     target='_blank'
                                 >
                                     <img src="./static/Phone_Contact.png" />
