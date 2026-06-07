@@ -235,7 +235,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
             video.removeEventListener("loadedmetadata", attemptAutoplay);
             video.removeEventListener("canplay", attemptAutoplay);
         };
-    }, []);
+    }, [videoRef]);
 
     const handleManualPlay = async () => {
         const video = videoRef.current;
@@ -582,7 +582,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                             },
                             scrollTrigger: {
                                 trigger: ".AlphaContainer", // the element that starts the animation
-                                start: "center center", // when the top of the box hits the center of the viewport
+                                start: "top center", // when the top of the box hits the center of the viewport
                             }
                         }
                     )
@@ -606,7 +606,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                             },
                             scrollTrigger: {
                                 trigger: ".GammaContainer", // the element that starts the animation
-                                start: "center center", // when the top of the box hits the center of the viewport
+                                start: "top center", // when the top of the box hits the center of the viewport
                             }
                         }
                     )
@@ -630,7 +630,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                             },
                             scrollTrigger: {
                                 trigger: ".OmegaContainer", // the element that starts the animation
-                                start: "center center", // when the top of the box hits the center of the viewport
+                                start: "top center", // when the top of the box hits the center of the viewport
                             }
                         }
                     )
@@ -844,7 +844,11 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
 
                             <p className='CaseStudyDescription'>{projects[selectedProject].description}</p>
 
-                            <div className='VideoPreview'>
+                            <div  
+                                key={projects[selectedProject].preview}
+                                className='VideoPreview'
+                            >
+                               
                                 <video 
                                     key={projects[selectedProject].preview}
                                     autoPlay 

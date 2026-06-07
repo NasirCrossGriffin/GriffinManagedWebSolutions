@@ -30,7 +30,7 @@
         top: 0;
         left: 0;
         width: var(--app-width);
-        height: calc(var(--page-height) - (var(--app-height) * 3.25));
+        height: calc(var(--page-height) - (var(--app-height) * 3.50));
         z-index: -2;
         pointer-events: none;
     }
@@ -49,6 +49,7 @@
         justify-content: center;
 
         background-color: black;
+        pointer-events: none;
     }
 
     .StartingBackground img {
@@ -70,6 +71,7 @@
         background-position: center;
         background-repeat: no-repeat;
         z-index: 3;
+        pointer-events: none;
     }
 
 
@@ -1163,8 +1165,8 @@
   .SecondBackgroundLayer {
     position: absolute;
     width: var(--app-width);
-    height: calc(var(--app-height) * 3.25);
-    top: calc(var(--page-height) - (var(--app-height) * 3.25));
+    height: calc(var(--app-height) * 3.5);
+    top: calc(var(--page-height) - (var(--app-height) * 3.50));
     left: 0;
     pointer-events: none;
     z-index: -1;
@@ -1187,6 +1189,7 @@
         background-position: center;
         background-repeat: no-repeat;
         z-index: -1;
+        pointer-events: none;
     }
 
     .FinalBackground img {
@@ -1485,5 +1488,16 @@
     }
 
     section {
+        height: auto;
+        overflow-y: visible;
+    }
+
+    main {
+        height: auto;
+        overflow-y: visible;
+    }
+
+    header {
+        height: auto;
         overflow-y: visible;
     }
