@@ -133,6 +133,3 @@ html {
   initial-value: 100svw;
 }
 
-header, section, main, html, body {
-  transition: width 0.6s ease-in-out, height 0.6s ease-in-out;
-}
