@@ -207,6 +207,7 @@
         font-size: calc(var(--app-width) * .07);
         z-index: 15;
         text-wrap: nowrap;
+        opacity: 0;
     }
 
     .AboutContentContainer {

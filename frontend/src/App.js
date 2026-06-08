@@ -31,6 +31,13 @@ function App() {
     };
 
     const setHeight = () => {
+        function isNeutralZoom() {
+          const scale = window.visualViewport?.scale ?? 1;
+          return Math.abs(scale - 1) < 0.01;
+        }
+
+        if (!(isNeutralZoom())) return;
+
         const height = window.visualViewport?.height ?? window.innerHeight;
 
         console.log(height);
@@ -49,6 +56,13 @@ function App() {
       };
 
     const setPageHeightFunc = () => {
+        function isNeutralZoom() {
+          const scale = window.visualViewport?.scale ?? 1;
+          return Math.abs(scale - 1) < 0.01;
+        }
+
+        if (!(isNeutralZoom())) return;
+
         const pageHeight = document.documentElement.scrollHeight;
 
         document.documentElement.style.setProperty(
@@ -138,6 +152,13 @@ function App() {
     let maxSeenHeight = window.visualViewport?.height || window.innerHeight;
 
     const setMobileAppHeight = () => {
+        function isNeutralZoom() {
+          const scale = window.visualViewport?.scale ?? 1;
+          return Math.abs(scale - 1) < 0.01;
+        }
+
+        if (!(isNeutralZoom())) return;
+
       const currentHeight = window.visualViewport?.height || window.innerHeight;
 
       // Only grow height, never shrink it
