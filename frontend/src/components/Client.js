@@ -538,7 +538,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                         },
                         scrollTrigger: {
                             trigger: ".ProductsSection", // the element that starts the animation
-                            start: "center center", // when the top of the box hits the center of the viewport
+                            start: "bottom bottom", // when the top of the box hits the center of the viewport
                         }
                     });
 

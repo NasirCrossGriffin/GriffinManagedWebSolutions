@@ -87,6 +87,12 @@ function App() {
     });
 
     function handleViewportChange() {
+        function isNeutralZoom() {
+          const scale = window.visualViewport?.scale ?? 1;
+          return Math.abs(scale - 1) < 0.01;
+        }
+
+        if (!(isNeutralZoom())) return;
         // Let mobile Chrome finish resizing after orientation/UI changes
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {

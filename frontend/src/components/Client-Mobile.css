@@ -492,6 +492,8 @@
         margin: 0 0 0 0;
         font-size: clamp(12px, 5vw, 36px);
         text-align: center;
+        text-decoration: underline;
+        text-decoration-color: blue;
     }
 
     .ClientContent p {
