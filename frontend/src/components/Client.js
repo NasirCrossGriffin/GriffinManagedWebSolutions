@@ -127,6 +127,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
         {
             title : "Elite Designs",
             animation : "./static/minimal_paint_v2.webm",
+            animation_safari : "./static/minimal_paint_v2.mov",
             copy : "Elite designs establish credibility and authority with your prospects."
         }, {
             title : "Cutting Edge Technology",
