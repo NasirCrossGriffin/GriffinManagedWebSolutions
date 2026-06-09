@@ -1,10 +1,11 @@
+import { forwardRef } from "react";
 import "./DividerSecondStyle.css"
 
-function DividerSecondStyle() {
+const DividerSecondStyle = forwardRef(function DividerFirstStyle(props, secondDividerRef) {
 
     return (
         <>
-            <div className="SecondDividerStyle">
+            <div className="SecondDividerStyle" ref={secondDividerRef}>
                 <div className="BlackGriffin">
                     <img src="./static/BlackGriffin.png"/>
                 </div>
@@ -15,6 +16,6 @@ function DividerSecondStyle() {
             </div>
         </>
     )
-}
+});
 
 export default DividerSecondStyle;

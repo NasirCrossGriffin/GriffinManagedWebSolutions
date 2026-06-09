@@ -1,10 +1,13 @@
 import "./DividerFirstStyle.css"
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { forwardRef } from "react";
 
-function DividerFirstStyle() {
 
+const DividerFirstStyle = forwardRef(function DividerFirstStyle(props, firstDividerRef) {
     return (
         <>
-            <div className="FirstDividerStyle">
+            <div className="FirstDividerStyle" ref={firstDividerRef}>
                 <div className="GMWSLogo">
                     <img src="./static/GriffinLogoBlack.png"/>
                 </div>
@@ -15,6 +18,6 @@ function DividerFirstStyle() {
             </div>
         </>
     )
-}
+});
 
 export default DividerFirstStyle;

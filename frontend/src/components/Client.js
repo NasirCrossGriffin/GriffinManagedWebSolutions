@@ -34,6 +34,13 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
     const AboutSubtextFirst = useRef(null);
     const AboutSubtextSecond = useRef(null);
     const AboutSubtextThird = useRef(null);
+    const firstDividerRef = useRef(null);
+    const secondDividerRef = useRef(null);
+    const thirdDividerRef = useRef(null);
+
+    useEffect(() => {
+        console.log(firstDividerRef)
+    }, [firstDividerRef])
 
     const testimonials = [ 
         {
@@ -581,18 +588,14 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                 }
 
                 function ProductAnimationsPortrait() {
-                    gsap.from(
+                    gsap.fromTo(
                         ".AlphaContainer",
                         {
-                            opacity: 0,
+                            autoAlpha: 0,
                             x: -150,
-                        }
-                    )
-
-                    gsap.to(
-                        ".AlphaContainer",
+                        },
                         {
-                            opacity: 1,
+                            autoAlpha: 1,
                             x: 0,
                             duration: 0.9,
                             defaults: {
@@ -605,18 +608,14 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                         }
                     )
 
-                    gsap.from(
+                    gsap.fromTo(
                         ".GammaContainer",
                         {
-                            opacity: 0,
+                            autoAlpha: 0,
                             x: -150,
-                        }
-                    )
-
-                    gsap.to(
-                        ".GammaContainer",
+                        },
                         {
-                            opacity: 1,
+                            autoAlpha: 1,
                             x: 0,
                             duration: 0.9,
                             defaults: {
@@ -629,18 +628,14 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                         }
                     )
 
-                    gsap.from(
+                    gsap.fromTo(
                         ".OmegaContainer",
                         {
-                            opacity: 0,
+                            autoAlpha: 0,
                             x: -150,
-                        }
-                    )
-
-                    gsap.to(
-                        ".OmegaContainer",
+                        },
                         {
-                            opacity: 1,
+                            autoAlpha: 1,
                             x: 0,
                             duration: 0.9,
                             defaults: {
@@ -653,6 +648,60 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                         }
                     )
                 }
+
+                gsap.fromTo(
+                    firstDividerRef.current,
+                    {
+                        y: 100,
+                        autoAlpha: 0,
+                    },
+                    {
+                        y: 0,
+                        autoAlpha: 1,
+                        duration: 0.9,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: firstDividerRef.current,
+                            start: "top bottom",                       
+                        },
+                    }
+                );
+
+                gsap.fromTo(
+                    secondDividerRef.current,
+                    {
+                        y: 100,
+                        autoAlpha: 0,
+                    },
+                    {
+                        y: 0,
+                        autoAlpha: 1,
+                        duration: 0.9,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: secondDividerRef.current,
+                            start: "top bottom",                       
+                        },
+                    }
+                );
+
+                gsap.fromTo(
+                    thirdDividerRef.current,
+                    {
+                        y: 100,
+                        autoAlpha: 0,
+                    },
+                    {
+                        y: 0,
+                        autoAlpha: 1,
+                        duration: 0.9,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: thirdDividerRef.current,
+                            start: "top bottom",                       
+                        },
+                    }
+                );
 
                 window.innerHeight < window.innerWidth ? ProductAnimationsLandscape() : ProductAnimationsPortrait()
 
@@ -787,7 +836,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                         </div>
                     </section>
 
-                    <DividerFirstStyle />
+                    <DividerFirstStyle ref={firstDividerRef} />
 
                     <section className='ServiceSection'>
                         <h2 className='ServiceHeader'>What Do We Do For You?</h2>
@@ -837,7 +886,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                         </div>                    
                     </section>
 
-                    <DividerSecondStyle />
+                    <DividerSecondStyle ref={secondDividerRef} />
 
                     <section className='ClientSection'>
                         <h2 className='ClientSectionHeader'>Join The Elites</h2>
@@ -851,7 +900,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                             ))}
                         </div>
 
-                        <div className={'ClientContent '.concat('fade-in-animated')} key={projects[selectedProject].name}>
+                        {window.innerWidth > window.innerHeight ? <div className={'ClientContent '.concat('fade-in-animated')} key={projects[selectedProject].name}>
                             <a href={projects[selectedProject].link} target='_blank'><h3>{projects[selectedProject].name}</h3></a>
 
                             {projects[selectedProject].testimony ? <div className='Testimony'>
@@ -865,54 +914,70 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                                 </p>
                             </div> : <div></div>}
 
-                            {window.innerWidth > window.innerHeight ? 
-                                <p className='CaseStudyDescription'>{projects[selectedProject].description}</p> : 
-                                <div  
+                            <p className='CaseStudyDescription'>{projects[selectedProject].description}</p>
+                            
+                            <div  
+                                key={projects[selectedProject].preview}
+                                className='VideoPreview'
+                            >
+                            
+                                <video 
                                     key={projects[selectedProject].preview}
-                                    className='VideoPreview'
+                                    autoPlay 
+                                    loop 
+                                    muted 
+                                    playsInline
                                 >
-                                
-                                    <video 
-                                        key={projects[selectedProject].preview}
-                                        autoPlay 
-                                        loop 
-                                        muted 
-                                        playsInline
-                                    >
-                                        <source
-                                            src={projects[selectedProject].preview}
-                                            type="video/mp4"
-                                        />
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
-                            }
+                                    <source
+                                        src={projects[selectedProject].preview}
+                                        type="video/mp4"
+                                    />
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div> 
+                        </div> 
+                        
+                        : 
+                        
+                        <div className={'ClientContent '.concat('fade-in-animated')} key={projects[selectedProject].name}>
+                            <a href={projects[selectedProject].link} target='_blank'><h3>{projects[selectedProject].name}</h3></a>
 
-                            {window.innerWidth > window.innerHeight ?
-                                <div  
+                            <div  
+                                key={projects[selectedProject].preview}
+                                className='VideoPreview'
+                            >
+                                <video 
                                     key={projects[selectedProject].preview}
-                                    className='VideoPreview'
+                                    autoPlay 
+                                    loop 
+                                    muted 
+                                    playsInline
                                 >
-                                
-                                    <video 
-                                        key={projects[selectedProject].preview}
-                                        autoPlay 
-                                        loop 
-                                        muted 
-                                        playsInline
-                                    >
-                                        <source
-                                            src={projects[selectedProject].preview}
-                                            type="video/mp4"
-                                        />
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div> : <p className='CaseStudyDescription'>{projects[selectedProject].description}</p>
-                            }
+                                    <source
+                                        src={projects[selectedProject].preview}
+                                        type="video/mp4"
+                                    />
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div> 
+
+                            <p className='CaseStudyDescription'>{projects[selectedProject].description}</p>
+
+                            {projects[selectedProject].testimony ? <div className='Testimony'>
+                                <div className='Client'>
+                                    <div className='ClientImage'>
+                                        <img src={projects[selectedProject].testimony.image} />
+                                    </div>
+                                </div>
+                                <p className='TestimonyText'>
+                                    {projects[selectedProject].testimony.testimony}
+                                </p>
+                            </div> : <div></div>}
                         </div>
+                        }
                     </section>
 
-                    <DividerThirdStyle />
+                    <DividerThirdStyle ref={thirdDividerRef}/>
 
                     <section className='ProductsSection'>
                         <h2>Choose Your Level of Digital Dominance</h2>
