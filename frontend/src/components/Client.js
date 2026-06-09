@@ -131,14 +131,17 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
         }, {
             title : "Cutting Edge Technology",
             animation : "./static/React_Spin.webm",
+            animation_safari : "./static/React_Spin.mov",
             copy : "Your site is built with the same tools used to build Facebook, Instagram, and Netflix."
         }, {
             title : "Systems That Convert",
             animation : "./static/minimal_gears.webm",
+            animation_safari : "./static/minimal_gears.mov",
             copy : "Lead capture systems that make connecting with prospects seamless."
         }, {
             title : "Ongoing Maintenance",
             animation : "./static/hammer_fluid.webm",
+            animation_safari : "./static/hammer_fluid.mov",
             copy : "Continued support to keep your system online and in line with your vision."
         },
     ]
@@ -810,6 +813,11 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                                             muted 
                                             playsInline
                                         >
+                                            <source
+                                                src={GMWSServices[selectedService].animation_safari}
+                                                type="video/mov"
+                                            />
+
                                             <source
                                                 src={GMWSServices[selectedService].animation}
                                                 type="video/webm"
