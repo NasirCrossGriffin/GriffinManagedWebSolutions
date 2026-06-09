@@ -274,7 +274,7 @@
     .Subtext p {
         color: white;
         font-family: 'Montserrat';
-        font-size: calc(var(--app-width) * .03);
+        font-size: calc(var(--app-width) * .035);
         margin: 0 0 0 0;
         text-align: center;
     }
@@ -302,7 +302,7 @@
     .ServiceSelector {
         position: relative;
         width: 90%;
-        height: calc(var(--app-height) * .4);
+        height: calc(var(--app-height) * .20);
 
         display: flex;
         flex-direction: column;
@@ -336,7 +336,7 @@
     }
 
     .ServiceContent {
-        height: calc(var(--app-height) * .5);
+        height: calc(var(--app-height) * .6);
         width: 90%;
 
         display: flex;
@@ -364,7 +364,7 @@
     }
 
     .ServiceAnimationWrapper {
-        height: calc(var(--app-height) * .2);
+        height: calc(var(--app-height) * .35);
         width: fit-content;
     }
 
@@ -373,6 +373,7 @@
         width: fit-content;
         animation: slide-right-fade-in 0.6s ease-in-out;
     }
+    
 
     .ServiceAnimation video {
         object-fit: contain;
@@ -387,7 +388,7 @@
         opacity: 0;
         animation: slide-right-fade-in 0.6s forwards 1s;
         text-align: center;
-        height: calc(var(--app-height) * .2);
+        height: calc(var(--app-height) * .3);
     }
 
     .ServiceImageContainer img{
@@ -978,7 +979,7 @@
         top: 50%;
         left : 50%;
         transform: translate(-50%, -50%);
-        height: 150%;
+        height: 90%;
         width: fit-content;
         z-index: 1;
     }

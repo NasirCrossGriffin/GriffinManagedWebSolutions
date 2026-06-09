@@ -856,27 +856,50 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                                 </p>
                             </div> : <div></div>}
 
-                            <p className='CaseStudyDescription'>{projects[selectedProject].description}</p>
-
-                            <div  
-                                key={projects[selectedProject].preview}
-                                className='VideoPreview'
-                            >
-                               
-                                <video 
+                            {window.innerWidth > window.innerHeight ? 
+                                <p className='CaseStudyDescription'>{projects[selectedProject].description}</p> : 
+                                <div  
                                     key={projects[selectedProject].preview}
-                                    autoPlay 
-                                    loop 
-                                    muted 
-                                    playsInline
+                                    className='VideoPreview'
                                 >
-                                    <source
-                                        src={projects[selectedProject].preview}
-                                        type="video/mp4"
-                                    />
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
+                                
+                                    <video 
+                                        key={projects[selectedProject].preview}
+                                        autoPlay 
+                                        loop 
+                                        muted 
+                                        playsInline
+                                    >
+                                        <source
+                                            src={projects[selectedProject].preview}
+                                            type="video/mp4"
+                                        />
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            }
+
+                            {window.innerWidth > window.innerHeight ?
+                                <div  
+                                    key={projects[selectedProject].preview}
+                                    className='VideoPreview'
+                                >
+                                
+                                    <video 
+                                        key={projects[selectedProject].preview}
+                                        autoPlay 
+                                        loop 
+                                        muted 
+                                        playsInline
+                                    >
+                                        <source
+                                            src={projects[selectedProject].preview}
+                                            type="video/mp4"
+                                        />
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div> : <p className='CaseStudyDescription'>{projects[selectedProject].description}</p>
+                            }
                         </div>
                     </section>
 
