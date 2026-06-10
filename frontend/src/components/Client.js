@@ -865,7 +865,7 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                                         >
                                             <source
                                                 src={GMWSServices[selectedService].animation_safari}
-                                                type="video/mov"
+                                                type="video/quicktime"
                                             />
 
                                             <source
