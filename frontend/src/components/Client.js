@@ -103,6 +103,14 @@ function Client({orientation, appWidth, appHeight, pageHeight}) {
                 Stars: 5
             },
             link: "https://www.jdmultiprocessandservices.com"
+        }, 
+        {
+            name: "EMPOWERED UP", 
+            logo: "/static/EmpoweredUpLogo.png",
+            preview: "/static/EmpoweredUpCrawl.mp4", 
+            description: `I partnered with Empowered Up, a youth mentorship organization founded by Cecilia and Collin Boyd, to develop a professional nonprofit website that communicates their mission and connects families, volunteers, donors, and community partners with their programs. I managed the complete design, development, deployment, and hosting process, creating a scalable platform that supports the organization's continued growth while establishing a strong and credible online presence for the communities they serve.`,
+            testimony: null,
+            link: "https://www.empoweredup.health"
         }
     ];
 
