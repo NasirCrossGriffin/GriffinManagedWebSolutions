@@ -8,6 +8,12 @@ import ContactFooter from './components/ContactFooter';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfUse from './components/TermsOfUse';
 import WebsiteDisclaimer from './components/WebsiteDisclaimer';
+import EmployeeLogin from './components/EmployeeLogin';
+import Portal from './components/Portal';
+import Time from './components/Time';
+import People from './components/People';
+import Sales from './components/Sales';
+import { checkSession, getTeamMemberById } from './middleware/team-member-middleware';
 
 
 
@@ -17,6 +23,25 @@ function App() {
   const [appHeight, setAppHeight] = useState(0);
   const [appWidth, setAppWidth] = useState(0);
   const [pageHeight, setPageHeight] = useState(0);
+  const [teamMember, setTeamMember] = useState(null);
+
+  useEffect(() => {
+    const checkForExistingSession = async () => {
+      const session = await checkSession();
+
+      if (session.teamMember) {
+        const acquiredTeamMember = await getTeamMemberById(session.teamMember);
+
+        console.log(acquiredTeamMember)
+
+        setTeamMember(acquiredTeamMember);
+
+        return;
+      }
+
+      setTeamMember(null);
+    }; checkForExistingSession();
+  }, [])
 
   useEffect(() => {
     function determineOrientation() {
@@ -251,6 +276,11 @@ function App() {
           <Route path="/website-disclaimer" element={<WebsiteDisclaimer />} />
           <Route path="/accessibility" element={<AccessibilityStatement />} />
           <Route path="/contact-footer" element={<ContactFooter />} /> 
+          <Route path="/employee/login" element={<EmployeeLogin teamMember={teamMember} setTeamMember={setTeamMember}/>} /> 
+          <Route path="/employee/portal" element={<Portal teamMember={teamMember} />} /> 
+          <Route path="/employee/time" element={<Time teamMember={teamMember} />} /> 
+          <Route path="/employee/people" element={<People teamMember={teamMember} />} /> 
+          <Route path="/employee/sales" element={<Sales teamMember={teamMember} />} /> 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />

@@ -1,0 +1,224 @@
+@media (orientation: landscape) {
+    .Sales {
+        width : 100vw;
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(32, 32, 32);
+        margin-top: 12vh;
+
+        position: relative;
+        z-index: 1;
+    }
+
+    .SalesForm {
+        width: 50%;
+        height: 70vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .SalesField label {
+        color : white;
+        margin-right: 2vw;
+        width: 10vw;
+
+        text-align: end;
+        font-size: clamp(12px, calc(var(--app-width) * 0.02), 24px);
+    }
+
+    .SalesField input {
+        width : 25vw;
+        height : 4vh;
+        color: white;
+        font-size: clamp(12px, calc(var(--app-width) * 0.02), 24px);    
+        background-color: rgb(64, 64, 64);
+    }
+
+    .SalesField select {
+        width : 25vw;
+        height : 4vh;
+        color: white;
+        font-size: clamp(12px, calc(var(--app-width) * 0.02), 24px);    
+        background-color: rgb(64, 64, 64);
+    }
+
+    .SalesForm button {
+        background-color: white;
+        color: black;
+        border-width: 0px;
+        font-size: clamp(12px, calc(var(--app-width) * 0.015), 24px);
+        padding: 10px 30px 10px 30px;
+        border-radius: 25px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        transition: color 0.6s ease-in-out, background-color 0.6s ease-in-out;
+    }
+
+    .SalesForm button:hover {
+        color : white;
+        background-color: blue;
+    }
+
+    .ValidationError {
+        display: block;
+        width: 100%;
+        margin-top: 5px;
+
+        color: red;
+
+        font-family: 'Montserrat';
+        font-size: 14px;
+        text-align: center;
+    }
+
+
+    .ConfirmationMessage {
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        text-align: center;
+
+        font-family: 'Montserrat';
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+
+    .ConfirmationMessage.Error {
+        color: red;
+    }
+
+
+    .ConfirmationMessage.Success {
+        color: green;
+    }
+}
+
+@media (orientation: portrait) {
+    .Sales {
+        width : 100vw;
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(32, 32, 32);
+        margin-top: 12vh;
+
+        position: relative;
+        z-index: 1;
+    }
+
+    .SalesForm {
+        width: 90%;
+        height: 70vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .SalesField {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        width: 75vw;
+    }
+
+    .SalesField label {
+        color : white;
+        margin-right: 2vw;
+        width: 100%;
+
+        text-align: start;
+        font-size: clamp(12px, calc(var(--app-width) * 0.02), 24px);
+    }
+
+    .SalesField input {
+        width : 75vw;
+        height : 4vh;
+        color: white;
+        font-size: clamp(12px, calc(var(--app-width) * 0.02), 24px);    
+        background-color: rgb(64, 64, 64);
+    }
+
+    .SalesField select {
+        width : 75vw;
+        height : 4vh;
+        color: white;
+        font-size: clamp(12px, calc(var(--app-width) * 0.02), 24px);    
+        background-color: rgb(64, 64, 64);
+    }
+
+    .SalesForm button {
+        background-color: white;
+        color: black;
+        border-width: 0px;
+        font-size: clamp(12px, calc(var(--app-width) * 0.015), 24px);
+        padding: 10px 30px 10px 30px;
+        border-radius: 25px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        transition: color 0.6s ease-in-out, background-color 0.6s ease-in-out;
+    }
+
+    .SalesForm button:hover {
+        color : white;
+        background-color: blue;
+    }
+
+    .ValidationError {
+        display: block;
+        width: 100%;
+        margin-top: 5px;
+
+        color: red;
+
+        font-family: 'Montserrat';
+        font-size: 14px;
+        text-align: center;
+    }
+
+
+    .ConfirmationMessage {
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        text-align: center;
+
+        font-family: 'Montserrat';
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+
+    .ConfirmationMessage.Error {
+        color: red;
+    }
+
+
+    .ConfirmationMessage.Success {
+        color: green;
+    }
+}

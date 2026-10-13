@@ -10,12 +10,17 @@
   "author": "Nasir Cross-Griffin",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "connect-mongo": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "express-session": "^1.19.0",
+    "luxon": "^3.7.2",
     "mongoose": "^8.9.4",
     "mongoose-unique-validator": "^4.0.1",
     "nodemailer": "^6.9.16",
+    "nodemon": "^3.1.14",
     "portfoliositebackend": "file:",
     "resend": "^6.7.0"
   }

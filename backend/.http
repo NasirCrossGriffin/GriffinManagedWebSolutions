@@ -7,3 +7,151 @@ Content-Type: application/json
     "phonenumber": "609-805-9113",
     "message": "This is a test to see if everything works"
 }
+
+###
+
+POST http://localhost:3001/api/team/authenticate
+Content-Type: application/json
+
+{
+    "admin_key" : "yyHBwNa1b19rZH0jqS4CWRfizLWpmqkFV3w5kZmB7io=", 
+    "username": "NasirGriffin",
+    "password": "SuperNovaEdge1998%"
+}
+
+###
+
+POST http://localhost:3001/api/role
+Content-Type: application/json
+
+{
+    "title": "Founder",
+    "description": "Founding member of Griffin Manged Web Solutions",
+    "department": "EXECUTIVE",
+    "teamMember": "6aade333418141e88ac21c14",
+    "admin_key": "yyHBwNa1b19rZH0jqS4CWRfizLWpmqkFV3w5kZmB7io=" 
+}
+
+###
+
+POST http://localhost:3001/api/role
+Content-Type: application/json
+
+{
+    "title": "CEO",
+    "description": "The CEO of Griffin Managed Web Solutions (GMWS) provides overall leadership and strategic direction for the company, overseeing business development, operations, technology, financial performance, and organizational growth. The CEO is ultimately responsible for executing the company’s vision, maintaining service quality, and building GMWS into a scalable and profitable organization.",
+    "department": "EXECUTIVE",
+    "teamMember": "6aade333418141e88ac21c14",
+    "admin_key": "yyHBwNa1b19rZH0jqS4CWRfizLWpmqkFV3w5kZmB7io=" 
+}
+
+###
+
+POST http://localhost:3001/api/role
+Content-Type: application/json
+
+{
+    "title": "CEO",
+    "description": "The CEO of Griffin Managed Web Solutions (GMWS) provides overall leadership and strategic direction for the company, overseeing business development, operations, technology, financial performance, and organizational growth. The CEO is ultimately responsible for executing the company’s vision, maintaining service quality, and building GMWS into a scalable and profitable organization.",
+    "department": "EXECUTIVE",
+    "teamMember": "6aade333418141e88ac21c14",
+    "admin_key": "yyHBwNa1b19rZH0jqS4CWRfizLWpmqkFV3w5kZmB7io=" 
+}
+
+###
+
+POST http://localhost:3001/api/role
+Content-Type: application/json
+
+{
+    "title": "Director of Sales",
+    "description": "The Director of Sales leads GMWS’s sales organization and is responsible for developing sales strategy, managing the sales pipeline, overseeing SDR and sales performance, and driving new client acquisition. The Director establishes sales targets, monitors key performance metrics, develops the sales team, and ensures consistent execution of the company’s revenue growth strategy.",
+    "department": "SALES",
+    "teamMember": "6aade333418141e88ac21c14",
+    "admin_key": "yyHBwNa1b19rZH0jqS4CWRfizLWpmqkFV3w5kZmB7io=" 
+}
+
+###
+
+POST http://localhost:3001/api/role
+Content-Type: application/json
+
+{
+    "title": "Director of Finance",
+    "description": "The Director of Finance oversees GMWS’s financial operations and is responsible for budgeting, forecasting, financial reporting, cash flow management, and financial planning. The Director monitors financial performance, manages company expenses, and provides financial guidance to support profitability, stability, and long-term growth.",
+    "department": "FINANCE",
+    "teamMember": "6aade333418141e88ac21c14",
+    "admin_key": "yyHBwNa1b19rZH0jqS4CWRfizLWpmqkFV3w5kZmB7io=" 
+}
+
+###
+
+POST http://localhost:3001/api/role
+Content-Type: application/json
+
+{
+    "title": "Director of Engineering",
+    "description": "The Director of Engineering leads GMWS’s engineering organization and is responsible for technical strategy, software development, infrastructure, and engineering standards. The Director oversees technical projects, maintains development quality, guides technology decisions, and ensures GMWS delivers reliable, scalable, and high-quality digital solutions.",
+    "department": "ENGINEERING",
+    "teamMember": "6aade333418141e88ac21c14",
+    "admin_key": "yyHBwNa1b19rZH0jqS4CWRfizLWpmqkFV3w5kZmB7io=" 
+}
+
+### MONDAY - OCTOBER 5
+POST http://localhost:3001/api/shift
+Content-Type: application/json
+
+{
+    "admin_key": "yyHBwNa1b19rZH0jqS4CWRfizLWpmqkFV3w5kZmB7io=",
+    "teamMember": "6aade333418141e88ac21c14",
+    "startTime": "2026-10-05T09:00:00",
+    "endTime": "2026-10-05T15:00:00"
+}
+
+
+### TUESDAY - OCTOBER 6
+POST http://localhost:3001/api/shift
+Content-Type: application/json
+
+{
+    "admin_key": "yyHBwNa1b19rZH0jqS4CWRfizLWpmqkFV3w5kZmB7io=",
+    "teamMember": "6aade333418141e88ac21c14",
+    "startTime": "2026-10-06T09:00:00",
+    "endTime": "2026-10-06T15:00:00"
+}
+
+
+### WEDNESDAY - OCTOBER 7
+POST http://localhost:3001/api/shift
+Content-Type: application/json
+
+{
+    "admin_key": "yyHBwNa1b19rZH0jqS4CWRfizLWpmqkFV3w5kZmB7io=",
+    "teamMember": "6aade333418141e88ac21c14",
+    "startTime": "2026-10-07T09:00:00",
+    "endTime": "2026-10-07T15:00:00"
+}
+
+
+### THURSDAY - OCTOBER 8
+POST http://localhost:3001/api/shift
+Content-Type: application/json
+
+{
+    "admin_key": "yyHBwNa1b19rZH0jqS4CWRfizLWpmqkFV3w5kZmB7io=",
+    "teamMember": "6aade333418141e88ac21c14",
+    "startTime": "2026-10-08T09:00:00",
+    "endTime": "2026-10-08T15:00:00"
+}
+
+
+### FRIDAY - OCTOBER 9
+POST http://localhost:3001/api/shift
+Content-Type: application/json
+
+{
+    "admin_key": "yyHBwNa1b19rZH0jqS4CWRfizLWpmqkFV3w5kZmB7io=",
+    "teamMember": "6aade333418141e88ac21c14",
+    "startTime": "2026-10-19T09:00:00",
+    "endTime": "2026-10-19T15:00:00"
+}

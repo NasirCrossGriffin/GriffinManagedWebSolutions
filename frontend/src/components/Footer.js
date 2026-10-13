@@ -57,6 +57,7 @@ function Footer({setScrollTarget}) {
 
       <nav className='LegalNav'>
         <a href='/'>Home</a>
+        <a href='/employee/login'>Portal</a>
         <a href='/privacy-policy'>Privacy Policy</a>
         <a href='/terms-of-use'>Terms Of Use</a>
         <a href='/website-disclaimer'>Web Development Disclaimer</a>

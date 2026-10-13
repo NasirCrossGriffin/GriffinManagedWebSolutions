@@ -1,0 +1,248 @@
+@media (orientation: landscape) {
+    .PeopleMain {
+        position: relative;
+        width: 100vw;
+        min-height: 100vh;
+        height: fit-content;
+
+        overflow-y: visible;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgb(32, 32, 32);
+        margin-top: 12vh;
+    }
+
+    .People {
+        position: relative;
+        width: 100%;
+        min-height: 100%;
+        height: fit-content;
+        overflow-y: visible;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgb(32, 32, 32);
+        margin-top: 12vh;
+    }
+
+    .Search {
+        position: relative;
+        height: 5vh;
+
+        margin-top: 10vh;
+    }
+
+    .SearchBar {
+        height: 75%;
+        width: 20vw;
+    }
+
+    .Search label {
+        color: white;
+        font-family: 'Montserrat';
+        margin-right: 2vw;
+    }
+
+    .Profile {
+        position: relative;
+        width : 100vw;
+        min-height: 100%;
+        height: fit-content;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+    }
+
+    .Profile p {
+        position: relative;
+        color: white;
+        font-family: 'Montserrat';
+    }
+
+    .ProfilePicture {
+        position: relative;
+        width: 50vw;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ProfilePicture img {
+        position: relative;
+        width: 50%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .ProfileInfo {
+        position: relative;
+        width: 50vw;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .TeamMemberName {
+        font-size: clamp(12px, calc(var(--app-width) * 0.1), 32px);
+    }
+
+    .MemberRoles {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        place-items: center;
+    }
+
+    .MemberRoles p {
+        width: 100%;
+        text-align: center;
+    }
+
+    .SearchResults {
+        width : 100vw;
+        min-height: 100vh;
+        height: fit-content;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+}
+
+@media (orientation: portrait) {
+    .PeopleMain {
+        position: relative;
+        width: 100vw;
+        min-height: 100vh;
+        height: fit-content;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgb(32, 32, 32);
+        margin-top: 12vh;
+    }
+
+    .People {
+        position: relative;
+        width: 100%;
+        min-height: 100%;
+        height: fit-content;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgb(32, 32, 32);
+        margin-top: 12vh;
+    }
+
+    .Search {
+        position: relative;
+        height: 5vh;
+
+        margin-top: 10vh;
+    }
+
+    .SearchBar {
+        height: 75%;
+        width: 70vw;
+    }
+
+    .Search label {
+        color: white;
+        font-family: 'Montserrat';
+        margin-right: 2vw;
+    }
+
+    .Profile {
+        position: relative;
+        width : 100vw;
+        height: 80vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        place-items: center;
+    }
+
+    .Profile p {
+        position: relative;
+        color: white;
+        font-family: 'Montserrat';
+    }
+
+    .ProfilePicture {
+        position: relative;
+        width: 50vw;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ProfilePicture img {
+        position: relative;
+        width: 50%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .ProfileInfo {
+        position: relative;
+        width: 90vw;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .TeamMemberName {
+        font-size: clamp(12px, calc(var(--app-width) * 0.1), 32px);
+    }
+
+    .MemberRoles {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        place-items: center;
+    }
+
+    .MemberRoles p {
+        width: 100%;
+        text-align: center;
+    }
+
+    .SearchResults {
+        width : 100vw;
+        min-height: 100vh;
+        height: fit-content;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+}
