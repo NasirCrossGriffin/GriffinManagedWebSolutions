@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const Shift = require('../models/shift');
+const Shift = require('../models/Shift');
 
 // ADMIN KEY MIDDLEWARE
 router.use((req, res, next) => {

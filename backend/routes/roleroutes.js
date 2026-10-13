@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const Role = require('../models/role');
+const Role = require('../models/Role');
 
 // ADMIN KEY MIDDLEWARE
 router.use((req, res, next) => {

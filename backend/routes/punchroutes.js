@@ -4,7 +4,7 @@ const router = express.Router();
 
 const { DateTime } = require('luxon');
 
-const Punch = require('../models/punch');
+const Punch = require('../models/Punch');
 
 // ADMIN KEY MIDDLEWARE
 router.use((req, res, next) => {

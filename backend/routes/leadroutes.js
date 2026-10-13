@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const Lead = require('../models/lead');
+const Lead = require('../models/Lead');
 
 // ADMIN KEY MIDDLEWARE
 router.use((req, res, next) => {

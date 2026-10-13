@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const Point = require('../models/point');
+const Point = require('../models/Point');
 
 // ADMIN KEY MIDDLEWARE
 router.use((req, res, next) => {
