@@ -4,14 +4,13 @@ const router = express.Router();
 
 const Lead = require('../models/Lead');
 
+
 // ADMIN KEY MIDDLEWARE
 router.use((req, res, next) => {
 
     const adminKey =
         req.body?.admin_key ||
         req.query?.admin_key;
-
-    console.log(adminKey);
 
     if (!adminKey || adminKey !== process.env.ADMIN_KEY) {
 
@@ -25,31 +24,43 @@ router.use((req, res, next) => {
 
 });
 
+
 // CREATE LEAD
 router.post('/', async (req, res) => {
 
     try {
 
         const lead = new Lead({
+
             type: req.body.type,
+
             firstName: req.body.firstName,
+
             lastName: req.body.lastName,
+
             company: req.body.company,
+
             contact: req.body.contact,
+
             teamMember: req.body.teamMember,
+
             result: req.body.result,
+
             followUp: req.body.followUp,
-            inboundOrOutbound: req.body.inboundOrOutbound
+
+            inboundOrOutbound: req.body.inboundOrOutbound,
+
+            description: req.body.description,
+
+            followUpDate: req.body.followUpDate,
+
+            viewed: req.body.viewed ?? false
+
         });
 
         const savedLead = await lead.save();
 
-        const populatedLead = await savedLead.populate(
-            'teamMember',
-            '-password'
-        );
-
-        res.status(201).json(populatedLead);
+        res.status(201).json(savedLead);
 
     } catch (error) {
 
@@ -70,7 +81,6 @@ router.get('/', async (req, res) => {
 
         const leads = await Lead
             .find()
-            .populate('teamMember', '-password')
             .sort({ createdAt: -1 });
 
         res.status(200).json(leads);
@@ -96,7 +106,6 @@ router.get('/team-member/:teamMemberId', async (req, res) => {
             .find({
                 teamMember: req.params.teamMemberId
             })
-            .populate('teamMember', '-password')
             .sort({ createdAt: -1 });
 
         res.status(200).json(leads);
@@ -122,8 +131,7 @@ router.get('/follow-up/all', async (req, res) => {
             .find({
                 followUp: true
             })
-            .populate('teamMember', '-password')
-            .sort({ createdAt: -1 });
+            .sort({ followUpDate: 1 });
 
         res.status(200).json(leads);
 
@@ -139,14 +147,126 @@ router.get('/follow-up/all', async (req, res) => {
 });
 
 
+// GET FOLLOW-UP LEADS BY TEAM MEMBER
+router.get('/follow-up/team-member/:teamMemberId', async (req, res) => {
+
+    try {
+
+        const leads = await Lead
+            .find({
+                teamMember: req.params.teamMemberId,
+                followUp: true
+            })
+            .sort({ followUpDate: 1 });
+
+        res.status(200).json(leads);
+
+    } catch (error) {
+
+        res.status(500).json({
+            message: 'Failed to retrieve team member follow-up leads.',
+            error: error.message
+        });
+
+    }
+
+});
+
+
+// GET UNVIEWED LEADS
+router.get('/unviewed/all', async (req, res) => {
+
+    try {
+
+        const leads = await Lead
+            .find({
+                viewed: false
+            })
+            .sort({ createdAt: -1 });
+
+        res.status(200).json(leads);
+
+    } catch (error) {
+
+        res.status(500).json({
+            message: 'Failed to retrieve unviewed leads.',
+            error: error.message
+        });
+
+    }
+
+});
+
+// GET LEADS BY FILTERS
+router.get('/filter', async (req, res) => {
+
+    try {
+
+        const filter = {};
+
+        if (req.query.followUpDate) {
+
+            const date = req.query.followUpDate;
+
+            const startOfDay = new Date(`${date}T00:00:00.000Z`);
+
+            const endOfDay = new Date(`${date}T00:00:00.000Z`);
+            endOfDay.setUTCDate(endOfDay.getUTCDate() + 1);
+
+            if (
+                isNaN(startOfDay.getTime()) ||
+                isNaN(endOfDay.getTime())
+            ) {
+
+                return res.status(400).json({
+                    message: 'Invalid follow-up date.'
+                });
+
+            }
+
+            filter.followUpDate = {
+                $gte: startOfDay,
+                $lt: endOfDay
+            };
+
+        }
+
+        if (req.query.type) {
+            filter.type = req.query.type;
+        }
+
+        if (req.query.result) {
+            filter.result = req.query.result;
+        }
+
+        if (req.query.viewed !== undefined) {
+            filter.viewed = req.query.viewed === 'true';
+        }
+
+
+        const leads = await Lead
+            .find(filter)
+            .sort({ followUpDate: 1, createdAt: -1 });
+
+        res.status(200).json(leads);
+
+    } catch (error) {
+
+        res.status(500).json({
+            message: 'Failed to retrieve filtered leads.',
+            error: error.message
+        });
+
+    }
+
+});
+
 // GET LEAD BY ID
 router.get('/:id', async (req, res) => {
 
     try {
 
-        const lead = await Lead
-            .findById(req.params.id)
-            .populate('teamMember', '-password');
+        const lead = await Lead.findById(req.params.id);
 
         if (!lead) {
 
@@ -175,18 +295,45 @@ router.patch('/:id', async (req, res) => {
 
     try {
 
+        const updateData = {
+
+            type: req.body.type,
+
+            firstName: req.body.firstName,
+
+            lastName: req.body.lastName,
+
+            company: req.body.company,
+
+            contact: req.body.contact,
+
+            teamMember: req.body.teamMember,
+
+            result: req.body.result,
+
+            followUp: req.body.followUp,
+
+            inboundOrOutbound: req.body.inboundOrOutbound,
+
+            description: req.body.description,
+
+            followUpDate: req.body.followUpDate,
+
+            viewed: req.body.viewed
+
+        };
+
         const updatedLead = await Lead
             .findByIdAndUpdate(
                 req.params.id,
                 {
-                    $set: req.body
+                    $set: updateData
                 },
                 {
                     new: true,
                     runValidators: true
                 }
-            )
-            .populate('teamMember', '-password');
+            );
 
         if (!updatedLead) {
 
@@ -202,6 +349,47 @@ router.patch('/:id', async (req, res) => {
 
         res.status(500).json({
             message: 'Failed to update lead.',
+            error: error.message
+        });
+
+    }
+
+});
+
+
+// MARK LEAD AS VIEWED
+router.patch('/:id/viewed', async (req, res) => {
+
+    try {
+
+        const updatedLead = await Lead
+            .findByIdAndUpdate(
+                req.params.id,
+                {
+                    $set: {
+                        viewed: true
+                    }
+                },
+                {
+                    new: true,
+                    runValidators: true
+                }
+            );
+
+        if (!updatedLead) {
+
+            return res.status(404).json({
+                message: 'Lead not found.'
+            });
+
+        }
+
+        res.status(200).json(updatedLead);
+
+    } catch (error) {
+
+        res.status(500).json({
+            message: 'Failed to mark lead as viewed.',
             error: error.message
         });
 

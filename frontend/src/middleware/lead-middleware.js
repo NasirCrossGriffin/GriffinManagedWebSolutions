@@ -12,7 +12,8 @@ export const createLead = async (
     teamMember,
     result,
     followUp,
-    inboundOrOutbound
+    inboundOrOutbound,
+    description
 ) => {
 
     const response = await fetch(
@@ -36,7 +37,8 @@ export const createLead = async (
                 teamMember,
                 result,
                 followUp,
-                inboundOrOutbound
+                inboundOrOutbound,
+                description
             })
         }
     );
@@ -134,6 +136,44 @@ export const updateLead = async (
     return await response.json();
 };
 
+// GET FILTERED LEADS
+export const getFilteredLeads = async (
+    followUpDate,
+    type,
+    result,
+    viewed
+) => {
+
+    const params = new URLSearchParams();
+
+    params.append('admin_key', ADMIN_KEY);
+
+    if (followUpDate) {
+        params.append('followUpDate', followUpDate);
+    }
+
+    if (type) {
+        params.append('type', type);
+    }
+
+    if (result) {
+        params.append('result', result);
+    }
+
+    if (viewed !== undefined && viewed !== null) {
+        params.append('viewed', viewed);
+    }
+
+    const response = await fetch(
+        `${API_URL}/api/lead/filter?${params.toString()}`,
+        {
+            method: 'GET',
+            credentials: 'include'
+        }
+    );
+
+    return await response.json();
+};
 
 // DELETE LEAD
 export const deleteLead = async (id) => {

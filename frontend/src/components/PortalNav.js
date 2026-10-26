@@ -22,6 +22,11 @@ function PortalNav() {
         {
             text : "Sales",
             link : "/employee/sales"
+        },
+
+        {
+            text : "Admin",
+            link : "/employee/admin"
         }
     ]
 

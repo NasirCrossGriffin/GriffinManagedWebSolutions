@@ -29,7 +29,18 @@ const leadSchema = new Schema(
             "MEETING_BOOKED",
         ]},
         followUp: {type: Boolean, required: true, unique: false},
-        inboundOrOutbound: {type: Boolean, required: true, unique: false}
+        inboundOrOutbound: {type: Boolean, required: true, unique: false},
+        description: {type: String, required: true, unique: false},
+        followUpDate: {
+            type: Date,
+            required: true,
+            default: Date.now
+        },
+        viewed: {
+            type: Boolean,
+            required: true,
+            default: false
+        }
     }, {
         timestamps: true
     }

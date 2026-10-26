@@ -1,11 +1,26 @@
-POST http://localhost:3001/contact
+POST http://localhost:3001/api/team/
 Content-Type: application/json
 
 {
-    "company": "test",
-    "email": "nasircrossgriffin@gmail.com",
-    "phonenumber": "609-805-9113",
-    "message": "This is a test to see if everything works"
+    "firstName": "John",
+    "lastName": "Apura",
+    "username": "JohnLoydApura",
+    "password": "6R8XYN6dcAcBmJzskp/d1VN9fcAlB/pFaOvJfXfLBWg=",
+    "level": "1",
+    "status": "ACTIVE",
+    "email": "johnloydapura@griffinmanagedwebsolutions.com",
+    "admin": "false",
+    "admin_key" : "yyHBwNa1b19rZH0jqS4CWRfizLWpmqkFV3w5kZmB7io="
+}
+
+###
+
+PUT http://localhost:3001/api/team/6aade333418141e88ac21c14
+Content-Type: application/json
+
+{
+    "profilePic": "https://gmws-bucket.s3.us-east-1.amazonaws.com/public/MrGriffin.png",
+    "admin_key" : "yyHBwNa1b19rZH0jqS4CWRfizLWpmqkFV3w5kZmB7io="
 }
 
 ###
@@ -25,10 +40,10 @@ POST http://localhost:3001/api/role
 Content-Type: application/json
 
 {
-    "title": "Founder",
-    "description": "Founding member of Griffin Manged Web Solutions",
-    "department": "EXECUTIVE",
-    "teamMember": "6aade333418141e88ac21c14",
+    "title": "Sales Development Representative",
+    "description": "A sales development representative for Griffin Managed Web Solutions performs cold calls with the objective of booking meetings for the founder.",
+    "department": "SALES",
+    "teamMember": "6adf391714e8bb1050db6449",
     "admin_key": "yyHBwNa1b19rZH0jqS4CWRfizLWpmqkFV3w5kZmB7io=" 
 }
 

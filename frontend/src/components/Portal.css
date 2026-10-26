@@ -66,6 +66,19 @@
         height: auto;
         object-fit: contain;
     }
+
+    .SearchResult {
+        width: 20vw;
+        aspect-ratio: 5/1;
+        background-color: black;
+        color: white;
+        font-family: 'Montserrat';
+        font-weight: 500;
+        font-size: clamp(12px, calc(var(--app-width) * 0.02), 24px);
+        margin-top: 8vh;
+        margin-bottom: 8vh;
+        border-style: none;
+    }
 }
 
 @media (orientation: portrait) {
@@ -139,6 +152,19 @@
         width: 50%;
         height: auto;
         object-fit: contain;
+    }
+
+    .SearchResult {
+        width: 20vw;
+        aspect-ratio: 5/1;
+        background-color: black;
+        color: white;
+        font-family: 'Montserrat';
+        font-weight: 500;
+        font-size: clamp(12px, calc(var(--app-width) * 0.02), 24px);
+        margin-top: 8vh;
+        margin-bottom: 8vh;
+        border-style: none;
     }
 }
 

@@ -1,0 +1,573 @@
+@media (orientation: landscape) {
+    .LoadingAdmin {
+        position: relative;
+        width: var(--app-width);
+        height: var(--app-height);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .CRMIntegration {
+        position: relative;
+        margin-top: calc(var(--app-height) * 0.2);
+        width: 90%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .CRMIntegration p {
+        font-size: clamp(14px, 1.4vw, 28px);
+        font-weight: 500;
+    }
+
+    .CRMContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+
+        width: 30%;
+    }
+
+    .CRMContainer button {
+        border-radius: 35px;
+        background-color: black;
+        color: white;
+        transition: background-color 0.6s ease;
+    }
+
+    .CRMContainer button:hover {
+        background-color: rgb(64, 64, 64);
+    }
+
+    .CRMContainer div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        margin-top: calc(var(--app-height) * .05);
+    }
+
+    .CRMContainer div button{
+        margin-top: calc(var(--app-height) * .025);
+        transition: background-color 0.6s ease;
+    }
+
+    .CRMContainer div button:hover {
+        background-color: rgb(64, 64, 64);
+    }
+
+    .CRMContainer div input {
+        width: 100%;
+        aspect-ratio: 16/1;
+        border-color: black;
+        border-style: solid;
+        border-width: 2px;
+        background-color: rgb(64, 64, 64);
+        font-size: clamp(14px, 1.2vw, 28px)
+    }
+
+    .LoadingIconAdmin {
+        width: 30vw;
+        aspect-ratio: 1/1;
+    }
+
+    .LoadingIconAdmin img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        animation: spin 2s linear infinite;
+    }
+
+    .AdminDashboard {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: var(--app-width);
+        background-color: white;
+        overflow-x: hidden;
+        z-index: 1;
+    }
+
+    .EstimateContainer {
+        position: relative;
+        width: 100%;
+        left : 0;
+        bottom : 0;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        color: white;
+        z-index: 5;
+        padding-bottom: 100px;
+    }
+
+    .Estimate {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 95vw;
+        aspect-ratio: 20/1;
+        padding: 1vw 1vw 1vw 1vw;
+        background-color: black;
+        border-radius: 25px;
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        border-color: white;
+        border-width: 2px;
+        border-style: solid;
+        color : white
+    }
+
+    .Estimate p {
+        text-align: center;
+        font-weight: 700;
+        font-family: 'Montserrat';
+    }
+
+    .Estimate:hover {
+        border-color: white;
+        border-width: 2px;
+        border-style: solid;
+    }
+    
+    .AdminNav {
+        position: fixed;
+        width : 100%;
+        height: 12lvh;
+        top : 0;
+        left: 0;
+        background-color: black;
+        z-index: 5;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .NavDrawerButton {
+        position: absolute;
+        height: 40%;
+        width: 3%;
+        left : 2%;
+        top : 50%;
+        transform: translate(-2%, -50%);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 20;
+    }
+
+    .NavDrawerButton span {
+        border-radius: 35px;
+        width: 100%;
+        height: 10%;
+        transition: background-color 0.6s ease;
+    }
+
+    .NavDrawer {
+        position: fixed;
+        left: 0;
+        top : 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 17;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .NavDrawerBackground {
+        position: absolute;
+        left : 0;
+        top : 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(0, 0, 0, 0.5);
+        z-index: 16;
+    }
+
+    .NavDrawerContainer {
+        position: absolute;
+        left : 0;
+        top : 0;
+        width: 30vw;
+        height: 100vh;
+        background-color: white;
+        z-index: 17;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .FilterOptions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 90%;
+        height: 70%;
+    }
+
+    .FilterOptions button {
+        transition: background-color 0.6s ease;
+        border-radius: 25px;
+        color: white;
+        font-family: 'Montserrat';
+    }
+
+    .Metrics {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-top: calc(var(--app-height) * .10);
+        margin-bottom: 50px;
+    }
+
+    .Metric {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 1.5vw;
+    }
+
+    .MetricName {
+        color: rgb(64, 64, 64);
+        font-family: 'Montserrat';
+        font-weight: 500;
+    }
+
+    .MetricValue {
+        color: black;
+        font-family: 'Montserrat';
+        font-weight: 500;
+    }
+}
+
+@media (orientation: portrait) {
+    .LoadingAdmin {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .CRMIntegration {
+        position: relative;
+        margin-top: calc(var(--app-height) * 0.25);
+        width: 90%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .CRMIntegration p {
+        font-size: clamp(14px, 3vw, 28px);
+        font-weight: 500;
+    }
+
+    .CRMContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+
+        width: 60%;
+    }
+
+    .CRMContainer button {
+        border-radius: 35px;
+        background-color: black;
+        color: white;
+        transition: background-color 0.6s ease;
+        text-wrap: nowrap;
+    }
+
+    .CRMContainer button:hover {
+        background-color: rgb(64, 64, 64);
+    }
+
+    .CRMContainer div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        margin-top: calc(var(--app-height) * .05);
+    }
+
+    .CRMContainer div button{
+        margin-top: calc(var(--app-height) * .025);
+        transition: background-color 0.6s ease;
+        text-wrap: nowrap;
+    }
+
+    .CRMContainer div button:hover {
+        background-color: rgb(64, 64, 64);
+    }
+
+    .CRMContainer div input {
+        width: 100%;
+        aspect-ratio: 16/2;
+        border-color: black;
+        border-style: solid;
+        border-width: 2px;
+        background-color: rgb(64, 64, 64);
+        font-size: clamp(14px, 4vw, 28px)
+    }
+
+    .LoadingIconAdmin {
+        width: 30vw;
+        aspect-ratio: 1/1;
+    }
+
+    .LoadingIconAdmin img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        animation: spin 2s linear infinite;
+    }
+
+    .AdminDashboard {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        width: var(--app-width);
+        background-color: white;
+    }
+
+    .EstimateContainer {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        color: white;
+        padding-bottom: 100px;
+        padding-top: 50px;
+
+    }
+
+    .Estimate {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+        width: 80%;
+        height: fit-content;
+        padding: 1vw 1vw 1vw 1vw;
+        background-color: black;
+        border-radius: 25px;
+        margin-top: 5vw;
+        margin-bottom: 10vw;
+        border-color: white;
+        border-width: 2px;
+        border-style: solid;
+        color : white
+    }
+
+    .Estimate p {
+        text-align: center;
+        font-weight: 700;
+        font-family: 'Montserrat';
+    }
+
+    .Estimate:hover {
+        border-color: white;
+        border-width: 2px;
+        border-style: solid;
+    }
+
+    .AdminNav {
+        position: fixed;
+        width: var(--app-width);
+        height: 12lvh;
+        top : 0;
+        left: 0;
+        background-color: black;
+        z-index: 5;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    @media (min-width : 600px) {
+        .AdminNav {
+            height: 7lvh;
+        }
+
+        .EstimateContainer {
+            padding-top: 50px;
+        }
+    }
+
+    .NavDrawerButton {
+        position: absolute;
+        height: 40%;
+        width: 10%;
+        left : 2%;
+        top : 50%;
+        transform: translate(-2%, -50%);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 20;
+    }
+
+    .NavDrawerButton span {
+        border-radius: 35px;
+        width: 100%;
+        height: 10%;
+        transition: background-color 0.6s ease;
+    }
+
+    .NavDrawer {
+        position: fixed;
+        left: 0;
+        top : 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 17;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .NavDrawerBackground {
+        position: absolute;
+        left : 0;
+        top : 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(0, 0, 0, 0.5);
+        z-index: 16;
+    }
+
+    .NavDrawerContainer {
+        position: absolute;
+        left : 0;
+        top : 0;
+        width: 70vw;
+        height: 100vh;
+        background-color: white;
+        z-index: 17;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .FilterOptions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 90%;
+        height: 70%;
+    }
+
+    .FilterOptions button {
+        transition: background-color 0.6s ease;
+        border-radius: 25px;
+        color: white;
+        font-family: 'Montserrat';
+    }
+
+    .Metrics {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-top: calc(var(--app-height) * .04);
+    }
+
+    .Metric {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 3vw;
+    }
+
+    .MetricName {
+        color: rgb(64, 64, 64);
+        font-family: 'Montserrat';
+        font-weight: 500;
+    }
+
+    .MetricValue {
+        color: black;
+        font-family: 'Montserrat';
+        font-weight: 500;
+    }
+}
+
+.fade-in-slide-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.5s ease forwards;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeInSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

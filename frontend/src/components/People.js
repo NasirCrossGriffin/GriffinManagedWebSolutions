@@ -10,13 +10,13 @@ function People({teamMember}) {
     const [search, setSearch] = useState("");
     const [searching, setSearching] = useState(false);
     const [results, setResults] = useState([]);
-    const [thisTeamMember, setThisTeamMember] = useState([]);
+    const [thisTeamMember, setThisTeamMember] = useState(teamMember);
 
     useEffect(() => {
         const acquireRoles = async () => {
             if (!thisTeamMember) return;
 
-            const acquiredRoles = await getRolesByTeamMember(thisTeamMember.id);
+            const acquiredRoles = await getRolesByTeamMember(thisTeamMember._id);
 
             setRoles(acquiredRoles);
         }; acquireRoles();
@@ -39,6 +39,7 @@ function People({teamMember}) {
     }, [search])
 
     const selectTeamMember = async (selected) => {
+        console.log(selected)
         setThisTeamMember(selected)
         setSearching(false)
     }
@@ -55,20 +56,20 @@ function People({teamMember}) {
                 { !searching ? <div className="People">
                     
 
-                    {   teamMember ?
+                    {   thisTeamMember ?
                         <div className="Profile">
-                            <div className="ProfilePicture"><img src={teamMember.profilePic} /></div>
+                            <div className="ProfilePicture"><img src={thisTeamMember.profilePic} /></div>
 
                             <div className="ProfileInfo">
-                                <p className="TeamMemberName">{teamMember.firstName + " " + teamMember.lastName}</p>
-                                <p>Level: {teamMember.level}</p>
+                                <p className="TeamMemberName">{thisTeamMember.firstName + " " + thisTeamMember.lastName}</p>
+                                <p>Level: {thisTeamMember.level}</p>
                                 <div className="MemberRoles">
                                     {roles.length > 0 ? roles.map((role, index) => (
                                         <p key="index">{role.title}</p>
                                     )) : null}
                                 </div>
-                                <p>Status: {teamMember.status}</p>
-                                <p>Email: {teamMember.email}</p>
+                                <p>Status: {thisTeamMember.status}</p>
+                                <p>Email: {thisTeamMember.email}</p>
                             </div>
                         </div> : null
                     }   

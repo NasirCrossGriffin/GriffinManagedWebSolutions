@@ -20,6 +20,7 @@ function Sales({ teamMember }) {
     const [errors, setErrors] = useState({});
     const [confirmation, setConfirmation] = useState('');
     const [confirmationType, setConfirmationType] = useState('');
+    const [description, setDescription] = useState('');
 
 
     function validate() {
@@ -64,6 +65,12 @@ function Sales({ teamMember }) {
                 "Unable to identify the logged-in team member.";
         }
 
+        if (!description.trim()) {
+
+            newErrors.description = "Description is required.";
+
+        }
+
         setErrors(newErrors);
 
         return Object.keys(newErrors).length === 0;
@@ -100,7 +107,8 @@ function Sales({ teamMember }) {
                 teamMember.id,
                 result,
                 followUp,
-                inboundOrOutbound
+                inboundOrOutbound,
+                description.trim()
             );
 
 
@@ -476,22 +484,54 @@ function Sales({ teamMember }) {
 
                     </div>
 
+                    {/* DESCRIPTION */}
 
-                    {/* CONFIRMATION MESSAGE */}
+                        <div className="SalesField">
 
-                    {confirmation && (
+                            <label htmlFor="LeadDescription">
+                                Description:
+                            </label>
 
-                        <div
-                            className={
-                                confirmationType === "success"
-                                    ? "ConfirmationMessage Success"
-                                    : "ConfirmationMessage Error"
-                            }
-                        >
-                            {confirmation}
+                            <textarea
+                                id="LeadDescription"
+                                name="LeadDescription"
+                                className="LeadDescription"
+                                value={description}
+                                onChange={(e) => {
+
+                                    setDescription(e.target.value);
+
+                                    setErrors({
+                                        ...errors,
+                                        description: null
+                                    });
+
+                                }}
+                            />
+
+                            {errors.description && (
+                                <span className="ValidationError">
+                                    {errors.description}
+                                </span>
+                            )}
+
                         </div>
 
-                    )}
+                        {/* CONFIRMATION MESSAGE */}
+
+                        {confirmation && (
+
+                            <div
+                                className={
+                                    confirmationType === "success"
+                                        ? "ConfirmationMessage Success"
+                                        : "ConfirmationMessage Error"
+                                }
+                            >
+                                {confirmation}
+                            </div>
+
+                        )}
 
 
                     {/* SUBMIT */}

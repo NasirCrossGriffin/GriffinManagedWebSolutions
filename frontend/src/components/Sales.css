@@ -1,7 +1,8 @@
 @media (orientation: landscape) {
     .Sales {
         width : 100vw;
-        height: 100vh;
+        min-height: 100vh;
+        height: fit-content;
 
         display: flex;
         flex-direction: column;
@@ -16,7 +17,8 @@
 
     .SalesForm {
         width: 50%;
-        height: 70vh;
+        min-height: 70vh;
+        height: fit-content;
 
         display: flex;
         flex-direction: column;
@@ -47,6 +49,20 @@
         color: white;
         font-size: clamp(12px, calc(var(--app-width) * 0.02), 24px);    
         background-color: rgb(64, 64, 64);
+    }
+
+    .LeadDescription {
+        width: 70vw;
+        min-height: 150px;
+        padding: 15px;
+        resize: none;
+        box-sizing: border-box;
+        font-family: inherit;
+        font-size: 16px;
+        border-radius: 8px;
+        outline: none;
+        background-color: rgb(64, 64, 64);
+        color : white;
     }
 
     .SalesForm button {
@@ -109,7 +125,8 @@
 @media (orientation: portrait) {
     .Sales {
         width : 100vw;
-        height: 100vh;
+        min-height: 100vh;
+        height: fit-content;
 
         display: flex;
         flex-direction: column;
@@ -124,7 +141,8 @@
 
     .SalesForm {
         width: 90%;
-        height: 70vh;
+        min-height: 70vh;
+        height: fit-content;
 
         display: flex;
         flex-direction: column;
@@ -220,5 +238,19 @@
 
     .ConfirmationMessage.Success {
         color: green;
+    }
+
+    .LeadDescription {
+        width: 70vw;
+        min-height: 150px;
+        padding: 15px;
+        resize: none;
+        box-sizing: border-box;
+        font-family: inherit;
+        font-size: 16px;
+        border-radius: 8px;
+        outline: none;
+        background-color: rgb(64, 64, 64);
+        color : white;
     }
 }
