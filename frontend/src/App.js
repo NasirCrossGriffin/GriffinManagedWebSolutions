@@ -14,6 +14,7 @@ import Time from './components/Time';
 import People from './components/People';
 import Sales from './components/Sales';
 import { checkSession, getTeamMemberById } from './middleware/team-member-middleware';
+import SalesAdmin from './components/SalesAdmin';
 
 
 
@@ -281,6 +282,7 @@ function App() {
           <Route path="/employee/time" element={<Time teamMember={teamMember} />} /> 
           <Route path="/employee/people" element={<People teamMember={teamMember} />} /> 
           <Route path="/employee/sales" element={<Sales teamMember={teamMember} />} /> 
+          <Route path="/employee/admin/sales" element={<SalesAdmin teamMember={teamMember} />} /> 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />

@@ -1,0 +1,402 @@
+
+/* VIEW NOTE MODAL */
+
+.ViewNote {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+
+    z-index: 20;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+
+/* BACKGROUND OVERLAY */
+
+.ViewNote .NoteBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.75);
+
+    z-index: 21;
+}
+
+
+/* MODAL CONTAINER */
+
+.ViewNote .ViewNoteContainer {
+    position: relative;
+
+    width: 75%;
+    max-width: 1000px;
+    max-height: 85vh;
+    max-height: 85dvh;
+
+    background-color: black;
+    color: white;
+
+    border: 1px solid rgb(64, 64, 64);
+    border-radius: 15px;
+
+    padding: 35px;
+    box-sizing: border-box;
+
+    z-index: 22;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-color: rgb(64, 64, 64) black;
+}
+
+.ViewNote .ViewNoteContainer::-webkit-scrollbar-thumb {
+    background-color: rgb(64, 64, 64);
+}
+
+.ViewNote .ViewNoteContainer::-webkit-scrollbar-track {
+    background-color: black;
+}
+
+
+/* MAIN CONTENT */
+
+.ViewNote .ViewNoteContent {
+    position: relative;
+
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 20px;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ViewNote .ViewNoteContent > p:first-child {
+    font-size: 14px;
+    font-weight: 500;
+
+    color: rgb(180, 180, 180);
+
+    text-align: center;
+
+    margin: 0;
+}
+
+
+/* NOTE TEXT */
+
+.ViewNote .NoteText {
+    width: 90%;
+    min-height: 100px;
+    max-height: 350px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background-color: rgb(64, 64, 64);
+
+    border: 2px solid white;
+    border-radius: 15px;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    margin-bottom: 15px;
+
+    scrollbar-color: rgb(100, 100, 100) rgb(64, 64, 64);
+}
+
+.ViewNote .NoteText p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+
+    color: white;
+
+    margin: 0;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+
+/* UPDATE NOTE */
+
+.ViewNote .UpdateNote {
+    width: 90%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+.ViewNote .UpdateNote textarea {
+    width: 100%;
+    min-height: 180px;
+
+    padding: 15px;
+    box-sizing: border-box;
+
+    resize: vertical;
+
+    font-size: 16px;
+    line-height: 1.6;
+
+    font-family: 'Montserrat', sans-serif;
+
+    background-color: rgb(64, 64, 64);
+    color: white;
+
+    border: 1px solid white;
+    border-radius: 10px;
+
+    outline: none;
+}
+
+.ViewNote .UpdateNote textarea:focus {
+    border-color: rgb(180, 180, 180);
+}
+
+.ViewNote .UpdateNote button {
+    border-radius: 25px;
+    border: none;
+
+    background-color: white;
+    color: black;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+
+    padding: 12px 25px;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.ViewNote .UpdateNote button:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+
+/* NOTE ACTION BUTTONS */
+
+.ViewNote .NoteButtons {
+    width: 90%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.ViewNote .NoteButtons button {
+    border-radius: 25px;
+    border: none;
+
+    background-color: white;
+    color: black;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+
+    padding: 12px 25px;
+
+    min-width: 120px;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.ViewNote .NoteButtons button:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+.ViewNote .NoteButtons button:first-child {
+    background-color: darkred;
+    color: white;
+}
+
+.ViewNote .NoteButtons button:first-child:hover {
+    background-color: red;
+}
+
+
+/* CONFIRMATION AND ERROR MESSAGES */
+
+.ViewNote .NoteConfirmation {
+    width: 90%;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    text-align: center;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.ViewNote .NoteConfirmation.success {
+    color: green;
+}
+
+.ViewNote .NoteConfirmation.error {
+    color: red;
+}
+
+
+/* DISABLED BUTTONS */
+
+.ViewNote button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* LANDSCAPE */
+
+@media (orientation: landscape) {
+
+    .ViewNote .ViewNoteContainer {
+        width: 75%;
+        max-height: 85vh;
+        max-height: 85dvh;
+    }
+
+    .ViewNote .NoteText {
+        max-height: 35vh;
+    }
+
+    .ViewNote .UpdateNote textarea {
+        min-height: 150px;
+    }
+
+}
+
+
+/* PORTRAIT */
+
+@media (orientation: portrait) {
+
+    .ViewNote .ViewNoteContainer {
+        width: 90%;
+        max-height: 75vh;
+        max-height: 75dvh;
+
+        padding: 25px 15px;
+    }
+
+    .ViewNote .ViewNoteContent {
+        width: 100%;
+        gap: 15px;
+    }
+
+    .ViewNote .NoteText {
+        width: 95%;
+
+        min-height: 100px;
+        max-height: 40vh;
+
+        padding: 15px;
+    }
+
+    .ViewNote .NoteText p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .ViewNote .UpdateNote {
+        width: 95%;
+        margin-bottom: 20px;
+    }
+
+    .ViewNote .UpdateNote textarea {
+        min-height: 180px;
+        font-size: 16px;
+    }
+
+    .ViewNote .NoteButtons {
+        width: 95%;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .ViewNote .NoteButtons button {
+        width: 100%;
+        min-height: 45px;
+    }
+
+}
+
+
+/* SMALL MOBILE DEVICES */
+
+@media (max-width: 480px) {
+
+    .ViewNote .ViewNoteContainer {
+        width: 95%;
+        padding: 20px 12px;
+    }
+
+    .ViewNote .ViewNoteContent > p:first-child {
+        font-size: 12px;
+    }
+
+    .ViewNote .NoteText {
+        width: 100%;
+    }
+
+    .ViewNote .NoteText p {
+        font-size: 14px;
+    }
+
+    .ViewNote .UpdateNote {
+        width: 100%;
+    }
+
+    .ViewNote .NoteButtons {
+        width: 100%;
+    }
+
+}

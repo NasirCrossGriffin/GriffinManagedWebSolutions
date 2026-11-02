@@ -93,6 +93,7 @@
         justify-content: flex-start;
         align-items: center;
         width: var(--app-width);
+        min-height: var(--app-height);
         background-color: white;
         overflow-x: hidden;
         z-index: 1;
@@ -244,7 +245,7 @@
         align-items: center;
         justify-content: space-between;
 
-        margin-top: calc(var(--app-height) * .10);
+        margin-top: calc(var(--app-height) * .20);
         margin-bottom: 50px;
     }
 

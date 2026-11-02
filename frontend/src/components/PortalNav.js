@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import "./PortalNav.css"
 
-function PortalNav() {
+function PortalNav({teamMember}) {
 
     const NavLinks = [
         {
@@ -24,10 +24,10 @@ function PortalNav() {
             link : "/employee/sales"
         },
 
-        {
+        teamMember ? teamMember.admin ? {
             text : "Admin",
-            link : "/employee/admin"
-        }
+            link : "/employee/admin/sales"
+        } : null : null
     ]
 
     return (
@@ -41,7 +41,7 @@ function PortalNav() {
                     <div className="NavLinks">
                         {
                             NavLinks.map((link, index) => (
-                                <a key={index} href={link.link}>{link.text}</a>
+                                link ? <a key={index} href={link.link}>{link.text}</a> : <></>
                             )) 
                         }
                     </div>

@@ -1,0 +1,623 @@
+
+/* VIEW LEADS MODAL */
+
+.ViewLeads {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 15;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ViewLeads .Background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+.ViewLeads .ViewLeadsContainer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+    max-width: 1200px;
+    max-height: 85vh;
+    max-height: 85dvh;
+    padding: 5%;
+
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 10;
+
+    scrollbar-color: rgb(64, 64, 64) black;
+}
+
+.ViewLeads .ViewLeadsContainer::-webkit-scrollbar-thumb {
+    background-color: rgb(64, 64, 64);
+}
+
+.ViewLeads .ViewLeadsContainer::-webkit-scrollbar-track {
+    background-color: black;
+}
+
+
+/* MAIN CONTENT */
+
+.ViewLeads .ContentContainer {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    color: white;
+    background-color: black;
+}
+
+.ViewLeads .ContentContainer h1 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.ViewLeads .ContentContainer h2 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* LEAD INFORMATION */
+
+.ViewLeads .LeadInformation {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+
+    width: 90%;
+    height: fit-content;
+    margin-bottom: 5vw;
+
+    color: white;
+}
+
+.ViewLeads .LeadField {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+
+    padding: 15px;
+    box-sizing: border-box;
+
+    text-align: center;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+
+    border: 1px solid rgb(64, 64, 64);
+    border-radius: 10px;
+}
+
+.ViewLeads .LeadField h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.ViewLeads .LeadField p {
+    font-size: 15px;
+    font-weight: 400;
+    overflow-wrap: anywhere;
+}
+
+
+/* STATUS AND RESULT */
+
+.ViewLeads .StatusValue {
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ViewLeads .UpdateStatusSelect {
+    width: 40%;
+    min-height: 45px;
+    padding: 10px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+
+    background-color: rgb(64, 64, 64);
+    color: white;
+
+    border: 1px solid white;
+    border-radius: 5px;
+
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.ViewLeads .UpdateStatusSelect option {
+    background-color: rgb(64, 64, 64);
+    color: white;
+}
+
+
+/* FOLLOW-UP DATE AND TIME */
+
+.ViewLeads .FollowUpDate {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.ViewLeads .FollowUpDateControls {
+    width: 80%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.ViewLeads .InputFollowUpDate,
+.ViewLeads .InputFollowUpTime {
+    width: 40%;
+    min-height: 45px;
+    padding: 10px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+
+    background-color: rgb(64, 64, 64);
+    color: white;
+
+    border: 1px solid white;
+    border-radius: 5px;
+
+    color-scheme: dark;
+    box-sizing: border-box;
+}
+
+
+/* DESCRIPTION */
+
+.ViewLeads .Description {
+    width: 80%;
+    min-height: 150px;
+    height: fit-content;
+
+    padding: 25px;
+    margin-bottom: 5vw;
+
+    box-sizing: border-box;
+
+    background-color: rgb(64, 64, 64);
+    color: white;
+
+    border-radius: 10px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.ViewLeads .Description p {
+    margin: 0;
+}
+
+
+/* CONFIRMATION MESSAGES */
+
+.ViewLeads .LeadConfirmation {
+    width: 80%;
+    text-align: center;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.ViewLeads .LeadConfirmation.success {
+    color: green;
+}
+
+.ViewLeads .LeadConfirmation.error {
+    color: red;
+}
+
+
+/* NEW NOTE */
+
+.ViewLeads .ToggleNoteButton {
+    border-radius: 25px;
+    border: none;
+
+    background-color: white;
+    color: black;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+
+    padding: 12px 25px;
+    margin-bottom: 25px;
+
+    cursor: pointer;
+}
+
+.ViewLeads .NewNote {
+    width: 80%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.ViewLeads .NewNote textarea {
+    width: 100%;
+    min-height: 150px;
+
+    padding: 15px;
+    box-sizing: border-box;
+
+    resize: vertical;
+
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+
+    background-color: rgb(64, 64, 64);
+    color: white;
+
+    border: 1px solid white;
+    border-radius: 10px;
+    outline: none;
+}
+
+.ViewLeads .NewNote button {
+    border-radius: 25px;
+    border: none;
+
+    background-color: white;
+    color: black;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+
+    padding: 12px 25px;
+
+    cursor: pointer;
+}
+
+
+/* NOTES CONTAINER */
+
+.ViewLeads .NotesContainer {
+    width: 80%;
+    height: fit-content;
+    max-height: 450px;
+
+    border: 2px solid white;
+    border-radius: 25px;
+
+    background-color: rgb(64, 64, 64);
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    scrollbar-color: rgb(100, 100, 100) rgb(64, 64, 64);
+}
+
+.ViewLeads .NotesContainer > p {
+    text-align: center;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ViewLeads .NotesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+    width: 100%;
+}
+
+
+/* INDIVIDUAL NOTES */
+
+.ViewLeads .Note {
+    background-color: black;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 180px;
+    aspect-ratio: 1 / 1;
+
+    border: 1px solid white;
+    border-radius: 25px;
+
+    padding: 15px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.ViewLeads .Note:hover {
+    background-color: rgb(25, 25, 25);
+}
+
+.ViewLeads .Note .Date {
+    width: 100%;
+
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 12px;
+    color: rgb(180, 180, 180);
+
+    margin-bottom: 15px;
+}
+
+.ViewLeads .NotePreview {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+
+    overflow: hidden;
+    overflow-wrap: anywhere;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+
+    color: white;
+}
+
+
+/* REMOVE LEAD */
+
+.ViewLeads .RemoveButton {
+    background-color: red;
+    color: white;
+
+    border: none;
+    border-radius: 35px;
+
+    padding: 15px 35px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+
+    margin-top: 60px;
+    margin-bottom: 20px;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.ViewLeads .RemoveButton:hover {
+    background-color: darkred;
+}
+
+
+/* DISABLED CONTROLS */
+
+.ViewLeads button:disabled,
+.ViewLeads select:disabled,
+.ViewLeads input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* LANDSCAPE */
+
+@media (orientation: landscape) {
+
+    .ViewLeads .ViewLeadsContainer {
+        width: 80%;
+        max-height: 85vh;
+        max-height: 85dvh;
+    }
+
+    .ViewLeads .LeadInformation {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .ViewLeads .NotesGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+
+/* PORTRAIT */
+
+@media (orientation: portrait) {
+
+    .ViewLeads {
+        z-index: 15;
+    }
+
+    .ViewLeads .ViewLeadsContainer {
+        width: 90%;
+        max-height: 85vh;
+        max-height: 85dvh;
+        padding: 7% 5%;
+    }
+
+    .ViewLeads .ContentContainer h1 {
+        font-size: 6vw;
+        margin-top: 35px;
+    }
+
+    .ViewLeads .ContentContainer h2 {
+        font-size: 4vw;
+    }
+
+    .ViewLeads .LeadInformation {
+        grid-template-columns: 1fr;
+        width: 90%;
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+
+    .ViewLeads .LeadField {
+        padding: 15px;
+    }
+
+    .ViewLeads .LeadField h3 {
+        font-size: 14px;
+    }
+
+    .ViewLeads .LeadField p {
+        font-size: 14px;
+    }
+
+    .ViewLeads .UpdateStatusSelect {
+        width: 90%;
+        min-height: 45px;
+        font-size: 16px;
+    }
+
+    .ViewLeads .FollowUpDateControls {
+        width: 90%;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .ViewLeads .InputFollowUpDate,
+    .ViewLeads .InputFollowUpTime {
+        width: 100%;
+        min-height: 45px;
+        font-size: 16px;
+    }
+
+    .ViewLeads .Description {
+        width: 90%;
+        min-height: 150px;
+        padding: 15px;
+        margin-bottom: 30px;
+        font-size: 14px;
+    }
+
+    .ViewLeads .NewNote {
+        width: 90%;
+    }
+
+    .ViewLeads .NewNote textarea {
+        min-height: 150px;
+        font-size: 16px;
+    }
+
+    .ViewLeads .NotesContainer {
+        width: 90%;
+        max-height: 400px;
+        padding: 15px;
+    }
+
+    .ViewLeads .NotesGrid {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .ViewLeads .Note {
+        width: 100%;
+        min-height: 150px;
+        aspect-ratio: auto;
+    }
+
+    .ViewLeads .NotePreview {
+        font-size: 14px;
+    }
+
+    .ViewLeads .RemoveButton {
+        font-size: 16px;
+        margin-top: 50px;
+    }
+
+}
+
+
+/* SMALL MOBILE DEVICES */
+
+@media (max-width: 480px) {
+
+    .ViewLeads .ViewLeadsContainer {
+        width: 95%;
+        padding: 25px 15px;
+    }
+
+    .ViewLeads .ContentContainer h1 {
+        font-size: 22px;
+    }
+
+    .ViewLeads .ContentContainer h2 {
+        font-size: 17px;
+    }
+
+    .ViewLeads .LeadInformation {
+        width: 100%;
+    }
+
+    .ViewLeads .Description,
+    .ViewLeads .NewNote,
+    .ViewLeads .NotesContainer {
+        width: 100%;
+    }
+
+    .ViewLeads .UpdateStatusSelect,
+    .ViewLeads .FollowUpDateControls {
+        width: 100%;
+    }
+
+}

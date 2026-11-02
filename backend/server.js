@@ -51,6 +51,8 @@ const roleRouter = require('./routes/roleroutes')
 const shiftRouter = require('./routes/shiftroutes')
 const punchRouter = require('./routes/punchroutes')
 const leadRouter = require('./routes/leadroutes')
+const noteRouter = require('./routes/noteroutes')
+
 
 app.use('/api/contact', contactRouter);
 app.use('/api/team', teamMemberRouter);
@@ -58,6 +60,8 @@ app.use('/api/role', roleRouter);
 app.use('/api/shift', shiftRouter);
 app.use('/api/punch', punchRouter);
 app.use('/api/lead', leadRouter);
+app.use('/api/note', noteRouter);
+
 
 app.use(express.static(path.join(__dirname, "build")));
 

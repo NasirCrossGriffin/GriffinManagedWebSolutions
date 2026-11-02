@@ -136,6 +136,28 @@
         align-items: center;
         justify-content: center;
     }
+
+    .PunchConfirmation {
+        width: 100%;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        margin-top: 12px;
+    }
+
+    .PunchConfirmation.success {
+        color: green;
+    }
+
+    .PunchConfirmation.error {
+        color: red;
+    }
+
+    .PunchActionContainer button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 }
 
 @media (orientation: portrait) {      
@@ -283,5 +305,27 @@
         margin: 25px 0px 25px 0px;
 
         text-align: center;
+    }
+
+    .PunchConfirmation {
+        width: 100%;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        margin-top: 12px;
+    }
+
+    .PunchConfirmation.success {
+        color: green;
+    }
+
+    .PunchConfirmation.error {
+        color: red;
+    }
+
+    .PunchActionContainer button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
     }
 }

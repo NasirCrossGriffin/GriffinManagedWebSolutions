@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
-import '../styles/Admin.css'
-import { check } from './middleware/admin.ts';
-import ViewEstimate from './ViewEstimate.tsx';
-import { ClassNames } from '@emotion/react';
+import './SalesAdmin.css'
+//import { check } from './middleware/admin.ts';
+//import ViewEstimate from './ViewEstimate.tsx';
+//import { ClassNames } from '@emotion/react';
 import { getAllLeads, getFilteredLeads, updateLead } from '../middleware/lead-middleware.js';
+import ViewLeads from './ViewLeads.js';
 
-function Admin({teamMember}) {
+function SalesAdmin({teamMember}) {
     const [organization, setOrganization] = useState(null);
     const [inquiries, setInquiries] = useState(null);
     const [users, setUsers] = useState(null);
     const [isAdmin, setIsAdmin] = useState(false);
     const [selectedLead, setSelectedLead] = useState(null);
-    const [viewEstimate, setViewEstimate] = useState(false);
+    const [viewLeads, setViewLeads] = useState(false);
     const [inquiryPhotoStatus, setInquiryPhotoStatus] = useState([]);
     const [viewNavDrawer, setViewNavDrawer] = useState();
     const [webhook, setWebhook] = useState("");
@@ -20,11 +21,11 @@ function Admin({teamMember}) {
     const [webhookUploaded, setWebhookUploaded] = useState(null);
 
     // Filters
-    const [inForeclosureOnly, setInForeclosureOnly] = useState(false);
-    const [withPhotosOnly, setWithPhotosOnly] = useState(false);
     const [sortByFollowUpDate, setSortByFollowUpDate] = useState(false);
-    const [sortByStatus, setSortByStatus] = useState(false);
     const [showUnviewedOnly, setShowUnviewedOnly] = useState(false);
+    const [sortByContact, setSortByContact] = useState(false);
+    const [sortByResult, setSortByResult] = useState(false);
+
 
     //Lead metrics
     const [numberOfLeads, setNumberOfLeads] = useState(0);
@@ -37,33 +38,105 @@ function Admin({teamMember}) {
     const [result, setResult] = useState('');
     const [viewed, setViewed] = useState(null);
 
-const [leads, setLeads] = useState([]);
+    const [leads, setLeads] = useState([]);
 
     const [loading, setLoading] = useState(true);
+    const [typeIndex, setTypeIndex] = useState(0);
+    const [resultIndex, setResultIndex] = useState(0);
+
+    // TYPE FILTER OPTIONS
+    const typeFilters = [
+        { type: "", color: "black" },
+        { type: "CALL", color: "blue" },
+        { type: "EMAIL", color: "green" },
+        { type: "INSTAGRAM", color: "purple" },
+        { type: "LINKEDIN", color: "cyan" },
+        { type: "FACEBOOK", color: "orange" },
+        { type: "VISIT", color: "yellow" }
+    ];
+
+
+    // RESULT FILTER OPTIONS
+    const resultFilters = [
+        { result: "", color: "black" },
+        { result: "NO ANSWER", color: "grey" },
+        { result: "INTERESTED", color: "green" },
+        { result: "UNINTERESTED", color: "red" },
+        { result: "UNSURE", color: "yellow" },
+        { result: "BUSY", color: "orange" },
+        { result: "GATEKEEPER", color: "purple" },
+        { result: "MEETING_BOOKED", color: "blue" }
+    ];
+
+    // FILTER TYPE
+    function filterType() {
+
+        const nextIndex = (typeIndex + 1) % typeFilters.length;
+
+        setTypeIndex(nextIndex);
+
+        const selectedType = typeFilters[nextIndex];
+
+        setSortByContact(
+            selectedType.type === "" ? "" : selectedType.type
+        );
+
+    }
+
+
+    // FILTER RESULT
+    function filterResult() {
+
+        const nextIndex = (resultIndex + 1) % resultFilters.length;
+
+        setResultIndex(nextIndex);
+
+        const selectedResult = resultFilters[nextIndex];
+
+        setSortByResult(
+            selectedResult.result === "" ? "" : selectedResult.result
+        );
+
+    }
 
     useEffect(() => {
+        console.log(teamMember);
+
         if (!(teamMember)) return;
 
         if (teamMember.admin !== true) return;
 
         setIsAdmin(true);
+
+        console.log("Admin equals " + isAdmin)
     }, [teamMember])
 
     useEffect(() => {
+        if (isAdmin === true) {
+            loadLeads()
+            setLoading(false)
+        }
+    }, [isAdmin])
+
+    useEffect(() => {
+        loadLeads()
+    }, [sortByFollowUpDate, showUnviewedOnly, sortByContact, sortByResult])
+
+    useEffect(() => {
         const setMetrics = async () => {
-            if (organization === null) return;
+            const baseLeads = await getAllLeads()
 
-            const baseInquiries = await getAllLeads()
+            console.log(baseLeads)
 
-            if (baseInquiries.length === 0) return ;
+            if (baseLeads.length === 0) return ;
             //Set Number of leads
-            setNumberOfLeads(baseInquiries.length)
+            setNumberOfLeads(baseLeads.length)
 
             //set recent leads
             const todaysDate = new Date();
             let numRecentLeads = 0;
 
-            for (const inquiry of baseInquiries) {
+            for (const inquiry of baseLeads) {
                 const createdAt = new Date(inquiry.createdAt);
                 const timeDifference = Math.abs(todaysDate.valueOf() - createdAt.valueOf()); 
                 if (timeDifference < 259200000) numRecentLeads = numRecentLeads + 1;
@@ -74,49 +147,14 @@ const [leads, setLeads] = useState([]);
             //set unseen leads
             let numUnseenLeads = 0;
 
-            for (const inquiry of baseInquiries) {
-                if (inquiry.viewed === false) numUnseenLeads = numUnseenLeads + 1;
+            for (const lead of baseLeads) {
+                if (lead.viewed === false) numUnseenLeads = numUnseenLeads + 1;
             }
 
             setUnseenLeads(numUnseenLeads);
 
         }; setMetrics();
-    }, [organization])
-    
-    useEffect(() => {
-
-        async function getFilteredResults() {
-
-            try {
-
-                const filteredLeads = await getFilteredLeads(
-                    followUpDate,
-                    type,
-                    result,
-                    viewed
-                );
-
-                setLeads(filteredLeads);
-
-            } catch (error) {
-
-                console.error('Failed to retrieve filtered leads:', error);
-
-            }
-
-        }
-
-        getFilteredResults();
-
-    }, [followUpDate, type, result, viewed]);
-
-    useEffect(() => {
-        async function getInquiries() {
-            const protoInquiries = await getFilteredLeads();
-            console.log(protoInquiries)
-            setInquiries(protoInquiries);
-        }; getInquiries();
-    }, [isAdmin])
+    }, [leads])
 
     const formatIsoString = (value) => {
         if (!value || value.trim().length === 0) return '';
@@ -135,9 +173,9 @@ const [leads, setLeads] = useState([]);
     };
 
     const clickHandler = async (index) => {
-        setSelectedLead(inquiries[index]);
-        setViewEstimate(true);
-        await updateLead(inquiries[index]._id, {viewed : true})
+        setSelectedLead(leads[index]);
+        setViewLeads(true);
+        await updateLead(leads[index]._id, {viewed : true})
         await loadLeads();
     }
 
@@ -148,8 +186,8 @@ const [leads, setLeads] = useState([]);
 
             const filteredLeads = await getFilteredLeads(
                 followUpDate,
-                type,
-                result,
+                sortByContact,
+                sortByResult,
                 viewed
             );
 
@@ -243,63 +281,9 @@ const [leads, setLeads] = useState([]);
         return "green";                        // more than 3 days away
     }
 
-    async function populateHasPhotos() {
-        const hasPhotos = [];
-        for (const inquiry of inquiries) {
-            const inquiryPhotos = await GetRealEstatePhotos(inquiry._id);
-
-            if (inquiryPhotos.length > 0) {
-                hasPhotos.push(true);
-                continue;
-            }
-
-            hasPhotos.push(false);
-        }
-
-        console.log(hasPhotos)
-
-        setInquiryPhotoStatus(hasPhotos);
-    }
-
-
-
-    useEffect(() => {
-        async function getUsers() {
-            const protoUsers = [];
-
-            for (const inquiry of inquiries) {
-                const protoUser = await getUserById(inquiry.user._id.toString());
-                protoUsers.push(protoUser);
-            }
-
-            console.log(protoUsers);
-            setUsers(protoUsers);
-        }; getUsers(); populateHasPhotos(); 
-    }, [inquiries])
-
-    useEffect(() => {
-        if (users) setLoading(false);
-    }, [users])
-
-    async function linkCRM() {
-        const updatedOrganization = await updateOrganization(
-            organization._id,
-            {webhook : webhook}
-        )
-
-        setOrganization(updatedOrganization);
-
-        if (updatedOrganization) {
-            setWebhookUploaded(true);
-            setInputWebhook(false);
-        } else {
-            setWebhookUploaded(false);
-        }
-    }
-
     return (
         <>
-            {viewEstimate ? <ViewEstimate loadInquiries={loadInquiries} realEstateQuery={selectedLead} setViewEstimate={setViewEstimate} organization={organization} /> : null}
+            {viewLeads ? <ViewLeads lead={selectedLead} loadLeads={loadLeads} setViewLeads={setViewLeads}/> : null}
             <div className="AdminNav">
                 <div className='NavDrawerButton' onClick={() => setViewNavDrawer(!viewNavDrawer)}>
                     <span style={{backgroundColor : viewNavDrawer ? "black" : "white"}}></span>
@@ -315,20 +299,16 @@ const [leads, setLeads] = useState([]);
                         <div className='NavDrawerBackground' onClick={() => {setViewNavDrawer(!viewNavDrawer)}}></div>
                         <div className='NavDrawerContainer'>
                             <div className='FilterOptions'>
-                                <button style={{backgroundColor : inForeclosureOnly ? "green" : "black"}} onClick={() => setInForeclosureOnly(v => !v)}>
-                                    In Foreclosure
+                                <button style={{backgroundColor : typeFilters[typeIndex].color}} onClick={() => filterType()}>
+                                    Sort By Contact Type
                                 </button>
 
-                                <button style={{backgroundColor : withPhotosOnly ? "green" : "black"}} onClick={() => setWithPhotosOnly(v => !v)}>
-                                    With Photos
+                                <button style={{backgroundColor : resultFilters[resultIndex].color}} onClick={() => filterResult()}>
+                                    Sort By Result
                                 </button>
 
                                 <button style={{backgroundColor : sortByFollowUpDate ? "green" : "black"}} onClick={() => setSortByFollowUpDate(v => !v)}>
                                     Sort By Follow Up Date
-                                </button>
-
-                                <button style={{backgroundColor : sortByStatus ? "green" : "black"}} onClick={() => setSortByStatus(v => !v)}>
-                                    Sort By Status
                                 </button>
 
                                 <button style={{backgroundColor : showUnviewedOnly ? "green" : "black"}} onClick={() => setShowUnviewedOnly(v => !v)}>
@@ -339,26 +319,7 @@ const [leads, setLeads] = useState([]);
                     </div> : null
                 }
             </div>
-            {inquiries && loading === false && isAdmin === true ? <div className='AdminDashboard'>
-                <div className='CRMIntegration'>
-                    <div className='CRMContainer'>
-                        <button onClick={() => setInputWebhook(!inputWebhook)}>Integrate CRM</button>
-                        {
-                            inputWebhook ? <div>
-                                <input placeholder='Enter Zapier Webhook'/>
-                                <button onClick={() => linkCRM()}>Confirm</button>
-                            </div> : null
-                        }
-                    </div>
-                    {
-                        webhookUploaded !== null ? <div className='WebhookStatus'>
-                            {
-                                webhookUploaded === true ? <p style={{color : "green"}}>Webhook attatched successfully</p> : <p style={{color : "red"}}>Webhook attatchment failed</p>
-                            }
-                        </div> : null
-                    }
-                </div>
-
+            {leads && loading === false && isAdmin === true ? <div className='AdminDashboard'>
                 <div className='Metrics'>
                     <div className='Metric'>
                         <span className='MetricName'>Number of Leads</span>
@@ -378,15 +339,15 @@ const [leads, setLeads] = useState([]);
 
                 <div className='EstimateContainer'>
                     {
-                        inquiries.length > 0 && users && users.length > 0 && inquiryPhotoStatus.length > 0 ? inquiries.map((inquiry : any, index : number) => (
-                            <div className='Estimate' style={{borderColor: inquiry.viewed ? "black" : "rgb(0, 102, 255)", borderStyle: "solid", borderWidth: "2px", boxShadow: inquiry.viewed ? "0px 0px 0px 0px rgb(0, 0, 0, 0)" : "0px 0px 20px 10px rgb(0, 102, 255)" }} onClick={() => {clickHandler(index)}}>
-                                {users.length > 0 ? <p>{users[index] ? (users[index].firstName + " " + users[index].lastName) : null}</p> : null}
-                                <p>Looking to {inquiry.service}</p>
-                                <p>{formatIsoString(inquiry.createdAt)}</p>
-                                <p>facing foreclosure: {(inquiry.facingForeclosure).toString()}</p>
-                                <p style={{color : setStatusColor(inquiry.status)}}>{inquiry.status}</p>
-                                <p style={{color : getFollowUpColor(inquiry.followUpDate)}}>{formatIsoString(inquiry.followUpDate)}</p>
-                                <p style={{color : inquiryPhotoStatus[index] ? "green" : "white"}}>{inquiryPhotoStatus[index] ? "Has Photos" : "No Photos"}</p>
+                        leads.length > 0 ? leads.map((lead : any, index : number) => (
+                            <div className='Estimate' style={{borderColor: lead.viewed ? "black" : "rgb(0, 102, 255)", borderStyle: "solid", borderWidth: "2px", boxShadow: lead.viewed ? "0px 0px 0px 0px rgb(0, 0, 0, 0)" : "0px 0px 20px 10px rgb(0, 102, 255)" }} onClick={() => {clickHandler(index)}}>
+                                <p>{lead.firstName + " " + lead.lastName}</p>
+                                <p>{lead.company}</p>
+                                <p>{lead.contact}</p>
+                                <p>{lead.inboundOrOutbound}</p>
+                                <p style={{color : setTypeColor(lead.status)}}>{lead.type}</p>
+                                <p style={{color : setResultColor(lead.result)}}>{lead.result}</p>
+                                <p style={{color : getFollowUpColor(lead.followUpDate)}}>{formatIsoString(lead.followUpDate)}</p>
                             </div>                     
                         )) : <div>
                             <p>No Inquiries Yet</p>
@@ -399,7 +360,7 @@ const [leads, setLeads] = useState([]);
             
             <div className='LoadingAdmin'>
                 <div className='LoadingIconAdmin'>
-                    <img src={`${BASE_URL}/images/loading.png`}/>
+                    <img src={`/loading.png`}/>
                 </div>
             </div>}
         </>
@@ -409,4 +370,4 @@ const [leads, setLeads] = useState([]);
 
 
 
-    export default Admin;
+export default SalesAdmin;

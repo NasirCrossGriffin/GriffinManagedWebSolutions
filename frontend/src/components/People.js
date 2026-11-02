@@ -16,7 +16,9 @@ function People({teamMember}) {
         const acquireRoles = async () => {
             if (!thisTeamMember) return;
 
-            const acquiredRoles = await getRolesByTeamMember(thisTeamMember._id);
+            console.log(thisTeamMember)
+
+            const acquiredRoles = await getRolesByTeamMember(thisTeamMember.id ? thisTeamMember.id : thisTeamMember._id);
 
             setRoles(acquiredRoles);
         }; acquireRoles();
@@ -46,7 +48,7 @@ function People({teamMember}) {
 
     return(
         <>
-            <PortalNav />
+            <PortalNav teamMember={teamMember} />
             <main className="PeopleMain">
                 <div className="Search">
                     <label htmlFor="Search">Search:</label>
@@ -56,7 +58,8 @@ function People({teamMember}) {
                 { !searching ? <div className="People">
                     
 
-                    {   thisTeamMember ?
+                    {   
+                        thisTeamMember ?
                         <div className="Profile">
                             <div className="ProfilePicture"><img src={thisTeamMember.profilePic} /></div>
 

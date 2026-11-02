@@ -160,7 +160,7 @@ function Sales({ teamMember }) {
 
     return (
         <>
-            <PortalNav />
+            <PortalNav teamMember={teamMember} />
 
             <main className="Sales">
 

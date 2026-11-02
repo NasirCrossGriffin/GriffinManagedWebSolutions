@@ -23,7 +23,7 @@ function Portal({teamMember}) {
 
     return(
         <>
-            <PortalNav />
+            <PortalNav teamMember={teamMember} />
             <main className="Portal">
                 {teamMember ? <p className="Welcome">Welcome Back {teamMember.firstName + " " + teamMember.lastName}</p> : null}
 

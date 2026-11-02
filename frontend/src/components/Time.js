@@ -10,6 +10,9 @@ function Time({teamMember}) {
     const [shifts, setShifts] = useState([])
     const [punches, setPunches] = useState([])
     const [date, setDate] = useState(new Date().toISOString().split('T')[0])
+    const [confirmation, setConfirmation] = useState('');
+    const [confirmationType, setConfirmationType] = useState('');
+    const [punchLoading, setPunchLoading] = useState(false);
     
     useEffect(() => {
         const acquireshifts = async () => {
@@ -58,13 +61,76 @@ function Time({teamMember}) {
     };
 
     async function createNewPunch(clockingIn) {
-        const newPunch = await createPunch(teamMember.id, clockingIn ? "CLOCK_IN" : "CLOCK_OUT");
-        setDate(new Date().toISOString().split('T')[0]);
+
+        if (!teamMember || punchLoading) return;
+
+        setPunchLoading(true);
+        setConfirmation('');
+        setConfirmationType('');
+
+        try {
+
+            const newPunch = await createPunch(
+                teamMember.id,
+                clockingIn ? "CLOCK_IN" : "CLOCK_OUT"
+            );
+
+            if (!newPunch || !newPunch._id) {
+
+                throw new Error(
+                    newPunch?.message || "Failed to record punch."
+                );
+
+            }
+
+            // RESET DATE TO TODAY
+            const today = new Date().toLocaleDateString('en-CA', {
+                timeZone: 'America/Chicago',
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            });
+
+            setDate(today);
+
+            // REFRESH TODAY'S PUNCHES
+            const updatedPunches = await getPunchesByTeamMemberAndDate(
+                teamMember.id,
+                today
+            );
+
+            setPunches(updatedPunches);
+
+            // DISPLAY CONFIRMATION
+            setConfirmation(
+                clockingIn
+                    ? "Successfully clocked in."
+                    : "Successfully clocked out."
+            );
+
+            setConfirmationType('success');
+
+        } catch (error) {
+
+            console.error("Punch error:", error);
+
+            setConfirmation(
+                error.message || "Failed to record punch. Please try again."
+            );
+
+            setConfirmationType('error');
+
+        } finally {
+
+            setPunchLoading(false);
+
+        }
+
     }
 
     return (
         <>
-            <PortalNav />
+            <PortalNav teamMember={teamMember} />
             <main className="Time">
                 <div className="UpcomingShifts">
                     {shifts.length > 0 ? shifts.map((shift, index) => 
@@ -81,13 +147,29 @@ function Time({teamMember}) {
                 </div>
 
                 <div className="PunchActionContainer">
-                    <button onClick={() => {createNewPunch(true)}}>
-                        CLOCK IN
+
+                    <button
+                        onClick={() => createNewPunch(true)}
+                        disabled={punchLoading}
+                    >
+                        {punchLoading ? "PROCESSING..." : "CLOCK IN"}
                     </button>
 
-                    <button onClick={() => {createNewPunch(false)}}>
-                        CLOCK OUT
+                    <button
+                        onClick={() => createNewPunch(false)}
+                        disabled={punchLoading}
+                    >
+                        {punchLoading ? "PROCESSING..." : "CLOCK OUT"}
                     </button>
+
+                    {confirmation && (
+
+                        <p className={`PunchConfirmation ${confirmationType}`}>
+                            {confirmation}
+                        </p>
+
+                    )}
+
                 </div>
 
                 <div className="Calendar">
